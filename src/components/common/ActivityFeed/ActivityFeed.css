@@ -1,0 +1,199 @@
+.activity-feed {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 24px;
+
+    padding: 24px;
+
+    background: var(--color-white);
+
+    border: 1px solid var(--color-border);
+
+    border-radius: var(--radius-xl);
+
+    box-shadow: var(--shadow-sm);
+
+}
+
+.activity-feed__header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+.activity-feed__timeline {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+}
+
+.activity-feed__item {
+
+    display: flex;
+
+    gap: 18px;
+
+    align-items: flex-start;
+
+    width: 100%;
+
+    padding: 16px;
+
+    border: none;
+
+    border-radius: var(--radius-lg);
+
+    background: transparent;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    transition: var(--transition);
+
+}
+
+.activity-feed__item:hover {
+
+    background: var(--color-surface);
+
+}
+
+.activity-feed__avatar {
+
+    width: 52px;
+
+    height: 52px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    background: var(--color-surface);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-shrink: 0;
+
+}
+
+.activity-feed__avatar img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+.activity-feed__content {
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+}
+
+.activity-feed__top {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    align-items: center;
+
+}
+
+.activity-feed__top span {
+
+    color: var(--color-primary);
+
+    font-size: .9rem;
+
+}
+
+.activity-feed__content p {
+
+    color: var(--color-text-light);
+
+    line-height: 1.6;
+
+}
+
+.activity-feed__content small {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    color: var(--color-text-light);
+
+}
+
+.activity-feed__empty {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 16px;
+
+    padding: 60px 20px;
+
+    text-align: center;
+
+    color: var(--color-text-light);
+
+}
+
+@media (max-width:768px) {
+
+    .activity-feed {
+
+        padding: 20px;
+
+    }
+
+    .activity-feed__item {
+
+        padding: 12px;
+
+    }
+
+    .activity-feed__avatar {
+
+        width: 44px;
+
+        height: 44px;
+
+    }
+
+}

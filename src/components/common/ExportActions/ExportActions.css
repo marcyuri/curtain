@@ -1,0 +1,67 @@
+.export-actions {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 24px;
+
+    padding: 24px;
+
+    background: var(--color-white);
+
+    border: 1px solid var(--color-border);
+
+    border-radius: var(--radius-xl);
+
+    box-shadow: var(--shadow-sm);
+
+}
+
+.export-actions__header {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+}
+
+.export-actions__header p {
+
+    color: var(--color-text-light);
+
+}
+
+.export-actions__grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 16px;
+
+}
+
+.export-actions__grid button {
+
+    justify-content: center;
+
+}
+
+@media (max-width:768px) {
+
+    .export-actions {
+
+        padding: 20px;
+
+    }
+
+    .export-actions__grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}

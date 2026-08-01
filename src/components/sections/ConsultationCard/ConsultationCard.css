@@ -1,0 +1,141 @@
+.consultation-card {
+
+    display: flex;
+
+    flex-direction: column;
+
+    overflow: hidden;
+
+    border: 1px solid var(--color-border);
+
+    border-radius: var(--radius-xl);
+
+    background: var(--color-white);
+
+    transition: var(--transition);
+
+}
+
+.consultation-card:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow: var(--shadow-xl);
+
+}
+
+.consultation-card__image {
+
+    height: 240px;
+
+    background: var(--color-surface);
+
+}
+
+.consultation-card__image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+.consultation-card__placeholder {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    color: var(--color-primary);
+
+}
+
+.consultation-card__body {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+    padding: 28px;
+
+}
+
+.consultation-card__status {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    width: fit-content;
+
+    padding: 6px 14px;
+
+    border-radius: 999px;
+
+    background: rgba(16, 185, 129, .1);
+
+    color: #10b981;
+
+    font-size: .85rem;
+
+    font-weight: 600;
+
+}
+
+.consultation-card__details {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+}
+
+.consultation-card__details div {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: var(--color-text-light);
+
+}
+
+.consultation-card__footer {
+
+    padding: 0 28px 28px;
+
+}
+
+.consultation-card__footer button {
+
+    width: 100%;
+
+    justify-content: center;
+
+}
+
+@media (max-width:768px) {
+
+    .consultation-card__image {
+
+        height: 200px;
+
+    }
+
+}

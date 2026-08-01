@@ -1,0 +1,207 @@
+.event-timeline {
+
+    padding: 100px 5%;
+
+}
+
+.event-timeline__header {
+
+    text-align: center;
+
+    margin-bottom: 70px;
+
+}
+
+.event-timeline__header span {
+
+    color: var(--color-primary);
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+}
+
+.event-timeline__header h2 {
+
+    margin-top: 14px;
+
+    font-size: clamp(2rem, 4vw, 3.5rem);
+
+}
+
+.event-timeline__content {
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 40px;
+
+}
+
+.event-timeline__content::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 24px;
+
+    top: 0;
+
+    bottom: 0;
+
+    width: 3px;
+
+    background: var(--color-border);
+
+}
+
+.event-timeline__item {
+
+    display: flex;
+
+    gap: 28px;
+
+}
+
+.event-timeline__line {
+
+    position: relative;
+
+    width: 50px;
+
+    flex-shrink: 0;
+
+}
+
+.event-timeline__line span {
+
+    position: absolute;
+
+    top: 12px;
+
+    left: 15px;
+
+    width: 18px;
+
+    height: 18px;
+
+    border-radius: 50%;
+
+    background: var(--color-primary);
+
+    border: 4px solid white;
+
+    box-shadow: 0 0 0 3px var(--color-primary);
+
+}
+
+.event-timeline__card {
+
+    flex: 1;
+
+    padding: 30px;
+
+    border-radius: var(--radius-xl);
+
+    background: var(--color-white);
+
+    border: 1px solid var(--color-border);
+
+    transition: var(--transition);
+
+}
+
+.event-timeline__card:hover {
+
+    transform: translateX(8px);
+
+    box-shadow: var(--shadow-lg);
+
+}
+
+.event-timeline__badge {
+
+    display: inline-block;
+
+    margin-bottom: 16px;
+
+    padding: 6px 14px;
+
+    border-radius: 999px;
+
+    background: rgba(217, 4, 41, .08);
+
+    color: var(--color-primary);
+
+    font-size: .8rem;
+
+    font-weight: 600;
+
+}
+
+.event-timeline__card p {
+
+    margin: 16px 0;
+
+    color: var(--color-text-light);
+
+    line-height: 1.8;
+
+}
+
+.event-timeline__infos {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 20px;
+
+}
+
+.event-timeline__infos div {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    color: var(--color-text-light);
+
+}
+
+@media (max-width:768px) {
+
+    .event-timeline {
+
+        padding: 80px 20px;
+
+    }
+
+    .event-timeline__content::before {
+
+        left: 18px;
+
+    }
+
+    .event-timeline__item {
+
+        gap: 20px;
+
+    }
+
+    .event-timeline__card {
+
+        padding: 22px;
+
+    }
+
+}

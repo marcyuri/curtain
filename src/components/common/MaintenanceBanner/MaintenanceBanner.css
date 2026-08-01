@@ -1,0 +1,173 @@
+.maintenance-banner {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 22px 24px;
+
+    border-radius: var(--radius-xl);
+
+    border: 1px solid transparent;
+
+    background: var(--color-white);
+
+    box-shadow: var(--shadow-sm);
+
+}
+
+.maintenance-banner--warning {
+
+    background: #fff8e6;
+
+    border-color: #facc15;
+
+}
+
+.maintenance-banner--danger {
+
+    background: #fef2f2;
+
+    border-color: #ef4444;
+
+}
+
+.maintenance-banner--info {
+
+    background: #eff6ff;
+
+    border-color: #3b82f6;
+
+}
+
+.maintenance-banner--success {
+
+    background: #ecfdf5;
+
+    border-color: #10b981;
+
+}
+
+.maintenance-banner__icon {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 56px;
+
+    height: 56px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, .6);
+
+    flex-shrink: 0;
+
+}
+
+.maintenance-banner__content {
+
+    flex: 1;
+
+}
+
+.maintenance-banner__content h3 {
+
+    margin: 0 0 8px;
+
+}
+
+.maintenance-banner__content p {
+
+    margin: 0;
+
+    color: var(--color-text-light);
+
+    line-height: 1.6;
+
+}
+
+.maintenance-banner__dates {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 12px;
+
+    font-size: .9rem;
+
+    color: var(--color-text-light);
+
+}
+
+.maintenance-banner__actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+.maintenance-banner__close {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    width: 42px;
+
+    height: 42px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: var(--transition);
+
+}
+
+.maintenance-banner__close:hover {
+
+    background: rgba(0, 0, 0, .08);
+
+}
+
+@media (max-width: 768px) {
+
+    .maintenance-banner {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+    .maintenance-banner__actions {
+
+        width: 100%;
+
+    }
+
+    .maintenance-banner__actions button:first-child {
+
+        flex: 1;
+
+    }
+
+}

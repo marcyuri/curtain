@@ -1,0 +1,189 @@
+.team-member-card {
+
+    display: flex;
+
+    flex-direction: column;
+
+    overflow: hidden;
+
+    background: var(--color-white);
+
+    border: 1px solid var(--color-border);
+
+    border-radius: var(--radius-xl);
+
+    transition: var(--transition);
+
+}
+
+.team-member-card:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow: var(--shadow-xl);
+
+}
+
+.team-member-card__photo {
+
+    height: 300px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    background: var(--color-surface);
+
+    color: var(--color-primary);
+
+}
+
+.team-member-card__photo img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+}
+
+.team-member-card__content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+    padding: 28px;
+
+}
+
+.team-member-card__position {
+
+    color: var(--color-primary);
+
+    font-weight: 600;
+
+}
+
+.team-member-card__content p {
+
+    color: var(--color-text-light);
+
+    line-height: 1.7;
+
+}
+
+.team-member-card__tags {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+}
+
+.team-member-card__tags span {
+
+    padding: 6px 14px;
+
+    border-radius: 999px;
+
+    background: rgba(217, 4, 41, .08);
+
+    color: var(--color-primary);
+
+    font-size: .85rem;
+
+}
+
+.team-member-card__infos {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+}
+
+.team-member-card__infos div {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: var(--color-text-light);
+
+}
+
+.team-member-card__socials {
+
+    display: flex;
+
+    gap: 14px;
+
+}
+
+.team-member-card__socials a {
+
+    width: 42px;
+
+    height: 42px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: var(--color-surface);
+
+    color: inherit;
+
+    transition: var(--transition);
+
+}
+
+.team-member-card__socials a:hover {
+
+    background: var(--color-primary);
+
+    color: white;
+
+}
+
+.team-member-card__footer {
+
+    padding: 0 28px 28px;
+
+}
+
+.team-member-card__footer button {
+
+    width: 100%;
+
+    justify-content: center;
+
+}
+
+@media (max-width:768px) {
+
+    .team-member-card__photo {
+
+        height: 240px;
+
+    }
+
+}

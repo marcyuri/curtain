@@ -1,0 +1,157 @@
+.statistics-section {
+
+    padding: 100px 5%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 60px;
+
+    background: linear-gradient(180deg,
+            transparent,
+            rgba(217, 4, 41, .03));
+
+}
+
+.statistics-section__header {
+
+    max-width: 760px;
+
+    margin: auto;
+
+    text-align: center;
+
+}
+
+.statistics-section__header span {
+
+    color: var(--color-primary);
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+}
+
+.statistics-section__header h2 {
+
+    margin: 18px 0;
+
+    font-size: clamp(2rem, 4vw, 3.5rem);
+
+}
+
+.statistics-section__header p {
+
+    color: var(--color-text-light);
+
+    line-height: 1.8;
+
+}
+
+.statistics-section__grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 30px;
+
+}
+
+.statistics-card {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 36px;
+
+    text-align: center;
+
+    border-radius: var(--radius-xl);
+
+    background: var(--color-white);
+
+    border: 1px solid var(--color-border);
+
+    transition: var(--transition);
+
+}
+
+.statistics-card:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow: var(--shadow-xl);
+
+}
+
+.statistics-card__icon {
+
+    width: 72px;
+
+    height: 72px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: rgba(217, 4, 41, .08);
+
+    color: var(--color-primary);
+
+}
+
+.statistics-card strong {
+
+    font-size: clamp(2rem, 5vw, 3rem);
+
+    font-weight: 700;
+
+}
+
+.statistics-card span {
+
+    color: var(--color-text-light);
+
+    line-height: 1.6;
+
+}
+
+@media (max-width:992px) {
+
+    .statistics-section__grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+@media (max-width:768px) {
+
+    .statistics-section {
+
+        padding: 80px 20px;
+
+    }
+
+    .statistics-section__grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}

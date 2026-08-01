@@ -1,0 +1,189 @@
+.about-section {
+
+    width: 100%;
+
+    padding: 100px 5%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 70px;
+
+}
+
+.about-section__header {
+
+    display: grid;
+
+    grid-template-columns: 280px 1fr;
+
+    gap: 60px;
+
+    align-items: center;
+
+}
+
+.about-section__logo {
+
+    width: 100%;
+
+    max-width: 240px;
+
+    margin: auto;
+
+}
+
+.about-section__subtitle {
+
+    color: var(--color-primary);
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+}
+
+.about-section h2 {
+
+    margin: 18px 0;
+
+    font-size: clamp(2rem, 4vw, 3.2rem);
+
+}
+
+.about-section p {
+
+    color: var(--color-text-light);
+
+    line-height: 1.8;
+
+}
+
+.about-section__header button {
+
+    margin-top: 28px;
+
+}
+
+.about-section__services {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 28px;
+
+}
+
+.about-card {
+
+    padding: 35px;
+
+    border-radius: var(--radius-xl);
+
+    background: var(--color-white);
+
+    border: 1px solid var(--color-border);
+
+    transition: var(--transition);
+
+    text-align: center;
+
+}
+
+.about-card:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow: var(--shadow-lg);
+
+}
+
+.about-card__icon {
+
+    width: 70px;
+
+    height: 70px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    margin: 0 auto 20px;
+
+    border-radius: 50%;
+
+    background: rgba(217, 4, 41, .08);
+
+    color: var(--color-primary);
+
+}
+
+.about-card p {
+
+    margin-top: 14px;
+
+}
+
+.about-section__values {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 24px;
+
+}
+
+.value-card {
+
+    display: flex;
+
+    gap: 18px;
+
+    padding: 28px;
+
+    border-radius: var(--radius-xl);
+
+    background: var(--color-surface);
+
+}
+
+.value-card svg {
+
+    color: var(--color-secondary);
+
+    flex-shrink: 0;
+
+}
+
+.value-card h4 {
+
+    margin-bottom: 8px;
+
+}
+
+@media (max-width:992px) {
+
+    .about-section__header {
+
+        grid-template-columns: 1fr;
+
+        text-align: center;
+
+    }
+
+    .about-section__services,
+
+    .about-section__values {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
