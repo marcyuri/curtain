@@ -1,0 +1,184 @@
+.gallery {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2rem;
+
+}
+
+.gallery__filters {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 1rem;
+
+}
+
+.gallery__filter {
+
+    padding: .75rem 1.25rem;
+
+    border: none;
+
+    border-radius: 999px;
+
+    cursor: pointer;
+
+    background: var(--color-surface);
+
+    transition: .25s;
+
+}
+
+.gallery__filter--active {
+
+    background: var(--color-primary);
+
+    color: var(--color-white);
+
+}
+
+.gallery__grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fill, minmax(280px, 1fr));
+
+    gap: 1.5rem;
+
+}
+
+.gallery__item {
+
+    position: relative;
+
+    overflow: hidden;
+
+    border: none;
+
+    padding: 0;
+
+    background: none;
+
+    cursor: pointer;
+
+    border-radius: var(--radius-xl);
+
+}
+
+.gallery__item img {
+
+    width: 100%;
+
+    aspect-ratio: 4/3;
+
+    object-fit: cover;
+
+    transition: .35s;
+
+}
+
+.gallery__item:hover img {
+
+    transform: scale(1.08);
+
+}
+
+.gallery__overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: flex-end;
+
+    padding: 1.5rem;
+
+    background: linear-gradient(transparent,
+            rgba(0, 0, 0, .75));
+
+    color: white;
+
+    opacity: 0;
+
+    transition: .25s;
+
+}
+
+.gallery__item:hover .gallery__overlay {
+
+    opacity: 1;
+
+}
+
+.gallery__lightbox {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background: rgba(0, 0, 0, .9);
+
+    z-index: 2000;
+
+}
+
+.gallery__lightbox img {
+
+    max-width: 90vw;
+
+    max-height: 85vh;
+
+    border-radius: var(--radius-lg);
+
+}
+
+.gallery__close,
+.gallery__nav {
+
+    position: absolute;
+
+    border: none;
+
+    background: none;
+
+    color: white;
+
+    cursor: pointer;
+
+}
+
+.gallery__close {
+
+    top: 2rem;
+
+    right: 2rem;
+
+}
+
+.gallery__nav--left {
+
+    left: 2rem;
+
+}
+
+.gallery__nav--right {
+
+    right: 2rem;
+
+}

@@ -1,0 +1,83 @@
+.section {
+
+    position: relative;
+
+    width: 100%;
+
+}
+
+.section--small {
+
+    padding: 3rem 0;
+
+}
+
+.section--default {
+
+    padding: 5rem 0;
+
+}
+
+.section--large {
+
+    padding: 8rem 0;
+
+}
+
+.section--transparent {
+
+    background: transparent;
+
+}
+
+.section--white {
+
+    background: var(--color-white);
+
+}
+
+.section--light {
+
+    background: var(--color-surface);
+
+}
+
+.section--primary {
+
+    background: var(--color-primary);
+
+}
+
+.section--secondary {
+
+    background: var(--color-secondary);
+
+}
+
+.section--dark {
+
+    background: var(--color-dark);
+
+}
+
+@media (max-width:768px) {
+
+    .section--small {
+
+        padding: 2rem 0;
+
+    }
+
+    .section--default {
+
+        padding: 3.5rem 0;
+
+    }
+
+    .section--large {
+
+        padding: 5rem 0;
+
+    }
+
+}

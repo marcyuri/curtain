@@ -1,13 +1,29 @@
-// main.jsx
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
-import App from './App.jsx'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </StrictMode>,
-)
+import App from "./App";
+
+import "./styles/base/reset.css";
+import "./styles/base/fonts.css";
+import "./styles/base/variables.css";
+import "./styles/base/global.css";
+
+import "./locales/i18n";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+    <React.StrictMode>
+
+        <HelmetProvider>
+
+            <BrowserRouter>
+
+                <App />
+
+            </BrowserRouter>
+
+        </HelmetProvider>
+
+    </React.StrictMode>
+);

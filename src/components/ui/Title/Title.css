@@ -1,0 +1,89 @@
+.title {
+
+    margin: 0;
+
+    font-family: var(--font-heading);
+
+    font-weight: 700;
+
+    line-height: 1.2;
+
+}
+
+.title--h1 {
+
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+
+}
+
+.title--h2 {
+
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+
+}
+
+.title--h3 {
+
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+
+}
+
+.title--h4 {
+
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+
+}
+
+.title--h5 {
+
+    font-size: 1.25rem;
+
+}
+
+.title--h6 {
+
+    font-size: 1rem;
+
+}
+
+.title--left {
+
+    text-align: left;
+
+}
+
+.title--center {
+
+    text-align: center;
+
+}
+
+.title--right {
+
+    text-align: right;
+
+}
+
+.title--default {
+
+    color: var(--color-text);
+
+}
+
+.title--primary {
+
+    color: var(--color-primary);
+
+}
+
+.title--secondary {
+
+    color: var(--color-secondary);
+
+}
+
+.title--white {
+
+    color: var(--color-white);
+
+}

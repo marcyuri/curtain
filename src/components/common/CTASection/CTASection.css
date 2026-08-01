@@ -1,0 +1,133 @@
+.cta-section {
+    position: relative;
+    overflow: hidden;
+
+    padding: 120px 40px;
+
+    border-radius: var(--radius-2xl);
+
+    background-size: cover;
+    background-position: center;
+
+    color: var(--color-white);
+}
+
+.cta-section::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, var(--cta-overlay));
+
+    z-index: 1;
+}
+
+.cta-section__content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 900px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.cta-section__content--left {
+    margin-right: auto;
+    text-align: left;
+}
+
+.cta-section__content--center {
+    margin: auto;
+    text-align: center;
+}
+
+.cta-section__content--right {
+    margin-left: auto;
+    text-align: right;
+}
+
+.cta-section__badge {
+    align-self: flex-start;
+
+    padding: 8px 18px;
+
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, .15);
+
+    backdrop-filter: blur(8px);
+
+    font-weight: 600;
+}
+
+.cta-section__content--center .cta-section__badge {
+    align-self: center;
+}
+
+.cta-section__content--right .cta-section__badge {
+    align-self: flex-end;
+}
+
+.cta-section h2 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.2;
+    margin: 0;
+}
+
+.cta-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    opacity: .95;
+}
+
+.cta-section__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.cta-section__content--center .cta-section__actions {
+    justify-content: center;
+}
+
+.cta-section__content--right .cta-section__actions {
+    justify-content: flex-end;
+}
+
+.cta-section--primary {
+    background-color: var(--color-primary);
+}
+
+.cta-section--dark {
+    background-color: #111827;
+}
+
+.cta-section--gradient {
+    background:
+        linear-gradient(135deg,
+            var(--color-primary),
+            var(--color-secondary));
+}
+
+@media(max-width:768px) {
+
+    .cta-section {
+        padding: 80px 24px;
+    }
+
+    .cta-section__content {
+        text-align: center;
+    }
+
+    .cta-section__badge {
+        align-self: center !important;
+    }
+
+    .cta-section__actions {
+        justify-content: center !important;
+    }
+
+}

@@ -1,0 +1,43 @@
+.container {
+
+    width: 100%;
+
+    margin: 0 auto;
+
+    padding-inline: 1rem;
+
+}
+
+.container--small {
+
+    max-width: 900px;
+
+}
+
+.container--default {
+
+    max-width: 1200px;
+
+}
+
+.container--large {
+
+    max-width: 1400px;
+
+}
+
+.container--full {
+
+    max-width: 100%;
+
+}
+
+@media (max-width:768px) {
+
+    .container {
+
+        padding-inline: 1.25rem;
+
+    }
+
+}

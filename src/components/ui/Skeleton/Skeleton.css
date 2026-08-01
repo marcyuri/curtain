@@ -1,0 +1,52 @@
+.skeleton {
+
+    background: linear-gradient(90deg,
+            var(--color-surface) 25%,
+            var(--color-border) 50%,
+            var(--color-surface) 75%);
+
+    background-size: 200% 100%;
+
+    flex-shrink: 0;
+
+}
+
+.skeleton--rectangle {
+
+    border-radius: var(--radius-md);
+
+}
+
+.skeleton--rounded {
+
+    border-radius: var(--radius-lg);
+
+}
+
+.skeleton--circle {
+
+    border-radius: 50%;
+
+}
+
+.skeleton--animated {
+
+    animation: skeleton-loading 1.4s ease-in-out infinite;
+
+}
+
+@keyframes skeleton-loading {
+
+    0% {
+
+        background-position: 200% 0;
+
+    }
+
+    100% {
+
+        background-position: -200% 0;
+
+    }
+
+}

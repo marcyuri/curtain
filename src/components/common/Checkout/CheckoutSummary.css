@@ -1,0 +1,165 @@
+.checkout-summary {
+
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    padding: 28px;
+
+    background: var(--color-white);
+
+    border-radius: var(--radius-xl);
+
+    border: 1px solid var(--color-border);
+
+    box-shadow: var(--shadow-md);
+
+}
+
+.checkout-summary__header {
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+}
+
+.checkout-summary__header h2 {
+
+    margin: 0;
+
+}
+
+.checkout-summary__products {
+
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    max-height: 420px;
+
+    overflow: auto;
+
+}
+
+.checkout-summary__product {
+
+    display: grid;
+
+    grid-template-columns: 60px 1fr auto;
+
+    gap: 16px;
+
+    align-items: center;
+
+}
+
+.checkout-summary__product img {
+
+    width: 60px;
+
+    height: 60px;
+
+    object-fit: cover;
+
+    border-radius: var(--radius);
+
+}
+
+.checkout-summary__product h4 {
+
+    margin-bottom: 6px;
+
+}
+
+.checkout-summary__product small {
+
+    color: var(--color-text-light);
+
+}
+
+.checkout-summary__divider {
+
+    height: 1px;
+
+    background: var(--color-border);
+
+}
+
+.checkout-summary__totals {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+
+}
+
+.checkout-summary__totals>div {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+.checkout-summary__totals span {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+}
+
+.checkout-summary__discount {
+
+    color: var(--color-success);
+
+}
+
+.checkout-summary__total {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    font-size: 1.2rem;
+
+    font-weight: 700;
+
+}
+
+.checkout-summary__total strong {
+
+    color: var(--color-primary);
+
+}
+
+@media(max-width:768px) {
+
+    .checkout-summary {
+
+        padding: 22px;
+
+    }
+
+    .checkout-summary__product {
+
+        grid-template-columns: 50px 1fr;
+
+    }
+
+    .checkout-summary__product strong {
+
+        grid-column: 2;
+
+    }
+
+}

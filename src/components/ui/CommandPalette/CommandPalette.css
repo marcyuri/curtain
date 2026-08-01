@@ -1,0 +1,181 @@
+.command-palette {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 4000;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    padding: 10vh 1rem;
+
+}
+
+.command-palette__overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, .45);
+
+    backdrop-filter: blur(3px);
+
+}
+
+.command-palette__dialog {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 700px;
+
+    background: var(--color-white);
+
+    border-radius: var(--radius-xl);
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .2);
+
+    overflow: hidden;
+
+    animation: commandPaletteShow .2s ease;
+
+}
+
+.command-palette__search {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 1rem;
+
+    padding: 1rem;
+
+    border-bottom: 1px solid var(--color-border);
+
+}
+
+.command-palette__search input {
+
+    flex: 1;
+
+    border: none;
+
+    outline: none;
+
+    font-size: 1rem;
+
+    background: transparent;
+
+}
+
+.command-palette__close {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 36px;
+
+    height: 36px;
+
+    border: none;
+
+    background: none;
+
+    cursor: pointer;
+
+    border-radius: var(--radius-md);
+
+}
+
+.command-palette__close:hover {
+
+    background: var(--color-surface);
+
+}
+
+.command-palette__results {
+
+    max-height: 420px;
+
+    overflow-y: auto;
+
+}
+
+.command-palette__item {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 1rem 1.25rem;
+
+    border: none;
+
+    background: none;
+
+    cursor: pointer;
+
+    transition: .2s;
+
+}
+
+.command-palette__item:hover {
+
+    background: var(--color-surface);
+
+}
+
+.command-palette__left {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: .75rem;
+
+}
+
+.command-palette__empty {
+
+    padding: 2rem;
+
+    text-align: center;
+
+    color: var(--color-text-light);
+
+}
+
+@keyframes commandPaletteShow {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(-20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}

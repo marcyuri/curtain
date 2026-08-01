@@ -1,22 +1,19 @@
-import { Routes, Route } from "react-router-dom";
-import Navbar from './Navbar';
-import Home from './Pages/Home';
-import Shop from './Pages/Shop';
-import Discussion from './Pages/Discussion';
+import { Suspense } from "react";
+
+import AppRouter from "@routes/AppRouter";
+
+import Loader from "@components/common/Loader";
 
 function App() {
-  return (
-    <>
-      <Navbar />
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/disc" element={<Discussion />} />
-        </Routes>
-      </main>
-    </>
-  );
+    return (
+        <Suspense
+            fallback={
+                <Loader />
+            }
+        >
+            <AppRouter />
+        </Suspense>
+    );
 }
 
 export default App;

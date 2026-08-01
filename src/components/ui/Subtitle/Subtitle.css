@@ -1,0 +1,75 @@
+.subtitle {
+
+    margin: 0;
+
+    line-height: 1.7;
+
+    font-weight: 400;
+
+    max-width: 720px;
+
+}
+
+.subtitle--small {
+
+    font-size: .95rem;
+
+}
+
+.subtitle--default {
+
+    font-size: 1.1rem;
+
+}
+
+.subtitle--large {
+
+    font-size: 1.3rem;
+
+}
+
+.subtitle--left {
+
+    text-align: left;
+
+}
+
+.subtitle--center {
+
+    text-align: center;
+
+    margin-inline: auto;
+
+}
+
+.subtitle--right {
+
+    text-align: right;
+
+    margin-left: auto;
+
+}
+
+.subtitle--default {
+
+    color: var(--color-text-light);
+
+}
+
+.subtitle--primary {
+
+    color: var(--color-primary);
+
+}
+
+.subtitle--secondary {
+
+    color: var(--color-secondary);
+
+}
+
+.subtitle--white {
+
+    color: var(--color-white);
+
+}
