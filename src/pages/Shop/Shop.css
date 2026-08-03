@@ -1,0 +1,55 @@
+.shop-page {
+
+    display: flex;
+
+    flex-direction: column;
+
+    background: var(--color-background);
+
+}
+
+.shop-page__content {
+
+    display: grid;
+
+    grid-template-columns: 320px 1fr;
+
+    gap: 40px;
+
+    padding: 80px 5%;
+
+    align-items: start;
+
+}
+
+.shop-page__sidebar {
+
+    position: sticky;
+
+    top: 100px;
+
+}
+
+.shop-page__products {
+
+    min-width: 0;
+
+}
+
+@media (max-width:992px) {
+
+    .shop-page__content {
+
+        grid-template-columns: 1fr;
+
+        padding: 60px 20px;
+
+    }
+
+    .shop-page__sidebar {
+
+        position: static;
+
+    }
+
+}

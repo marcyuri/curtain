@@ -1,0 +1,73 @@
+.about-page {
+
+    display: flex;
+
+    flex-direction: column;
+
+    background: var(--color-background);
+
+}
+
+.about-page__team {
+
+    padding: 100px 5%;
+
+}
+
+.about-page__header {
+
+    max-width: 760px;
+
+    margin: 0 auto 60px;
+
+    text-align: center;
+
+}
+
+.about-page__header span {
+
+    color: var(--color-primary);
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+}
+
+.about-page__header h2 {
+
+    margin: 18px 0;
+
+    font-size: clamp(2rem, 4vw, 3.5rem);
+
+}
+
+.about-page__header p {
+
+    color: var(--color-text-light);
+
+    line-height: 1.8;
+
+}
+
+.about-page__grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+
+    gap: 32px;
+
+}
+
+@media (max-width:768px) {
+
+    .about-page__team {
+
+        padding: 80px 20px;
+
+    }
+
+}

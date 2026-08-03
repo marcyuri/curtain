@@ -1,0 +1,119 @@
+.snackbar {
+
+    position: fixed;
+
+    left: 50%;
+
+    bottom: 24px;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    min-width: 340px;
+
+    max-width: 90vw;
+
+    padding: 16px 20px;
+
+    border-radius: 14px;
+
+    background: #1f2937;
+
+    color: white;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, .2);
+
+    z-index: 99999;
+
+    animation: snackbarIn .25s ease;
+
+}
+
+.snackbar__message {
+
+    flex: 1;
+
+    line-height: 1.5;
+
+}
+
+.snackbar__actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+.snackbar__action {
+
+    border: none;
+
+    background: none;
+
+    color: #60a5fa;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+}
+
+.snackbar__close {
+
+    border: none;
+
+    background: none;
+
+    color: white;
+
+    cursor: pointer;
+
+}
+
+@keyframes snackbarIn {
+
+    from {
+
+        opacity: 0;
+
+        transform: translate(-50%, 20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translate(-50%, 0);
+
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .snackbar {
+
+        left: 16px;
+
+        right: 16px;
+
+        bottom: 16px;
+
+        transform: none;
+
+        min-width: auto;
+
+    }
+
+}

@@ -1,0 +1,79 @@
+.table-export-menu {
+
+    width: 300px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+    padding: 20px;
+
+    border: 1px solid var(--color-border);
+
+    border-radius: 16px;
+
+    background: white;
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .08);
+
+}
+
+.table-export-menu header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+.table-export-menu header h3 {
+
+    margin: 0;
+
+}
+
+.table-export-menu__list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+}
+
+.table-export-menu__list button {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    height: 48px;
+
+    padding: 0 16px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: var(--color-background);
+
+    cursor: pointer;
+
+    transition: .2s;
+
+}
+
+.table-export-menu__list button:hover {
+
+    background: var(--color-primary);
+
+    color: white;
+
+}

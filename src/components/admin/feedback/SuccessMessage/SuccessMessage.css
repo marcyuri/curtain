@@ -1,0 +1,63 @@
+.success-message {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 20px;
+
+    padding: 24px;
+
+    border: 1px solid #bbf7d0;
+
+    border-radius: 16px;
+
+    background: #f0fdf4;
+
+}
+
+.success-message__icon {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    width: 56px;
+
+    height: 56px;
+
+    border-radius: 50%;
+
+    background: #dcfce7;
+
+    color: #16a34a;
+
+    flex-shrink: 0;
+
+}
+
+.success-message__content {
+
+    flex: 1;
+
+}
+
+.success-message__content h3 {
+
+    margin: 0 0 10px;
+
+    color: #166534;
+
+}
+
+.success-message__content p {
+
+    margin: 0;
+
+    line-height: 1.6;
+
+    color: #15803d;
+
+}

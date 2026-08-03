@@ -1,0 +1,191 @@
+.register-page {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 40px 20px;
+
+    background: var(--color-background);
+
+}
+
+.register-card {
+
+    width: 100%;
+
+    max-width: 650px;
+
+    padding: 40px;
+
+    background: var(--color-white);
+
+    border: 1px solid var(--color-border);
+
+    border-radius: var(--radius-xl);
+
+    box-shadow: var(--shadow-lg);
+
+}
+
+.register-card__header {
+
+    text-align: center;
+
+    margin-bottom: 40px;
+
+}
+
+.register-card__header span {
+
+    color: var(--color-primary);
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+}
+
+.register-card__header h1 {
+
+    margin: 16px 0;
+
+}
+
+.register-card__header p {
+
+    color: var(--color-text-light);
+
+}
+
+.register-form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+}
+
+.register-form__row {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+
+}
+
+.register-form label {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 0 16px;
+
+    height: 56px;
+
+    border: 1px solid var(--color-border);
+
+    border-radius: var(--radius-lg);
+
+    background: var(--color-white);
+
+}
+
+.register-form input {
+
+    flex: 1;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    font: inherit;
+
+}
+
+.register-form label button {
+
+    border: none;
+
+    background: none;
+
+    cursor: pointer;
+
+}
+
+.register-form__checkbox {
+
+    height: auto !important;
+
+    padding: 0 !important;
+
+    border: none !important;
+
+    background: transparent !important;
+
+    align-items: center;
+
+}
+
+.register-form__checkbox input {
+
+    flex: none;
+
+}
+
+.register-form button {
+
+    justify-content: center;
+
+}
+
+.register-card__footer {
+
+    margin-top: 30px;
+
+    text-align: center;
+
+}
+
+.register-card__footer a {
+
+    margin-left: 8px;
+
+    color: var(--color-primary);
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+}
+
+@media (max-width: 768px) {
+
+    .register-card {
+
+        padding: 28px;
+
+    }
+
+    .register-form__row {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}

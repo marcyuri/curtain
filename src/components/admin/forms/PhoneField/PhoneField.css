@@ -1,0 +1,10 @@
+.phone-field{display:flex;flex-direction:column;gap:8px;width:100%}
+.phone-field__label{font-weight:600;color:var(--color-title)}
+.phone-field__label span{color:var(--color-danger);margin-left:4px}
+.phone-field__control{display:flex;align-items:center;gap:10px;height:50px;padding:0 14px;border:1px solid var(--color-border);border-radius:12px;background:var(--color-white)}
+.phone-field__control:focus-within{border-color:var(--color-primary)}
+.phone-field__control--error{border-color:var(--color-danger)}
+.phone-field__control select{border:none;background:transparent;outline:none}
+.phone-field__control input{flex:1;border:none;outline:none;background:transparent;font:inherit}
+.phone-field__helper{color:var(--color-text-light)}
+.phone-field__error{color:var(--color-danger)}

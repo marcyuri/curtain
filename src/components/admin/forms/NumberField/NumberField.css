@@ -1,0 +1,10 @@
+.number-field{display:flex;flex-direction:column;gap:8px;width:100%}
+.number-field__label{font-weight:600;color:var(--color-title)}
+.number-field__label span{margin-left:4px;color:var(--color-danger)}
+.number-field__control{display:flex;align-items:center;gap:10px;height:50px;padding:0 14px;border:1px solid var(--color-border);border-radius:12px;background:var(--color-white)}
+.number-field__control:focus-within{border-color:var(--color-primary)}
+.number-field__control--error{border-color:var(--color-danger)}
+.number-field__control input{flex:1;border:none;outline:none;background:transparent;font:inherit;text-align:center}
+.number-field__control button{width:32px;height:32px;border:none;border-radius:8px;background:var(--color-background);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.number-field__helper{color:var(--color-text-light)}
+.number-field__error{color:var(--color-danger)}

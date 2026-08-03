@@ -1,0 +1,10 @@
+.currency-field{display:flex;flex-direction:column;gap:8px;width:100%}
+.currency-field__label{font-weight:600;color:var(--color-title)}
+.currency-field__label span{margin-left:4px;color:var(--color-danger)}
+.currency-field__control{display:flex;align-items:center;gap:10px;height:50px;padding:0 14px;border:1px solid var(--color-border);border-radius:12px;background:var(--color-white)}
+.currency-field__control:focus-within{border-color:var(--color-primary)}
+.currency-field__control--error{border-color:var(--color-danger)}
+.currency-field__control input{flex:1;border:none;outline:none;background:transparent;font:inherit}
+.currency-field__control select{border:none;outline:none;background:transparent}
+.currency-field__helper{color:var(--color-text-light)}
+.currency-field__error{color:var(--color-danger)}

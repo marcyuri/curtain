@@ -1,0 +1,129 @@
+.product-history {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 24px;
+
+}
+
+.history-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+
+}
+
+.history-grid>div {
+
+    display: flex;
+
+    gap: 14px;
+
+    align-items: flex-start;
+
+}
+
+.history-grid strong {
+
+    display: block;
+
+    margin-bottom: 4px;
+
+}
+
+.history-grid span {
+
+    color: var(--color-text-light);
+
+}
+
+.history-timeline {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+}
+
+.history-item {
+
+    display: flex;
+
+    gap: 16px;
+
+}
+
+.history-dot {
+
+    width: 12px;
+
+    height: 12px;
+
+    margin-top: 6px;
+
+    border-radius: 50%;
+
+    background: var(--color-primary);
+
+    flex-shrink: 0;
+
+}
+
+.history-item p {
+
+    margin: 6px 0;
+
+}
+
+.history-item small {
+
+    color: var(--color-text-light);
+
+}
+
+.notes-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 18px;
+
+}
+
+.note-item {
+
+    display: flex;
+
+    gap: 14px;
+
+}
+
+.note-item p {
+
+    margin: 6px 0;
+
+}
+
+.note-item small {
+
+    color: var(--color-text-light);
+
+}
+
+@media(max-width:768px) {
+
+    .history-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}

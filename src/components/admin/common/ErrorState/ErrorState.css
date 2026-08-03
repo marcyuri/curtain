@@ -1,0 +1,95 @@
+.error-state {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    padding: 60px 24px;
+
+    text-align: center;
+
+    background: white;
+
+    border: 1px solid #fecaca;
+
+    border-radius: 20px;
+
+}
+
+.error-state__icon {
+
+    width: 90px;
+
+    height: 90px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: #fee2e2;
+
+    color: #dc2626;
+
+}
+
+.error-state h2 {
+
+    margin: 0;
+
+    font-size: 1.5rem;
+
+}
+
+.error-state p {
+
+    max-width: 450px;
+
+    margin: 0;
+
+    color: var(--color-text-light);
+
+    line-height: 1.6;
+
+}
+
+.error-state button {
+
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 0 20px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: var(--color-primary);
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: .25s;
+
+}
+
+.error-state button:hover {
+
+    opacity: .9;
+
+}

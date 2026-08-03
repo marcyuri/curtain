@@ -1,0 +1,39 @@
+.table-loading {
+
+    width: 100%;
+
+    overflow-x: auto;
+
+    border: 1px solid var(--color-border);
+
+    border-radius: 16px;
+
+    background: white;
+
+}
+
+.table-loading table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+}
+
+.table-loading th,
+
+.table-loading td {
+
+    padding: 18px;
+
+    border-bottom: 1px solid var(--color-border);
+
+    text-align: left;
+
+}
+
+.table-loading tbody tr:last-child td {
+
+    border-bottom: none;
+
+}

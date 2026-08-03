@@ -1,0 +1,199 @@
+.product-form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 24px;
+
+}
+
+.product-form__header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 24px;
+
+    flex-wrap: wrap;
+
+}
+
+.product-form__header>div:first-child {
+
+    display: flex;
+
+    gap: 18px;
+
+    align-items: center;
+
+}
+
+.product-form__header button {
+
+    height: 46px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 0 18px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    background: #f5f5f5;
+
+}
+
+.product-form__publish {
+
+    background: var(--color-primary) !important;
+
+    color: white;
+
+}
+
+.product-form__tabs {
+
+    display: flex;
+
+    gap: 12px;
+
+    overflow: auto;
+
+}
+
+.product-form__tab {
+
+    padding: 12px 18px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #f5f5f5;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+}
+
+.product-form__tab--active {
+
+    background: var(--color-primary);
+
+    color: white;
+
+}
+
+.product-form__body {
+
+    display: grid;
+
+    grid-template-columns: 320px 1fr;
+
+    gap: 24px;
+
+}
+
+.product-form__sidebar {
+
+    position: sticky;
+
+    top: 100px;
+
+    height: max-content;
+
+}
+
+.product-preview {
+
+    padding: 24px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    border: 1px solid var(--color-border);
+
+}
+
+.product-preview__image {
+
+    width: 100%;
+
+    aspect-ratio: 1;
+
+    border-radius: 16px;
+
+    background: #f5f5f5;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    margin-bottom: 18px;
+
+}
+
+.product-preview span {
+
+    display: inline-block;
+
+    margin: 12px 0;
+
+    padding: 6px 12px;
+
+    border-radius: 999px;
+
+    background: #fef3c7;
+
+}
+
+.product-preview ul {
+
+    margin-top: 18px;
+
+    padding-left: 18px;
+
+}
+
+.product-form__content {
+
+    padding: 28px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    border: 1px solid var(--color-border);
+
+}
+
+@media(max-width:1100px) {
+
+    .product-form__body {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .product-form__sidebar {
+
+        position: static;
+
+    }
+
+}

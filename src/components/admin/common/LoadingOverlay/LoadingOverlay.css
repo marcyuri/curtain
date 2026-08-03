@@ -1,0 +1,87 @@
+.loading-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background: rgba(255, 255, 255, .75);
+
+    backdrop-filter: blur(4px);
+
+    z-index: 9999;
+
+}
+
+.loading-overlay__card {
+
+    width: min(360px, 90vw);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 36px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .08);
+
+}
+
+.loading-overlay__spinner {
+
+    color: var(--color-primary);
+
+    animation: loadingRotate 1s linear infinite;
+
+}
+
+.loading-overlay__card h2 {
+
+    margin: 0;
+
+    font-size: 1.4rem;
+
+    text-align: center;
+
+}
+
+.loading-overlay__card p {
+
+    margin: 0;
+
+    text-align: center;
+
+    color: var(--color-text-light);
+
+    line-height: 1.6;
+
+}
+
+@keyframes loadingRotate {
+
+    from {
+
+        transform: rotate(0deg);
+
+    }
+
+    to {
+
+        transform: rotate(360deg);
+
+    }
+
+}

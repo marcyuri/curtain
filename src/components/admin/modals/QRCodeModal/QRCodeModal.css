@@ -1,0 +1,97 @@
+.qr-code-modal {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    min-height: 420px;
+
+    padding: 24px;
+
+    border-radius: 18px;
+
+    background: #fafafa;
+
+}
+
+.qr-code-modal img {
+
+    max-width: 320px;
+
+    max-height: 320px;
+
+    object-fit: contain;
+
+}
+
+.qr-code-modal__placeholder {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 16px;
+
+    text-align: center;
+
+    color: var(--color-text-light);
+
+}
+
+.qr-code-modal__placeholder h3 {
+
+    margin: 0;
+
+}
+
+.qr-code-modal__placeholder p {
+
+    margin: 0;
+
+}
+
+.qr-code-modal__actions {
+
+    display: flex;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+}
+
+.qr-code-modal__actions button {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    height: 46px;
+
+    padding: 0 20px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: var(--color-primary);
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: .25s;
+
+}
+
+.qr-code-modal__actions button:hover {
+
+    opacity: .9;
+
+}

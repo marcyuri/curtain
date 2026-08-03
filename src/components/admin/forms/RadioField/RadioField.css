@@ -1,0 +1,14 @@
+.radio-field{display:flex;flex-direction:column;gap:8px;width:100%}
+.radio-field__title{font-weight:600;color:var(--color-title)}
+.radio-field__title span{margin-left:4px;color:var(--color-danger)}
+.radio-field__group{display:flex;gap:12px}
+.radio-field__group--column{flex-direction:column}
+.radio-field__group--row{flex-direction:row;flex-wrap:wrap}
+.radio-field__option{display:flex;align-items:flex-start;gap:10px;padding:12px;border:1px solid var(--color-border);border-radius:12px;cursor:pointer}
+.radio-field__option input{margin-top:2px;accent-color:var(--color-primary)}
+.radio-field__option--disabled{opacity:.6;cursor:not-allowed}
+.radio-field__content{display:flex;flex-direction:column;gap:4px}
+.radio-field__content small{color:var(--color-text-light)}
+.radio-field__helper{color:var(--color-text-light)}
+.radio-field__error{color:var(--color-danger)}
+@media(max-width:768px){.radio-field__group--row{flex-direction:column}}

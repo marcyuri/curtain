@@ -1,0 +1,77 @@
+.import-dialog {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+}
+
+.import-dialog p {
+
+    margin: 0;
+
+}
+
+.import-dialog__upload {
+
+    min-height: 180px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 14px;
+
+    border: 2px dashed var(--color-border);
+
+    border-radius: 16px;
+
+    cursor: pointer;
+
+    transition: .25s;
+
+}
+
+.import-dialog__upload:hover {
+
+    border-color: var(--color-primary);
+
+    background: #fafafa;
+
+}
+
+.import-dialog__upload span {
+
+    font-weight: 600;
+
+}
+
+.import-dialog__upload small {
+
+    color: var(--color-text-light);
+
+}
+
+.import-dialog__file {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 14px;
+
+    border: 1px solid var(--color-border);
+
+    border-radius: 12px;
+
+    background: #fafafa;
+
+}

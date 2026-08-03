@@ -1,0 +1,45 @@
+.table-row {
+
+    transition: .2s;
+
+}
+
+.table-row td {
+
+    padding: 16px;
+
+    border-bottom: 1px solid var(--color-border);
+
+}
+
+.table-row:hover {
+
+    background: var(--color-background);
+
+}
+
+.table-row--selected {
+
+    background: var(--color-primary-light);
+
+}
+
+.table-row--disabled {
+
+    opacity: .55;
+
+    pointer-events: none;
+
+}
+
+.table-row--clickable {
+
+    cursor: pointer;
+
+}
+
+.table-row:last-child td {
+
+    border-bottom: none;
+
+}

@@ -1,0 +1,10 @@
+.tags-input{display:flex;flex-direction:column;gap:10px;width:100%}
+.tags-input__label{font-weight:600;color:var(--color-title)}
+.tags-input__control{border:1px solid var(--color-border);border-radius:12px;padding:10px;background:var(--color-white)}
+.tags-input__control--error{border-color:var(--color-danger)}
+.tags-input__list{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.tags-input__tag{display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:var(--color-primary);color:#fff}
+.tags-input__tag button{border:none;background:none;color:inherit;cursor:pointer;display:flex}
+.tags-input__list input{flex:1;min-width:140px;border:none;outline:none;background:transparent;font:inherit}
+.tags-input__helper{color:var(--color-text-light)}
+.tags-input__error{color:var(--color-danger)}

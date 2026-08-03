@@ -1,0 +1,47 @@
+.product-seo {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 24px;
+
+}
+
+.seo-preview {
+
+    padding: 20px;
+
+    border-radius: 14px;
+
+    border: 1px solid var(--color-border);
+
+    background: #fafafa;
+
+}
+
+.seo-preview span {
+
+    color: #188038;
+
+    font-size: .9rem;
+
+}
+
+.seo-preview h3 {
+
+    margin: 10px 0 8px;
+
+    color: #1a0dab;
+
+    font-size: 1.15rem;
+
+}
+
+.seo-preview p {
+
+    color: #4d5156;
+
+    line-height: 1.6;
+
+}

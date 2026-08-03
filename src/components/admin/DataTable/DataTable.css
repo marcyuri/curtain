@@ -1,0 +1,227 @@
+.data-table {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 24px;
+
+    padding: 24px;
+
+    background: white;
+
+    border: 1px solid var(--color-border);
+
+    border-radius: 20px;
+
+}
+
+.data-table__header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 24px;
+
+    flex-wrap: wrap;
+
+}
+
+.data-table__header h2 {
+
+    margin: 0;
+
+}
+
+.data-table__header p {
+
+    color: var(--color-text-light);
+
+    margin-top: 6px;
+
+}
+
+.data-table__actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+
+}
+
+.data-table__search {
+
+    width: 280px;
+
+    height: 46px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 0 14px;
+
+    border-radius: 12px;
+
+    border: 1px solid var(--color-border);
+
+}
+
+.data-table__search input {
+
+    flex: 1;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+}
+
+.data-table__actions button {
+
+    height: 46px;
+
+    padding: 0 16px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #f5f5f5;
+
+    cursor: pointer;
+
+}
+
+.data-table__create {
+
+    background: var(--color-primary) !important;
+
+    color: white;
+
+}
+
+.data-table__wrapper {
+
+    overflow: auto;
+
+}
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+}
+
+thead {
+
+    background: #f8f8f8;
+
+}
+
+th {
+
+    padding: 18px;
+
+    text-align: left;
+
+    font-weight: 600;
+
+}
+
+td {
+
+    padding: 18px;
+
+    border-top: 1px solid #eee;
+
+}
+
+tbody tr {
+
+    transition: .25s;
+
+}
+
+tbody tr:hover {
+
+    background: #fafafa;
+
+}
+
+.data-table__loading,
+
+.data-table__empty {
+
+    text-align: center;
+
+    padding: 60px;
+
+}
+
+.data-table__footer {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+.data-table__footer div {
+
+    display: flex;
+
+    gap: 10px;
+
+}
+
+.data-table__footer button {
+
+    width: 42px;
+
+    height: 42px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #f5f5f5;
+
+    cursor: pointer;
+
+}
+
+@media(max-width:768px) {
+
+    .data-table {
+
+        padding: 18px;
+
+    }
+
+    .data-table__search {
+
+        width: 100%;
+
+    }
+
+}

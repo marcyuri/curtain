@@ -1,0 +1,10 @@
+.text-area{display:flex;flex-direction:column;gap:8px;width:100%}
+.text-area__label{font-weight:600;color:var(--color-title)}
+.text-area__label span{margin-left:4px;color:var(--color-danger)}
+.text-area__control{width:100%;min-height:120px;padding:14px 16px;border:1px solid var(--color-border);border-radius:12px;background:var(--color-white);resize:vertical;box-sizing:border-box;font:inherit;transition:.2s}
+.text-area__control:focus{outline:none;border-color:var(--color-primary)}
+.text-area__control--error{border-color:var(--color-danger)}
+.text-area__footer{display:flex;justify-content:space-between;gap:12px}
+.text-area__helper{color:var(--color-text-light)}
+.text-area__error{color:var(--color-danger)}
+.text-area__count{color:var(--color-text-light)}
