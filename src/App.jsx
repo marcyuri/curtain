@@ -3,16 +3,21 @@ import { Suspense } from "react";
 import AppRouter from "@routes/AppRouter";
 
 import Loader from "@components/common/Loader";
+import ErrorBoundary from "@components/common/ErrorBoundary";
 
 function App() {
     return (
-        <Suspense
-            fallback={
-                <Loader />
-            }
-        >
-            <AppRouter />
-        </Suspense>
+        <ErrorBoundary>
+
+            <Suspense
+                fallback={
+                    <Loader />
+                }
+            >
+                <AppRouter />
+            </Suspense>
+
+        </ErrorBoundary>
     );
 }
 

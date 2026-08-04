@@ -41,22 +41,34 @@ class ErrorBoundary extends Component {
     componentDidCatch(error, errorInfo) {
 
         console.error(
-
             "ErrorBoundary",
-
             error,
-
             errorInfo
-
         );
 
         this.props.onError?.(
-
             error,
-
             errorInfo
-
         );
+
+        // Après un redéploiement, l'index.html mis en cache par le
+        // navigateur peut référencer des fichiers JS qui n'existent plus.
+        // On tente un rechargement automatique, une seule fois, avant
+        // d'afficher l'écran d'erreur.
+        const isStaleChunkError =
+            /dynamically imported module|Importing a module script failed|Failed to fetch dynamically imported module/i.test(
+                error?.message ?? ""
+            );
+
+        const alreadyReloaded = sessionStorage.getItem("chunk-reload-attempted");
+
+        if (isStaleChunkError && !alreadyReloaded) {
+
+            sessionStorage.setItem("chunk-reload-attempted", "true");
+
+            window.location.reload();
+
+        }
 
     }
 
