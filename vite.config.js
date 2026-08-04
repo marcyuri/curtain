@@ -39,9 +39,8 @@ export default defineConfig({
 
   build: {
     outDir: "dist",
-    sourcemap: true,
+    sourcemap: false,
     emptyOutDir: true,
-    chunkSizeWarningLimit: 1000,
-    minify: false
+    chunkSizeWarningLimit: 1000
   }
 });
