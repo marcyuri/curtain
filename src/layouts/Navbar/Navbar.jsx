@@ -31,7 +31,7 @@ function Navbar() {
                 <ul className={`navbar__menu ${isOpen ? "navbar__menu--open" : ""}`}>
 
                     <li>
-                        <NavLink to="/" onClick={closeMenu}>
+                        <NavLink to="/" end onClick={closeMenu}>
                             Accueil
                         </NavLink>
                     </li>

@@ -13,14 +13,14 @@
 :root {
 
     /* ===== Couleurs — Marque ===== */
-    --color-primary: #2A6F6F;
-    --color-primary-hover: #235c5c;
-    --color-primary-active: #1c4a4a;
-    --color-primary-light: #e3f0f0;
+    --color-primary: #C81E2C;
+    --color-primary-hover: #A8101D;
+    --color-primary-active: #8A0C17;
+    --color-primary-light: #FBE7E8;
 
-    --color-secondary: #F5B301;
-    --color-secondary-hover: #dba101;
-    --color-secondary-active: #c18f01;
+    --color-secondary: #8A0C17;
+    --color-secondary-hover: #6E0912;
+    --color-secondary-active: #52070D;
 
     /* ===== Couleurs — Sémantique ===== */
     --color-success: #16A34A;
