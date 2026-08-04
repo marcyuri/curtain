@@ -74,6 +74,21 @@
 
 }
 
+.register-form__error {
+    padding: var(--spacing-12);
+    border-radius: var(--radius-sm);
+    background: var(--color-danger-background);
+    border: 1px solid var(--color-danger-border);
+    color: var(--color-danger);
+    font-size: var(--font-size-sm);
+}
+
+.register-form__field-error {
+    margin-top: calc(var(--spacing-8) * -1);
+    color: var(--color-danger);
+    font-size: var(--font-size-xs);
+}
+
 .register-form__row {
 
     display: grid;

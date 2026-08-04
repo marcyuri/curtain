@@ -8,67 +8,51 @@ import {
     LogIn,
 } from "lucide-react";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
-import Button from "../../components/ui/Button";
+import Button from "@components/ui/Button";
+import useAuth from "@hooks/useAuth";
+import loginSchema from "@schemas/loginSchema";
 
 import "./Login.css";
 
-function Login({
+function Login() {
 
-    loading = false,
+    const navigate = useNavigate();
 
-    onSubmit,
-
-}) {
+    const { login } = useAuth();
 
     const [showPassword, setShowPassword] = useState(false);
 
-    const [form, setForm] = useState({
+    const [serverError, setServerError] = useState("");
 
-        email: "",
-
-        password: "",
-
-        remember: false,
-
+    const {
+        register,
+        handleSubmit,
+        formState: { errors, isSubmitting },
+    } = useForm({
+        resolver: zodResolver(loginSchema),
+        defaultValues: {
+            email: "",
+            password: "",
+            remember: false,
+        },
     });
 
-    const update = ({ target }) => {
+    const onSubmit = async (values) => {
 
-        const {
+        setServerError("");
 
-            name,
+        const response = await login(values);
 
-            value,
+        if (response.success) {
+            navigate("/");
+            return;
+        }
 
-            checked,
-
-            type,
-
-        } = target;
-
-        setForm((previous) => ({
-
-            ...previous,
-
-            [name]:
-
-                type === "checkbox"
-
-                    ? checked
-
-                    : value,
-
-        }));
-
-    };
-
-    const submit = (event) => {
-
-        event.preventDefault();
-
-        onSubmit?.(form);
+        setServerError(response.message);
 
     };
 
@@ -81,179 +65,115 @@ function Login({
                 <header className="login-card__header">
 
                     <span>
-
                         LOVE CAN BUILD
-
                     </span>
 
                     <h1>
-
                         Connexion
-
                     </h1>
 
                     <p>
-
                         Connectez-vous à votre espace personnel.
-
                     </p>
 
                 </header>
 
                 <form
-
-                    onSubmit={submit}
-
+                    onSubmit={handleSubmit(onSubmit)}
                     className="login-form"
-
+                    noValidate
                 >
+
+                    {serverError && (
+                        <p
+                            className="login-form__error"
+                            role="alert"
+                        >
+                            {serverError}
+                        </p>
+                    )}
 
                     <label>
 
                         <Mail size={18} />
 
                         <input
-
                             type="email"
-
-                            name="email"
-
                             placeholder="Adresse e-mail"
-
-                            value={form.email}
-
-                            onChange={update}
-
-                            required
-
+                            {...register("email")}
                         />
 
                     </label>
+
+                    {errors.email && (
+                        <span className="login-form__field-error">
+                            {errors.email.message}
+                        </span>
+                    )}
 
                     <label>
 
                         <Lock size={18} />
 
                         <input
-
-                            type={
-
-                                showPassword
-
-                                    ? "text"
-
-                                    : "password"
-
-                            }
-
-                            name="password"
-
+                            type={showPassword ? "text" : "password"}
                             placeholder="Mot de passe"
-
-                            value={form.password}
-
-                            onChange={update}
-
-                            required
-
+                            {...register("password")}
                         />
 
                         <button
-
                             type="button"
-
-                            onClick={() =>
-
-                                setShowPassword(
-
-                                    !showPassword
-
-                                )
-
-                            }
-
+                            onClick={() => setShowPassword(!showPassword)}
                         >
 
-                            {
-
-                                showPassword
-
-                                    ? <EyeOff size={18} />
-
-                                    : <Eye size={18} />
-
-                            }
+                            {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
 
                         </button>
 
                     </label>
+
+                    {errors.password && (
+                        <span className="login-form__field-error">
+                            {errors.password.message}
+                        </span>
+                    )}
 
                     <div className="login-form__options">
 
                         <label>
 
                             <input
-
                                 type="checkbox"
-
-                                name="remember"
-
-                                checked={form.remember}
-
-                                onChange={update}
-
+                                {...register("remember")}
                             />
-
                             Se souvenir de moi
 
                         </label>
 
-                        <Link
-
-                            to="/forgot-password"
-
-                        >
-
+                        <Link to="/forgot-password">
                             Mot de passe oublié ?
-
                         </Link>
 
                     </div>
 
                     <Button
-
                         type="submit"
-
-                        disabled={loading}
-
+                        disabled={isSubmitting}
                     >
 
                         <LogIn size={18} />
 
-                        {
-
-                            loading
-
-                                ? "Connexion..."
-
-                                : "Se connecter"
-
-                        }
+                        {isSubmitting ? "Connexion..." : "Se connecter"}
 
                     </Button>
 
                 </form>
 
                 <footer className="login-card__footer">
-
                     Vous n&apos;avez pas encore de compte ?
-
                     <Link to="/register">
-
                         Créer un compte
-
                     </Link>
-
                 </footer>
 
             </div>

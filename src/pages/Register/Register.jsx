@@ -10,77 +10,55 @@ import {
     UserPlus,
 } from "lucide-react";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
-import Button from "../../components/ui/Button";
+import Button from "@components/ui/Button";
+import authService from "@services/authService";
+import registerSchema from "@schemas/registerSchema";
 
 import "./Register.css";
 
-function Register({
+function Register() {
 
-    loading = false,
-
-    onSubmit,
-
-}) {
+    const navigate = useNavigate();
 
     const [showPassword, setShowPassword] = useState(false);
 
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-    const [form, setForm] = useState({
+    const [serverError, setServerError] = useState("");
 
-        firstName: "",
-
-        lastName: "",
-
-        phone: "",
-
-        email: "",
-
-        password: "",
-
-        confirmPassword: "",
-
-        acceptTerms: false,
-
+    const {
+        register,
+        handleSubmit,
+        formState: { errors, isSubmitting },
+    } = useForm({
+        resolver: zodResolver(registerSchema),
+        defaultValues: {
+            firstName: "",
+            lastName: "",
+            phone: "",
+            email: "",
+            password: "",
+            confirmPassword: "",
+            acceptTerms: false,
+        },
     });
 
-    const update = ({ target }) => {
+    const onSubmit = async (values) => {
 
-        const {
+        setServerError("");
 
-            name,
+        const response = await authService.register(values);
 
-            value,
+        if (response.success) {
+            navigate("/login");
+            return;
+        }
 
-            checked,
-
-            type,
-
-        } = target;
-
-        setForm((previous) => ({
-
-            ...previous,
-
-            [name]:
-
-                type === "checkbox"
-
-                    ? checked
-
-                    : value,
-
-        }));
-
-    };
-
-    const submit = (event) => {
-
-        event.preventDefault();
-
-        onSubmit?.(form);
+        setServerError(response.message);
 
     };
 
@@ -93,32 +71,33 @@ function Register({
                 <header className="register-card__header">
 
                     <span>
-
                         LOVE CAN BUILD
-
                     </span>
 
                     <h1>
-
                         Créer un compte
-
                     </h1>
 
                     <p>
-
                         Rejoignez notre communauté.
-
                     </p>
 
                 </header>
 
                 <form
-
                     className="register-form"
-
-                    onSubmit={submit}
-
+                    onSubmit={handleSubmit(onSubmit)}
+                    noValidate
                 >
+
+                    {serverError && (
+                        <p
+                            className="register-form__error"
+                            role="alert"
+                        >
+                            {serverError}
+                        </p>
+                    )}
 
                     <div className="register-form__row">
 
@@ -127,19 +106,9 @@ function Register({
                             <User size={18} />
 
                             <input
-
                                 type="text"
-
-                                name="firstName"
-
                                 placeholder="Prénom"
-
-                                value={form.firstName}
-
-                                onChange={update}
-
-                                required
-
+                                {...register("firstName")}
                             />
 
                         </label>
@@ -149,43 +118,29 @@ function Register({
                             <User size={18} />
 
                             <input
-
                                 type="text"
-
-                                name="lastName"
-
                                 placeholder="Nom"
-
-                                value={form.lastName}
-
-                                onChange={update}
-
-                                required
-
+                                {...register("lastName")}
                             />
 
                         </label>
 
                     </div>
 
+                    {(errors.firstName || errors.lastName) && (
+                        <span className="register-form__field-error">
+                            {errors.firstName?.message ?? errors.lastName?.message}
+                        </span>
+                    )}
+
                     <label>
 
                         <Phone size={18} />
 
                         <input
-
                             type="tel"
-
-                            name="phone"
-
                             placeholder="Téléphone"
-
-                            value={form.phone}
-
-                            onChange={update}
-
-                            required
-
+                            {...register("phone")}
                         />
 
                     </label>
@@ -195,193 +150,107 @@ function Register({
                         <Mail size={18} />
 
                         <input
-
                             type="email"
-
-                            name="email"
-
                             placeholder="Adresse e-mail"
-
-                            value={form.email}
-
-                            onChange={update}
-
-                            required
-
+                            {...register("email")}
                         />
 
                     </label>
+
+                    {errors.email && (
+                        <span className="register-form__field-error">
+                            {errors.email.message}
+                        </span>
+                    )}
 
                     <label>
 
                         <Lock size={18} />
 
                         <input
-
-                            type={
-
-                                showPassword
-
-                                    ? "text"
-
-                                    : "password"
-
-                            }
-
-                            name="password"
-
+                            type={showPassword ? "text" : "password"}
                             placeholder="Mot de passe"
-
-                            value={form.password}
-
-                            onChange={update}
-
-                            required
-
+                            {...register("password")}
                         />
 
                         <button
-
                             type="button"
-
-                            onClick={() =>
-
-                                setShowPassword(
-
-                                    !showPassword
-
-                                )
-
-                            }
-
+                            onClick={() => setShowPassword(!showPassword)}
                         >
 
-                            {
-
-                                showPassword
-
-                                    ? <EyeOff size={18} />
-
-                                    : <Eye size={18} />
-
-                            }
+                            {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
 
                         </button>
 
                     </label>
+
+                    {errors.password && (
+                        <span className="register-form__field-error">
+                            {errors.password.message}
+                        </span>
+                    )}
 
                     <label>
 
                         <Lock size={18} />
 
                         <input
-
-                            type={
-
-                                showConfirmPassword
-
-                                    ? "text"
-
-                                    : "password"
-
-                            }
-
-                            name="confirmPassword"
-
+                            type={showConfirmPassword ? "text" : "password"}
                             placeholder="Confirmer le mot de passe"
-
-                            value={form.confirmPassword}
-
-                            onChange={update}
-
-                            required
-
+                            {...register("confirmPassword")}
                         />
 
                         <button
-
                             type="button"
-
-                            onClick={() =>
-
-                                setShowConfirmPassword(
-
-                                    !showConfirmPassword
-
-                                )
-
-                            }
-
+                            onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                         >
 
-                            {
-
-                                showConfirmPassword
-
-                                    ? <EyeOff size={18} />
-
-                                    : <Eye size={18} />
-
-                            }
+                            {showConfirmPassword ? <EyeOff size={18} /> : <Eye size={18} />}
 
                         </button>
 
                     </label>
+
+                    {errors.confirmPassword && (
+                        <span className="register-form__field-error">
+                            {errors.confirmPassword.message}
+                        </span>
+                    )}
 
                     <label className="register-form__checkbox">
 
                         <input
-
                             type="checkbox"
-
-                            name="acceptTerms"
-
-                            checked={form.acceptTerms}
-
-                            onChange={update}
-
-                            required
-
+                            {...register("acceptTerms")}
                         />
-
                         J&apos;accepte les conditions d&apos;utilisation.
 
                     </label>
 
+                    {errors.acceptTerms && (
+                        <span className="register-form__field-error">
+                            {errors.acceptTerms.message}
+                        </span>
+                    )}
+
                     <Button
-
                         type="submit"
-
-                        disabled={loading}
-
+                        disabled={isSubmitting}
                     >
 
                         <UserPlus size={18} />
 
-                        {
-
-                            loading
-
-                                ? "Création..."
-
-                                : "Créer mon compte"
-
-                        }
+                        {isSubmitting ? "Création..." : "Créer mon compte"}
 
                     </Button>
 
                 </form>
 
                 <footer className="register-card__footer">
-
                     Vous avez déjà un compte ?
-
                     <Link to="/login">
-
                         Se connecter
-
                     </Link>
-
                 </footer>
 
             </div>
