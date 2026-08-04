@@ -1,13 +1,12 @@
 import "./FeaturesSection.css";
-import Button from "../../form/Button";
+import Button from "../../ui/Button";
 
 const FeaturesSection = ({
     title = "Pourquoi nous choisir ?",
     subtitle,
     features = [],
     columns = 3,
-}) => {
-    return (
+}) => (
         <section className="features-section">
             {(title || subtitle) && (
                 <header className="features-section__header">
@@ -57,6 +56,5 @@ const FeaturesSection = ({
             </div>
         </section>
     );
-};
 
 export default FeaturesSection;

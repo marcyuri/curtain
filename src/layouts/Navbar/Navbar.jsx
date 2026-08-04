@@ -43,12 +43,6 @@ function Navbar() {
                     </li>
 
                     <li>
-                        <NavLink to="/services" onClick={closeMenu}>
-                            Services
-                        </NavLink>
-                    </li>
-
-                    <li>
                         <NavLink to="/consultations" onClick={closeMenu}>
                             Consultations
                         </NavLink>
@@ -63,12 +57,6 @@ function Navbar() {
                     <li>
                         <NavLink to="/events" onClick={closeMenu}>
                             Événements
-                        </NavLink>
-                    </li>
-
-                    <li>
-                        <NavLink to="/blog" onClick={closeMenu}>
-                            Actualités
                         </NavLink>
                     </li>
 

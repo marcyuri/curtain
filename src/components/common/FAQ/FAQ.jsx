@@ -31,9 +31,7 @@ function FAQ({
 
     const [opened, setOpened] = useState([]);
 
-    const filtered = useMemo(() => {
-
-        return items.filter(item => {
+    const filtered = useMemo(() => items.filter(item => {
 
             const categoryMatch =
                 category === "Toutes" ||
@@ -47,9 +45,7 @@ function FAQ({
 
             return categoryMatch && searchMatch;
 
-        });
-
-    }, [items, category, search]);
+        }), [items, category, search]);
 
     const toggle = id => {
 

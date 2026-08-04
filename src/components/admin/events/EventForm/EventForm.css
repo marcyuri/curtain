@@ -1,0 +1,17 @@
+.event-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.event-form__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .event-form__row {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,7 +1,7 @@
 import { useId, useMemo } from "react";
 import { Download, LoaderCircle, Maximize, Minimize, Pause, PictureInPicture2, Play, SkipBack, SkipForward, Volume2, VolumeX } from "lucide-react";
 
-import Loader from "../../../common/Loader/Loader";
+import Loader from "../Loader";
 import { PLAYBACK_SPEEDS } from "./constants/videoPlayer";
 import useVideoPlayer from "./hooks/useVideoPlayer";
 import { formatTime } from "./utils/formatTime";

@@ -13,7 +13,7 @@ import {
     XCircle,
 } from "lucide-react";
 
-import Button from "../../form/Button";
+import Button from "../../ui/Button";
 
 import "./OrderTracker.css";
 
@@ -76,15 +76,11 @@ function OrderTracker({
 
 }) {
 
-    const currentIndex = useMemo(() => {
-
-        return timeline.findIndex(
+    const currentIndex = useMemo(() => timeline.findIndex(
 
             item => item.status === status
 
-        );
-
-    }, [timeline, status]);
+        ), [timeline, status]);
 
     return (
 
@@ -316,7 +312,7 @@ function OrderTracker({
 
                     <Home size={18} />
 
-                    Retour à l'accueil
+                    Retour à l&apos;accueil
 
                 </Button>
 

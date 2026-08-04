@@ -7,7 +7,7 @@ import {
     Navigation,
 } from "lucide-react";
 
-import Button from "../../common/Button";
+import Button from "../../ui/Button";
 
 import "./ContactCard.css";
 

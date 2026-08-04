@@ -48,17 +48,13 @@ function CommandPalette({
 
     }, [open, onClose]);
 
-    const filteredCommands = useMemo(() => {
-
-        return commands.filter((command) =>
+    const filteredCommands = useMemo(() => commands.filter((command) =>
             command.label
                 .toLowerCase()
                 .includes(query.toLowerCase())
-        );
+        ), [commands, query]);
 
-    }, [commands, query]);
-
-    if (!open) return null;
+    if (!open) {return null;}
 
     return (
 

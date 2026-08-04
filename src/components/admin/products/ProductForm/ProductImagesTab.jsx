@@ -38,7 +38,7 @@ function ProductImagesTab({
 
                 <p>
 
-                    Ajoutez une image principale ainsi qu'une galerie.
+                    Ajoutez une image principale ainsi qu&apos;une galerie.
 
                 </p>
 

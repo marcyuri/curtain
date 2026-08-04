@@ -12,7 +12,7 @@ import {
 
 import { Link } from "react-router-dom";
 
-import Button from "../../components/common/Button";
+import Button from "../../components/ui/Button";
 
 import "./Register.css";
 
@@ -344,7 +344,7 @@ function Register({
 
                         />
 
-                        J'accepte les conditions d'utilisation.
+                        J&apos;accepte les conditions d&apos;utilisation.
 
                     </label>
 

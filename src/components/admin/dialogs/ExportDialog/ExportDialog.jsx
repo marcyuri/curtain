@@ -58,7 +58,7 @@ function ExportDialog({
 
                     <p>
 
-                        Choisissez le format d'export.
+                        Choisissez le format d&apos;export.
 
                     </p>
 

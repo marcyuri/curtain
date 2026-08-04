@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import "./TestimonialsSection.css";
-import Button from "../../form/Button";
+import Button from "../../ui/Button";
 import TestimonialCard from "../TestimonialCard";
 
 const TestimonialsSection = ({
@@ -17,7 +17,7 @@ const TestimonialsSection = ({
     const [category, setCategory] = useState("all");
 
     const filteredTestimonials = useMemo(() => {
-        if (category === "all") return testimonials;
+        if (category === "all") {return testimonials;}
 
         return testimonials.filter(
             (testimonial) =>

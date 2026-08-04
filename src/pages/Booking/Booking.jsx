@@ -7,7 +7,7 @@ import {
     CheckCircle2,
 } from "lucide-react";
 
-import Button from "../../components/common/Button";
+import Button from "../../components/ui/Button";
 import CTASection from "../../components/sections/CTASection";
 
 import {
@@ -60,7 +60,7 @@ function Booking() {
 
         event.preventDefault();
 
-        console.log(form);
+        // TODO: brancher sur bookingService une fois le backend disponible
 
     };
 

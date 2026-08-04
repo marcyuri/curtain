@@ -7,8 +7,8 @@ import {
     ArrowRight,
 } from "lucide-react";
 
-import Button from "../../form/Button";
-import Drawer from "../Drawer";
+import Button from "../../ui/Button";
+import Drawer from "../../ui/Drawer";
 
 import "./MiniCart.css";
 
@@ -26,9 +26,7 @@ const MiniCart = ({
     onCheckout,
 }) => {
 
-    const subtotal = useMemo(() => {
-
-        return items.reduce(
+    const subtotal = useMemo(() => items.reduce(
 
             (sum, item) =>
 
@@ -38,9 +36,7 @@ const MiniCart = ({
 
             0
 
-        );
-
-    }, [items]);
+        ), [items]);
 
     return (
 

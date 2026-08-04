@@ -20,7 +20,7 @@ const defaultFilters = {
 
 function Products() {
 
-    const [products, setProducts] = useState(mockProducts);
+    const [products] = useState(mockProducts);
 
     const [filters, setFilters] = useState(defaultFilters);
 
@@ -116,11 +116,17 @@ function Products() {
 
                 products={filteredProducts}
 
-                onView={(product) => console.log(product)}
+                onView={() => {
+                    // TODO: brancher sur productService une fois le backend disponible
+                }}
 
-                onEdit={(product) => console.log(product)}
+                onEdit={() => {
+                    // TODO: brancher sur productService une fois le backend disponible
+                }}
 
-                onDelete={(product) => console.log(product)}
+                onDelete={() => {
+                    // TODO: brancher sur productService une fois le backend disponible
+                }}
 
             />
 

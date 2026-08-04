@@ -32,7 +32,7 @@ function CalendarWidget() {
 
                     <p>
 
-                        Aujourd'hui
+                        Aujourd&apos;hui
 
                     </p>
 

@@ -22,9 +22,7 @@ function Consultations() {
 
     const [mode, setMode] = useState("Tous");
 
-    const filteredConsultations = useMemo(() => {
-
-        return consultations.filter((consultation) => {
+    const filteredConsultations = useMemo(() => consultations.filter((consultation) => {
 
             const matchesSearch =
 
@@ -54,9 +52,7 @@ function Consultations() {
 
             );
 
-        });
-
-    }, [
+        }), [
 
         search,
 

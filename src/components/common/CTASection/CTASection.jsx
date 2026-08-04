@@ -1,5 +1,5 @@
 import "./CTASection.css";
-import Button from "../../form/Button";
+import Button from "../../ui/Button";
 
 const CTASection = ({
     badge,
@@ -11,8 +11,7 @@ const CTASection = ({
     variant = "default",
     primaryButton,
     secondaryButton,
-}) => {
-    return (
+}) => (
         <section
             className={`cta-section cta-section--${variant}`}
             style={{
@@ -58,6 +57,5 @@ const CTASection = ({
             </div>
         </section>
     );
-};
 
 export default CTASection;

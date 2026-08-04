@@ -15,7 +15,7 @@ function DataTable({
 
     const handleSelectAll = (checked) => {
 
-        if (!onRowSelect) return;
+        if (!onRowSelect) {return;}
 
         if (checked) {
 
@@ -31,7 +31,7 @@ function DataTable({
 
     const toggleRow = (id) => {
 
-        if (!onRowSelect) return;
+        if (!onRowSelect) {return;}
 
         const exists = selectedRows.includes(id);
 

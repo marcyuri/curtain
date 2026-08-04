@@ -5,7 +5,7 @@ import {
     RotateCcw,
 } from "lucide-react";
 
-import Button from "../../common/Button";
+import Button from "../../ui/Button";
 
 import "./CategoryFilter.css";
 

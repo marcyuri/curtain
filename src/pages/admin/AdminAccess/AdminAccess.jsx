@@ -14,7 +14,7 @@ import {
 
 } from "lucide-react";
 
-import Button from "../../../components/common/Button";
+import Button from "../../../components/ui/Button";
 
 import "./AdminAccess.css";
 
@@ -68,7 +68,7 @@ function AdminAccess({
 
                 <p>
 
-                    Entrez le code d'accès du Back Office avant de continuer.
+                    Entrez le code d&apos;accès du Back Office avant de continuer.
 
                 </p>
 

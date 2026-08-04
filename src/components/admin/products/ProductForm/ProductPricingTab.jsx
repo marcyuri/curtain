@@ -114,7 +114,7 @@ function ProductPricingTab({
 
                         <span>
 
-                            Coût d'achat
+                            Coût d&apos;achat
 
                         </span>
 

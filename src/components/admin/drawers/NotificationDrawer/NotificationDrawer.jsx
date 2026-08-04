@@ -1,6 +1,6 @@
 import Drawer from "../Drawer";
 
-import NotificationCenter from "../../notifications/NotificationCenter";
+import NotificationCenter from "@components/common/NotificationCenter";
 
 import "./NotificationDrawer.css";
 

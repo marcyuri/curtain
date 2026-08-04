@@ -6,7 +6,7 @@ import {
     Home,
 } from "lucide-react";
 
-import Button from "../../form/Button";
+import Button from "../../ui/Button";
 
 import "./ErrorBoundary.css";
 
@@ -101,8 +101,8 @@ class ErrorBoundary extends Component {
                     <p>
 
                         Une erreur inattendue a empêché
-                        l'affichage de cette partie de
-                        l'application.
+                        l&apos;affichage de cette partie de
+                        l&apos;application.
 
                     </p>
 

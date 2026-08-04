@@ -1,5 +1,5 @@
 import "./MissionVisionSection.css";
-import Button from "../../form/Button";
+import Button from "../../ui/Button";
 
 const MissionVisionSection = ({
     badge = "À propos",
@@ -10,8 +10,7 @@ const MissionVisionSection = ({
     cards = [],
     buttonLabel,
     onButtonClick,
-}) => {
-    return (
+}) => (
         <section className="mission-vision">
             <div
                 className={`mission-vision__container ${reverse ? "mission-vision__container--reverse" : ""
@@ -88,6 +87,5 @@ const MissionVisionSection = ({
             </div>
         </section>
     );
-};
 
 export default MissionVisionSection;

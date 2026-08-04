@@ -1,0 +1,17 @@
+.employee-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.employee-form__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .employee-form__row {
+        grid-template-columns: 1fr;
+    }
+}

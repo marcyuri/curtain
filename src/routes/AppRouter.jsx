@@ -1,24 +1,34 @@
-// Routes
+import { lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 
+// Layouts
 import MainLayout from "@layouts/MainLayout";
+import AdminLayout from "@layouts/AdminLayout";
 
-// Pages
-import HomePage from "@pages/HomePage";
-import AboutPage from "@pages/AboutPage";
-import ProductsPage from "@pages/ProductsPage";
-import ServicesPage from "@pages/ServicesPage";
-import ConsultationsPage from "@pages/ConsultationsPage";
-import EventsPage from "@pages/EventsPage";
-import BlogPage from "@pages/BlogPage";
-import GalleryPage from "@pages/GalleryPage";
-import TestimonialsPage from "@pages/TestimonialsPage";
-import ContactPage from "@pages/ContactPage";
-import AppointmentPage from "@pages/AppointmentPage";
-import FaqPage from "@pages/FaqPage";
-import PrivacyPolicyPage from "@pages/PrivacyPolicyPage";
-import TermsPage from "@pages/TermsPage";
-import NotFoundPage from "@pages/NotFoundPage";
+// Pages publiques
+const Home = lazy(() => import("@pages/Home"));
+const About = lazy(() => import("@pages/About"));
+const Shop = lazy(() => import("@pages/Shop"));
+const ProductDetails = lazy(() => import("@pages/ProductDetails"));
+const Consultations = lazy(() => import("@pages/Consultations"));
+const Events = lazy(() => import("@pages/Events"));
+const Contact = lazy(() => import("@pages/Contact"));
+const Booking = lazy(() => import("@pages/Booking"));
+
+// Authentification
+const Login = lazy(() => import("@pages/Login"));
+const Register = lazy(() => import("@pages/Register"));
+const ForgotPassword = lazy(() => import("@pages/ForgotPassword"));
+const ResetPassword = lazy(() => import("@pages/ResetPassword"));
+const VerifyEmail = lazy(() => import("@pages/VerifyEmail"));
+
+// Back Office
+const AdminLogin = lazy(() => import("@pages/admin/AdminLogin"));
+const AdminAccess = lazy(() => import("@pages/admin/AdminAccess"));
+const Dashboard = lazy(() => import("@pages/admin/Dashboard"));
+const Products = lazy(() => import("@pages/admin/Products"));
+
+const NotFound = lazy(() => import("@pages/NotFound"));
 
 function AppRouter() {
     return (
@@ -28,79 +38,98 @@ function AppRouter() {
 
                 <Route
                     path="/"
-                    element={<HomePage />}
+                    element={<Home />}
                 />
 
                 <Route
                     path="/about"
-                    element={<AboutPage />}
+                    element={<About />}
                 />
 
                 <Route
                     path="/products"
-                    element={<ProductsPage />}
+                    element={<Shop />}
                 />
 
                 <Route
-                    path="/services"
-                    element={<ServicesPage />}
+                    path="/products/:slug"
+                    element={<ProductDetails />}
                 />
 
                 <Route
                     path="/consultations"
-                    element={<ConsultationsPage />}
-                />
-
-                <Route
-                    path="/appointment"
-                    element={<AppointmentPage />}
+                    element={<Consultations />}
                 />
 
                 <Route
                     path="/events"
-                    element={<EventsPage />}
-                />
-
-                <Route
-                    path="/blog"
-                    element={<BlogPage />}
-                />
-
-                <Route
-                    path="/gallery"
-                    element={<GalleryPage />}
-                />
-
-                <Route
-                    path="/testimonials"
-                    element={<TestimonialsPage />}
+                    element={<Events />}
                 />
 
                 <Route
                     path="/contact"
-                    element={<ContactPage />}
+                    element={<Contact />}
                 />
 
                 <Route
-                    path="/faq"
-                    element={<FaqPage />}
+                    path="/appointment"
+                    element={<Booking />}
                 />
 
                 <Route
-                    path="/privacy-policy"
-                    element={<PrivacyPolicyPage />}
+                    path="/login"
+                    element={<Login />}
                 />
 
                 <Route
-                    path="/terms"
-                    element={<TermsPage />}
+                    path="/register"
+                    element={<Register />}
+                />
+
+                <Route
+                    path="/forgot-password"
+                    element={<ForgotPassword />}
+                />
+
+                <Route
+                    path="/reset-password"
+                    element={<ResetPassword />}
+                />
+
+                <Route
+                    path="/verify-email"
+                    element={<VerifyEmail />}
+                />
+
+            </Route>
+
+            <Route
+                path="/admin/login"
+                element={<AdminLogin />}
+            />
+
+            <Route
+                path="/admin/access"
+                element={<AdminAccess />}
+            />
+
+            <Route element={<AdminLayout />}>
+
+                <Route
+                    path="/admin"
+                    element={<Dashboard />}
+                />
+
+                <Route
+                    path="/admin/products"
+                    element={<Products />}
                 />
 
             </Route>
 
             <Route
                 path="*"
-                element={<NotFoundPage />}
+                element={<NotFound />}
             />
 
         </Routes>

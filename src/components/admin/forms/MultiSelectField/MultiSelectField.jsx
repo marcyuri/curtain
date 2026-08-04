@@ -13,7 +13,7 @@ function MultiSelectField({
   onChange,
 }){
   const toggle=(value)=>{
-    if(disabled) return;
+    if(disabled) {return;}
     const next=values.includes(value)
       ? values.filter(v=>v!==value)
       : [...values,value];
@@ -29,7 +29,7 @@ function MultiSelectField({
           disabled={disabled}
           defaultValue=""
           onChange={(e)=>{
-            if(e.target.value) toggle(e.target.value);
+            if(e.target.value) {toggle(e.target.value);}
             e.target.value="";
           }}
         >

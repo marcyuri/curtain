@@ -9,7 +9,7 @@ import {
 
 import { Link, useSearchParams } from "react-router-dom";
 
-import Button from "../../components/common/Button";
+import Button from "../../components/ui/Button";
 
 import "./VerifyEmail.css";
 
@@ -191,7 +191,7 @@ function VerifyEmail({
 
                             >
 
-                                Retour à l'inscription
+                                Retour à l&apos;inscription
 
                             </Button>
 

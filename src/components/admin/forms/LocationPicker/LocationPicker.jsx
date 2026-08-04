@@ -13,7 +13,7 @@ function LocationPicker({
   onCoordinates,
 }){
   const detect=()=>{
-    if(!navigator.geolocation) return;
+    if(!navigator.geolocation) {return;}
     navigator.geolocation.getCurrentPosition(({coords})=>{
       onCoordinates?.({
         latitude:coords.latitude,

@@ -213,7 +213,7 @@ function Newsletter({
 
                         <Send size={18} />
 
-                        S'abonner
+                        S&apos;abonner
 
                     </Button>
 

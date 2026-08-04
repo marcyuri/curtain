@@ -9,7 +9,7 @@ const Counter = ({ value, duration = 1500, suffix = "" }) => {
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
-                if (!entry.isIntersecting || started.current) return;
+                if (!entry.isIntersecting || started.current) {return;}
 
                 started.current = true;
 
@@ -30,7 +30,7 @@ const Counter = ({ value, duration = 1500, suffix = "" }) => {
             { threshold: 0.4 }
         );
 
-        if (ref.current) observer.observe(ref.current);
+        if (ref.current) {observer.observe(ref.current);}
 
         return () => observer.disconnect();
     }, [value, duration]);
@@ -47,8 +47,7 @@ const StatsSection = ({
     title,
     subtitle,
     stats = [],
-}) => {
-    return (
+}) => (
         <section className="stats-section">
             {(title || subtitle) && (
                 <header className="stats-section__header">
@@ -88,6 +87,5 @@ const StatsSection = ({
             </div>
         </section>
     );
-};
 
 export default StatsSection;

@@ -6,7 +6,7 @@ function ValidationSummary({
   errors=[],
   onSelectError,
 }){
-  if(!errors.length) return null;
+  if(!errors.length) {return null;}
 
   return (
     <div className="validation-summary" role="alert">

@@ -17,7 +17,7 @@ function CheckboxField({
           type="checkbox"
           checked={checked}
           disabled={disabled}
-          ref={el=>{if(el) el.indeterminate=indeterminate;}}
+          ref={el=>{if(el) {el.indeterminate=indeterminate;}}}
           onChange={(e)=>onChange?.(e.target.checked)}
         />
         <span>{label}</span>

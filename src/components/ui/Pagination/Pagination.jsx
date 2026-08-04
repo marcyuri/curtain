@@ -7,7 +7,7 @@ function Pagination({
     onPageChange
 }) {
 
-    if (totalPages <= 1) return null;
+    if (totalPages <= 1) {return null;}
 
     const pages = Array.from(
         { length: totalPages },

@@ -9,7 +9,7 @@ import {
     PackageCheck,
 } from "lucide-react";
 
-import Button from "../../form/Button";
+import Button from "../../ui/Button";
 
 import "./Wishlist.css";
 
@@ -164,7 +164,7 @@ function Wishlist({
 
                                         <Bell size={16} />
 
-                                        M'avertir
+                                        M&apos;avertir
 
                                     </Button>
 

@@ -106,7 +106,7 @@ function TestimonialCard({
 
             <p className="testimonial-card__message">
 
-                "{message}"
+                &quot;{message}&quot;
 
             </p>
 

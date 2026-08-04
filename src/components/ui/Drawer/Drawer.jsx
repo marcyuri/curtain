@@ -15,7 +15,7 @@ function Drawer({
 
     useEffect(() => {
 
-        if (!open) return;
+        if (!open) {return;}
 
         const handleKeyDown = (event) => {
 
@@ -39,7 +39,7 @@ function Drawer({
 
     }, [open, onClose]);
 
-    if (!open) return null;
+    if (!open) {return null;}
 
     return (
 

@@ -1,9 +1,9 @@
 import { useMemo, useState } from "react";
 import "./ProductsSection.css";
 
-import Input from "../../form/Input";
-import Select from "../../form/Select";
-import Button from "../../form/Button";
+import Input from "../../ui/Input";
+import Select from "../../ui/Select";
+import Button from "../../ui/Button";
 import ProductCard from "../ProductCard";
 
 const SORT_OPTIONS = [

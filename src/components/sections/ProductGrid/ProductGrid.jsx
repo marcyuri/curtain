@@ -31,9 +31,7 @@ function ProductGrid({
 
     const [category, setCategory] = useState("Toutes");
 
-    const categories = useMemo(() => {
-
-        return [
+    const categories = useMemo(() => [
 
             "Toutes",
 
@@ -47,13 +45,9 @@ function ProductGrid({
 
             ),
 
-        ];
+        ], [products]);
 
-    }, [products]);
-
-    const filteredProducts = useMemo(() => {
-
-        return products.filter((product) => {
+    const filteredProducts = useMemo(() => products.filter((product) => {
 
             const matchesSearch =
 
@@ -77,9 +71,7 @@ function ProductGrid({
 
             );
 
-        });
-
-    }, [
+        }), [
 
         products,
 

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import Button from "../../form/Button";
+import Button from "../../ui/Button";
 
 import "./HeroSlider.css";
 
@@ -51,7 +51,7 @@ const HeroSlider = ({
 
     }, [current, paused, autoPlay, interval]);
 
-    if (!slides.length) return null;
+    if (!slides.length) {return null;}
 
     const slide = slides[current];
 

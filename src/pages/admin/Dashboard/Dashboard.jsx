@@ -20,8 +20,6 @@ import DataTable from "../../../components/admin/DataTable";
 
 import {
 
-    sales,
-
     orders,
 
     columns,

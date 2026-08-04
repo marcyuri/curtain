@@ -1,9 +1,9 @@
 import { useMemo, useState } from "react";
 import "./BlogSection.css";
 
-import Input from "../../form/Input";
-import Select from "../../form/Select";
-import Button from "../../form/Button";
+import Input from "../../ui/Input";
+import Select from "../../ui/Select";
+import Button from "../../ui/Button";
 import BlogCard from "../BlogCard";
 
 const SORT_OPTIONS = [

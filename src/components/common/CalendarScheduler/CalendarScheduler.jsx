@@ -60,7 +60,7 @@ function CalendarScheduler({
                         <p>Date sélectionnée : {selectedDate.toLocaleDateString()}</p>
 
                         <button onClick={() => handleDateClick(new Date())}>
-                            Aujourd'hui
+                            Aujourd&apos;hui
                         </button>
 
                         <button onClick={() => onCreateEvent?.()}>

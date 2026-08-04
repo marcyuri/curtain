@@ -11,7 +11,7 @@ import {
 
 import { Link } from "react-router-dom";
 
-import Button from "../../../components/common/Button";
+import Button from "../../../components/ui/Button";
 
 import "./AdminLogin.css";
 

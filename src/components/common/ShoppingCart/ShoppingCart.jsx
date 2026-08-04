@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 
 import {
-    ShoppingCart,
+    ShoppingCart as ShoppingCartIcon,
     Trash2,
     Minus,
     Plus,
@@ -9,8 +9,8 @@ import {
     Truck,
 } from "lucide-react";
 
-import Button from "../../form/Button";
-import Input from "../../form/Input";
+import Button from "../../ui/Button";
+import Input from "../../ui/Input";
 
 import "./ShoppingCart.css";
 
@@ -44,9 +44,7 @@ const ShoppingCart = ({
         SHIPPING[0]
     );
 
-    const subtotal = useMemo(() => {
-
-        return items.reduce(
+    const subtotal = useMemo(() => items.reduce(
 
             (sum, item) =>
 
@@ -56,9 +54,7 @@ const ShoppingCart = ({
 
             0
 
-        );
-
-    }, [items]);
+        ), [items]);
 
     const taxes = subtotal * taxRate;
 
@@ -73,7 +69,7 @@ const ShoppingCart = ({
 
             <header>
 
-                <ShoppingCart />
+                <ShoppingCartIcon />
 
                 <h2>
 

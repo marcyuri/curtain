@@ -52,7 +52,7 @@ function DataGrid({
 
     const handleSort = (key) => {
 
-        if (!sortable) return;
+        if (!sortable) {return;}
 
         setSort(previous => ({
 

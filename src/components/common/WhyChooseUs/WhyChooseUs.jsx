@@ -1,5 +1,5 @@
 import "./WhyChooseUs.css";
-import Button from "../../form/Button";
+import Button from "../../ui/Button";
 
 const WhyChooseUs = ({
     image,
@@ -11,8 +11,7 @@ const WhyChooseUs = ({
     buttonLabel,
     onButtonClick,
     reverse = false,
-}) => {
-    return (
+}) => (
         <section className="why-choose-us">
             <div
                 className={`why-choose-us__container ${reverse ? "why-choose-us__container--reverse" : ""
@@ -86,6 +85,5 @@ const WhyChooseUs = ({
             </div>
         </section>
     );
-};
 
 export default WhyChooseUs;

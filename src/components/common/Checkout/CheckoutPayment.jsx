@@ -8,10 +8,10 @@ import {
     TicketPercent,
 } from "lucide-react";
 
-import Input from "../../form/Input";
-import Checkbox from "../../form/Checkbox";
-import Button from "../../form/Button";
-import Select from "../../form/Select";
+import Input from "../../ui/Input";
+import Checkbox from "../../ui/Checkbox";
+import Button from "../../ui/Button";
+import Select from "../../ui/Select";
 
 import "./CheckoutPayment.css";
 
@@ -109,9 +109,7 @@ function CheckoutPayment({
 
     const [error, setError] = useState("");
 
-    const subtotal = useMemo(() => {
-
-        return cart.reduce(
+    const subtotal = useMemo(() => cart.reduce(
 
             (sum, item) =>
 
@@ -120,9 +118,7 @@ function CheckoutPayment({
 
             0
 
-        );
-
-    }, [cart]);
+        ), [cart]);
 
     const update = (field, fieldValue) => {
 

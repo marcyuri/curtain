@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 
-import Stepper from "../Stepper";
+import Stepper from "../../ui/Stepper";
 
 import CheckoutCustomer from "./CheckoutCustomer";
 import CheckoutShipping from "./CheckoutShipping";
@@ -71,9 +71,7 @@ function Checkout({
 
     });
 
-    const subtotal = useMemo(() => {
-
-        return cartItems.reduce(
+    const subtotal = useMemo(() => cartItems.reduce(
 
             (sum, item) =>
 
@@ -81,9 +79,7 @@ function Checkout({
 
             0
 
-        );
-
-    }, [cartItems]);
+        ), [cartItems]);
 
     const shippingPrice = useMemo(() => {
 
@@ -97,9 +93,7 @@ function Checkout({
 
     }, [checkout.shippingMethod]);
 
-    const total = useMemo(() => {
-
-        return (
+    const total = useMemo(() => (
 
             subtotal +
 
@@ -109,9 +103,7 @@ function Checkout({
 
             discount
 
-        );
-
-    }, [
+        ), [
 
         subtotal,
 

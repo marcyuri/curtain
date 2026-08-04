@@ -21,9 +21,7 @@ function Events() {
 
     const [search, setSearch] = useState("");
 
-    const filteredEvents = useMemo(() => {
-
-        return events.filter((event) =>
+    const filteredEvents = useMemo(() => events.filter((event) =>
 
             event.title
                 .toLowerCase()
@@ -41,9 +39,7 @@ function Events() {
                 .toLowerCase()
                 .includes(search.toLowerCase())
 
-        );
-
-    }, [
+        ), [
 
         search,
 

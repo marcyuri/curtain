@@ -147,7 +147,7 @@ function BlogCard({
                     onClick={() => onRead?.(article)}
                 >
 
-                    Lire l'article
+                    Lire l&apos;article
 
                     <ArrowRight size={18} />
 

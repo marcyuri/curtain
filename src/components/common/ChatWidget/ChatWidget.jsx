@@ -9,7 +9,7 @@ function ChatWidget({
     const [value, setValue] = useState("");
 
     const submit = () => {
-        if (!value.trim()) return;
+        if (!value.trim()) {return;}
         onSend?.(value);
         setValue("");
     };

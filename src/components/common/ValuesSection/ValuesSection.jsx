@@ -5,8 +5,7 @@ const ValuesSection = ({
     subtitle,
     values = [],
     columns = 3,
-}) => {
-    return (
+}) => (
         <section className="values-section">
             {(title || subtitle) && (
                 <header className="values-section__header">
@@ -47,6 +46,5 @@ const ValuesSection = ({
             </div>
         </section>
     );
-};
 
 export default ValuesSection;

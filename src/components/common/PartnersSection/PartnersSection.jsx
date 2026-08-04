@@ -6,8 +6,7 @@ const PartnersSection = ({
     partners = [],
     columns = 5,
     grayscale = true,
-}) => {
-    return (
+}) => (
         <section className="partners-section">
             {(title || subtitle) && (
                 <header className="partners-section__header">
@@ -47,6 +46,5 @@ const PartnersSection = ({
             </div>
         </section>
     );
-};
 
 export default PartnersSection;

@@ -37,9 +37,7 @@ function ServicesSection({
 
     const [category, setCategory] = useState("Toutes");
 
-    const filteredServices = useMemo(() => {
-
-        return services.filter(service => {
+    const filteredServices = useMemo(() => services.filter(service => {
 
             const categoryMatch =
                 category === "Toutes" ||
@@ -56,9 +54,7 @@ function ServicesSection({
 
             return categoryMatch && searchMatch;
 
-        });
-
-    }, [services, query, category]);
+        }), [services, query, category]);
 
     return (
 

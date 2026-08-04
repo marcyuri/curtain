@@ -18,7 +18,7 @@ function Navbar({
 
     useEffect(() => {
 
-        if (!sticky) return;
+        if (!sticky) {return;}
 
         const handleScroll = () => {
 

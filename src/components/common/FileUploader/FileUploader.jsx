@@ -8,7 +8,7 @@ import {
     Trash2,
 } from "lucide-react";
 
-import Button from "../../form/Button";
+import Button from "../../ui/Button";
 
 import "./FileUploader.css";
 

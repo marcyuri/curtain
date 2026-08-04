@@ -9,7 +9,7 @@ import {
     UserRound,
 } from "lucide-react";
 
-import Button from "../../common/Button";
+import Button from "../../ui/Button";
 
 import "./TeamMemberCard.css";
 

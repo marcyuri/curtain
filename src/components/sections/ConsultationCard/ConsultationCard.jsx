@@ -7,7 +7,7 @@ import {
     CheckCircle2,
 } from "lucide-react";
 
-import Button from "../../common/Button";
+import Button from "../../ui/Button";
 
 import "./ConsultationCard.css";
 

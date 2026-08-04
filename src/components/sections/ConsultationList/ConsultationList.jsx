@@ -25,9 +25,7 @@ function ConsultationList({
 
     const [mode, setMode] = useState("Tous");
 
-    const filteredConsultations = useMemo(() => {
-
-        return consultations.filter((consultation) => {
+    const filteredConsultations = useMemo(() => consultations.filter((consultation) => {
 
             const matchesSearch =
 
@@ -47,9 +45,7 @@ function ConsultationList({
 
             return matchesSearch && matchesMode;
 
-        });
-
-    }, [consultations, search, mode]);
+        }), [consultations, search, mode]);
 
     return (
 

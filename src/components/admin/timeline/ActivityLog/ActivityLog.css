@@ -1,0 +1,9 @@
+.activity-log {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.activity-log--loading {
+    gap: 16px;
+}

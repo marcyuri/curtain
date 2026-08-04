@@ -29,15 +29,11 @@ function NotificationDropdown({
 
     const [open, setOpen] = useState(false);
 
-    const unreadCount = useMemo(() => {
-
-        return notifications.filter(
+    const unreadCount = useMemo(() => notifications.filter(
 
             notification => !notification.read
 
-        ).length;
-
-    }, [notifications]);
+        ).length, [notifications]);
 
     useEffect(() => {
 

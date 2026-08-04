@@ -11,7 +11,7 @@ import {
     Linkedin
 } from "lucide-react";
 
-import Button from "../../form/Button";
+import Button from "../../ui/Button";
 import ContactForm from "../ContactForm";
 
 const SOCIAL_ICONS = {
@@ -34,9 +34,7 @@ const ContactSection = ({
     socialLinks = [],
 
     primaryAction,
-}) => {
-
-    return (
+}) => (
 
         <section className="contact-section">
 
@@ -179,7 +177,5 @@ const ContactSection = ({
         </section>
 
     );
-
-};
 
 export default ContactSection;

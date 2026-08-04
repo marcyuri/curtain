@@ -3,7 +3,7 @@ import {
     Clock3,
 } from "lucide-react";
 
-import Button from "../../common/Button";
+import Button from "../../ui/Button";
 
 import "./ServiceCard.css";
 

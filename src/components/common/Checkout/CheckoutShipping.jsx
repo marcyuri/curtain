@@ -7,9 +7,9 @@ import {
     MapPin,
 } from "lucide-react";
 
-import Button from "../../form/Button";
-import Select from "../../form/Select";
-import Textarea from "../../form/Textarea";
+import Button from "../../ui/Button";
+import Select from "../../ui/Select";
+import Textarea from "../../ui/Textarea";
 
 import "./CheckoutShipping.css";
 

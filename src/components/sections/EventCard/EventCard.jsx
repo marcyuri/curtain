@@ -6,7 +6,7 @@ import {
     ArrowRight,
 } from "lucide-react";
 
-import Button from "../../common/Button";
+import Button from "../../ui/Button";
 
 import "./EventCard.css";
 
@@ -131,7 +131,7 @@ function EventCard({
 
                 >
 
-                    S'inscrire
+                    S&apos;inscrire
 
                     <ArrowRight size={18} />
 

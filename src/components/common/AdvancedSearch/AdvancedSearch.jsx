@@ -8,8 +8,8 @@ import {
     Command,
 } from "lucide-react";
 
-import Input from "../../form/Input";
-import Button from "../../form/Button";
+import Input from "../../ui/Input";
+import Button from "../../ui/Button";
 
 import "./AdvancedSearch.css";
 
@@ -48,7 +48,7 @@ const AdvancedSearch = ({
 
         }
 
-        if (!query) return list;
+        if (!query) {return list;}
 
         return list.filter(item =>
 

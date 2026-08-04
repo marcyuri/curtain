@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Cookie, Settings, Check, X } from "lucide-react";
 
-import Button from "../../form/Button";
+import Button from "../../ui/Button";
 
 import "./CookieConsent.css";
 

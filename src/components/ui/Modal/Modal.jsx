@@ -10,7 +10,7 @@ function Modal({
     onClose
 }) {
 
-    if (!open) return null;
+    if (!open) {return null;}
 
     return (
 

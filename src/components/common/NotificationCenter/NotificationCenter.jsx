@@ -8,7 +8,7 @@ import {
     Filter,
 } from "lucide-react";
 
-import Button from "../../form/Button";
+import Button from "../../ui/Button";
 
 import "./NotificationCenter.css";
 
@@ -34,7 +34,7 @@ const NotificationCenter = ({
 
     const items = useMemo(() => {
 
-        if (filter === "Toutes") return notifications;
+        if (filter === "Toutes") {return notifications;}
 
         if (filter === "Non lues") {
             return notifications.filter(

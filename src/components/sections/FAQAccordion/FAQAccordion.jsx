@@ -33,9 +33,7 @@ function FAQAccordion({
 
         }
 
-        return items.filter((item) => {
-
-            return (
+        return items.filter((item) => (
 
                 item.question
                     .toLowerCase()
@@ -47,9 +45,7 @@ function FAQAccordion({
                     .toLowerCase()
                     .includes(search.toLowerCase())
 
-            );
-
-        });
+            ));
 
     }, [
 

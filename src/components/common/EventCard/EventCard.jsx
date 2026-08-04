@@ -149,7 +149,7 @@ function EventCard({
 
                     >
 
-                        S'inscrire
+                        S&apos;inscrire
 
                     </Button>
 

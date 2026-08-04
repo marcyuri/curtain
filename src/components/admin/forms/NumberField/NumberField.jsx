@@ -17,9 +17,9 @@ function NumberField({
 }){
   const update=(v)=>{
     let n=Number(v);
-    if(!Number.isFinite(n)) n=0;
-    if(min!==undefined) n=Math.max(min,n);
-    if(max!==undefined) n=Math.min(max,n);
+    if(!Number.isFinite(n)) {n=0;}
+    if(min!==undefined) {n=Math.max(min,n);}
+    if(max!==undefined) {n=Math.min(max,n);}
     onChange?.(n);
   };
 

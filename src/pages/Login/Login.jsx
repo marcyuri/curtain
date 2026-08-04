@@ -10,7 +10,7 @@ import {
 
 import { Link } from "react-router-dom";
 
-import Button from "../../components/common/Button";
+import Button from "../../components/ui/Button";
 
 import "./Login.css";
 
@@ -246,7 +246,7 @@ function Login({
 
                 <footer className="login-card__footer">
 
-                    Vous n'avez pas encore de compte ?
+                    Vous n&apos;avez pas encore de compte ?
 
                     <Link to="/register">
 

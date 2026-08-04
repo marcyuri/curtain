@@ -1,7 +1,7 @@
 import { useMemo, useState } from "react";
 import "./TeamSection.css";
-import Button from "../../form/Button";
-import Input from "../../form/Input";
+import Button from "../../ui/Button";
+import Input from "../../ui/Input";
 import TeamCard from "../TeamCard";
 
 const TeamSection = ({
@@ -18,8 +18,7 @@ const TeamSection = ({
     const [search, setSearch] = useState("");
     const [department, setDepartment] = useState("all");
 
-    const filteredMembers = useMemo(() => {
-        return members.filter((member) => {
+    const filteredMembers = useMemo(() => members.filter((member) => {
             const matchesDepartment =
                 department === "all" ||
                 member.department === department;
@@ -31,8 +30,7 @@ const TeamSection = ({
                 member.role.toLowerCase().includes(query);
 
             return matchesDepartment && matchesSearch;
-        });
-    }, [members, search, department]);
+        }), [members, search, department]);
 
     const displayedMembers = limit
         ? filteredMembers.slice(0, limit)
