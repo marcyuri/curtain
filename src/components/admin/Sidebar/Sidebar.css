@@ -6,7 +6,7 @@
 
     flex-direction: column;
 
-    background: #111827;
+    background: var(--color-sidebar-background);
 
     color: white;
 
@@ -22,7 +22,7 @@
 
     align-items: center;
 
-    border-bottom: 1px solid rgba(255, 255, 255, .08);
+    border-bottom: 1px solid var(--color-overlay-light);
 
 }
 
@@ -36,7 +36,7 @@
 
 .sidebar__logo span {
 
-    color: #bdbdbd;
+    color: var(--color-sidebar-text-muted);
 
     font-size: .85rem;
 
@@ -52,7 +52,7 @@
 
     padding: 24px;
 
-    border-bottom: 1px solid rgba(255, 255, 255, .08);
+    border-bottom: 1px solid var(--color-overlay-light);
 
 }
 
@@ -70,7 +70,7 @@
 
 .sidebar__user span {
 
-    color: #bdbdbd;
+    color: var(--color-sidebar-text-muted);
 
     font-size: .85rem;
 
@@ -96,7 +96,7 @@
 
     padding: 14px 24px;
 
-    color: #d1d5db;
+    color: var(--color-border-dark);
 
     text-decoration: none;
 
@@ -106,7 +106,7 @@
 
 .sidebar__link:hover {
 
-    background: rgba(255, 255, 255, .08);
+    background: var(--color-overlay-light);
 
     color: white;
 
@@ -138,7 +138,7 @@
 
     border-radius: 12px;
 
-    background: #dc2626;
+    background: var(--color-danger);
 
     color: white;
 

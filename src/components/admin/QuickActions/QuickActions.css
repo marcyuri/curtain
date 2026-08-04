@@ -106,49 +106,49 @@
 
 .quick-action--red .quick-action__icon {
 
-    background: #d90429;
+    background: var(--color-primary);
 
 }
 
 .quick-action--green .quick-action__icon {
 
-    background: #16a34a;
+    background: var(--color-success);
 
 }
 
 .quick-action--purple .quick-action__icon {
 
-    background: #7c3aed;
+    background: var(--color-accent-purple);
 
 }
 
 .quick-action--orange .quick-action__icon {
 
-    background: #ea580c;
+    background: var(--color-accent-orange);
 
 }
 
 .quick-action--blue .quick-action__icon {
 
-    background: #2563eb;
+    background: var(--color-info);
 
 }
 
 .quick-action--cyan .quick-action__icon {
 
-    background: #0891b2;
+    background: var(--color-accent-cyan);
 
 }
 
 .quick-action--pink .quick-action__icon {
 
-    background: #db2777;
+    background: var(--color-accent-pink);
 
 }
 
 .quick-action--gray .quick-action__icon {
 
-    background: #4b5563;
+    background: var(--color-accent-grey);
 
 }
 

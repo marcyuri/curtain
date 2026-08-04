@@ -76,7 +76,7 @@
 
     padding-bottom: 22px;
 
-    border-bottom: 1px solid #ececec;
+    border-bottom: 1px solid var(--color-surface-muted);
 
 }
 
@@ -122,43 +122,43 @@
 
 .activity__icon--red {
 
-    background: #d90429;
+    background: var(--color-primary);
 
 }
 
 .activity__icon--green {
 
-    background: #16a34a;
+    background: var(--color-success);
 
 }
 
 .activity__icon--purple {
 
-    background: #7c3aed;
+    background: var(--color-accent-purple);
 
 }
 
 .activity__icon--orange {
 
-    background: #ea580c;
+    background: var(--color-accent-orange);
 
 }
 
 .activity__icon--blue {
 
-    background: #2563eb;
+    background: var(--color-info);
 
 }
 
 .activity__icon--cyan {
 
-    background: #0891b2;
+    background: var(--color-accent-cyan);
 
 }
 
 .activity__icon--pink {
 
-    background: #db2777;
+    background: var(--color-accent-pink);
 
 }
 

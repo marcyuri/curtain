@@ -58,7 +58,7 @@
 
     border-radius: 10px;
 
-    background: #f5f5f5;
+    background: var(--color-surface-secondary);
 
     cursor: pointer;
 
@@ -78,7 +78,7 @@
 
     border-radius: 16px;
 
-    background: #fafafa;
+    background: var(--color-background);
 
 }
 
@@ -144,24 +144,24 @@
 
 .calendar-event--consultation {
 
-    background: #7c3aed;
+    background: var(--color-accent-purple);
 
 }
 
 .calendar-event--order {
 
-    background: #16a34a;
+    background: var(--color-success);
 
 }
 
 .calendar-event--meeting {
 
-    background: #2563eb;
+    background: var(--color-info);
 
 }
 
 .calendar-event--event {
 
-    background: #ea580c;
+    background: var(--color-accent-orange);
 
 }

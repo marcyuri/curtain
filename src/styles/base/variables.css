@@ -50,13 +50,36 @@
 
     --color-border: #E5E7EB;
     --color-border-dark: #D1D5DB;
+    --color-border-light: #EEEEEE;
 
     --color-text: #374151;
     --color-text-light: #6B7280;
+    --color-text-muted: #888888;
+    --color-text-subtle: #777777;
     --color-title: #1E1E1E;
 
     /* Superposition utilisée sur les visuels Hero / CTA */
     --cta-overlay: rgba(30, 30, 30, 0.55);
+    --color-overlay-light: rgba(255, 255, 255, 0.08);
+
+    /* ===== Surfaces additionnelles (Back Office — Document 08) ===== */
+    --color-surface-alt: #F8F8F8;
+    --color-surface-muted: #ECECEC;
+
+    /* ===== Palette catégorielle (widgets Back Office — Document 04 Ch.3) =====
+     * Utilisée pour distinguer visuellement des catégories dans les
+     * StatsCard, QuickActions, NotificationPanel, RecentActivity et
+     * CalendarWidget (ex : une couleur par module métier). Ajoutée ici
+     * plutôt que codée en dur dans chaque composant. */
+    --color-accent-orange: #EA580C;
+    --color-accent-purple: #7C3AED;
+    --color-accent-cyan: #0891B2;
+    --color-accent-pink: #DB2777;
+    --color-accent-grey: #4B5563;
+
+    /* ===== Back Office — Sidebar (fond sombre dédié) ===== */
+    --color-sidebar-background: #111827;
+    --color-sidebar-text-muted: #BDBDBD;
 
     /* ===== Typographie ===== */
     --font-heading: "Poppins", system-ui, sans-serif;
