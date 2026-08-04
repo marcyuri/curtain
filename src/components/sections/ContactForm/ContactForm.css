@@ -18,6 +18,12 @@
 
 }
 
+.contact-form__field-error {
+    margin-top: calc(var(--spacing-8) * -1);
+    color: var(--color-danger);
+    font-size: var(--font-size-xs);
+}
+
 .contact-form__header {
 
     display: flex;

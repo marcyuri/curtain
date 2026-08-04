@@ -68,12 +68,18 @@
 
     padding: 40px;
 
-    background: white;
+    background: var(--color-white);
 
     border-radius: var(--radius-xl);
 
     border: 1px solid var(--color-border);
 
+}
+
+.booking-form__field-error {
+    margin-top: calc(var(--spacing-8) * -1);
+    color: var(--color-danger);
+    font-size: var(--font-size-xs);
 }
 
 .booking-form__row {

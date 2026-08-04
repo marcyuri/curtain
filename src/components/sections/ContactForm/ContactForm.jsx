@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import {
     User,
     Mail,
@@ -10,98 +8,58 @@ import {
     Paperclip,
 } from "lucide-react";
 
-import Button from "../../ui/Button";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+import Button from "@components/ui/Button";
+import contactSchema from "@schemas/contactSchema";
 
 import "./ContactForm.css";
 
-const INITIAL_FORM = {
+function ContactForm() {
 
-    firstName: "",
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState: { errors, isSubmitting },
+    } = useForm({
+        resolver: zodResolver(contactSchema),
+        defaultValues: {
+            firstName: "",
+            lastName: "",
+            email: "",
+            phone: "",
+            subject: "",
+            message: "",
+        },
+    });
 
-    lastName: "",
+    const attachment = watch("attachment");
 
-    email: "",
+    const onSubmit = async () => {
 
-    phone: "",
-
-    subject: "",
-
-    message: "",
-
-    attachment: null,
-
-};
-
-function ContactForm({
-
-    loading = false,
-
-    onSubmit,
-
-}) {
-
-    const [form, setForm] = useState(INITIAL_FORM);
-
-    const update = (event) => {
-
-        const {
-
-            name,
-
-            value,
-
-            files,
-
-            type,
-
-        } = event.target;
-
-        setForm((previous) => ({
-
-            ...previous,
-
-            [name]:
-
-                type === "file"
-
-                    ? files[0] || null
-
-                    : value,
-
-        }));
-
-    };
-
-    const submit = (event) => {
-
-        event.preventDefault();
-
-        onSubmit?.(form);
+        // TODO: brancher sur contactService une fois le backend disponible
+        // (Document 07). Aucun endpoint de contact n'existe encore.
 
     };
 
     return (
 
         <form
-
             className="contact-form"
-
-            onSubmit={submit}
-
+            onSubmit={handleSubmit(onSubmit)}
+            noValidate
         >
 
             <header className="contact-form__header">
 
                 <h2>
-
                     Contactez-nous
-
                 </h2>
 
                 <p>
-
                     Nous vous répondrons dans les meilleurs délais.
-
                 </p>
 
             </header>
@@ -113,19 +71,9 @@ function ContactForm({
                     <User size={18} />
 
                     <input
-
                         type="text"
-
-                        name="firstName"
-
                         placeholder="Prénom"
-
-                        value={form.firstName}
-
-                        onChange={update}
-
-                        required
-
+                        {...register("firstName")}
                     />
 
                 </label>
@@ -135,19 +83,9 @@ function ContactForm({
                     <User size={18} />
 
                     <input
-
                         type="text"
-
-                        name="lastName"
-
                         placeholder="Nom"
-
-                        value={form.lastName}
-
-                        onChange={update}
-
-                        required
-
+                        {...register("lastName")}
                     />
 
                 </label>
@@ -157,19 +95,9 @@ function ContactForm({
                     <Mail size={18} />
 
                     <input
-
                         type="email"
-
-                        name="email"
-
                         placeholder="Adresse e-mail"
-
-                        value={form.email}
-
-                        onChange={update}
-
-                        required
-
+                        {...register("email")}
                     />
 
                 </label>
@@ -179,106 +107,80 @@ function ContactForm({
                     <Phone size={18} />
 
                     <input
-
                         type="tel"
-
-                        name="phone"
-
                         placeholder="Téléphone"
-
-                        value={form.phone}
-
-                        onChange={update}
-
+                        {...register("phone")}
                     />
 
                 </label>
 
             </div>
 
+            {(errors.firstName || errors.lastName || errors.email) && (
+                <span className="contact-form__field-error">
+                    {errors.firstName?.message ?? errors.lastName?.message ?? errors.email?.message}
+                </span>
+            )}
+
             <label>
 
                 <FileText size={18} />
 
                 <input
-
                     type="text"
-
-                    name="subject"
-
                     placeholder="Sujet"
-
-                    value={form.subject}
-
-                    onChange={update}
-
-                    required
-
+                    {...register("subject")}
                 />
 
             </label>
+
+            {errors.subject && (
+                <span className="contact-form__field-error">
+                    {errors.subject.message}
+                </span>
+            )}
 
             <label>
 
                 <MessageSquare size={18} />
 
                 <textarea
-
-                    name="message"
-
                     rows="8"
-
                     placeholder="Votre message..."
-
-                    value={form.message}
-
-                    onChange={update}
-
-                    required
-
+                    {...register("message")}
                 />
 
             </label>
+
+            {errors.message && (
+                <span className="contact-form__field-error">
+                    {errors.message.message}
+                </span>
+            )}
 
             <label className="contact-form__file">
 
                 <Paperclip size={18} />
 
                 <span>
-
-                    {form.attachment
-                        ? form.attachment.name
-                        : "Ajouter une pièce jointe"}
-
+                    {attachment?.[0]?.name ?? "Ajouter une pièce jointe"}
                 </span>
 
                 <input
-
                     type="file"
-
-                    name="attachment"
-
-                    onChange={update}
-
+                    {...register("attachment")}
                 />
 
             </label>
 
             <Button
-
                 type="submit"
-
-                disabled={loading}
-
+                disabled={isSubmitting}
             >
 
                 <Send size={18} />
 
-                {loading
-
-                    ? "Envoi..."
-
-                    : "Envoyer le message"}
+                {isSubmitting ? "Envoi..." : "Envoyer le message"}
 
             </Button>
 
