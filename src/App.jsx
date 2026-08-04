@@ -7,7 +7,7 @@ import ErrorBoundary from "@components/common/ErrorBoundary";
 
 function App() {
     return (
-        <ErrorBoundary>
+        <ErrorBoundary showDetails>
 
             <Suspense
                 fallback={
