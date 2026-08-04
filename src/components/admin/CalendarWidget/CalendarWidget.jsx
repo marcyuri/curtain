@@ -10,11 +10,15 @@ import {
 
 } from "lucide-react";
 
+import { getDayOfMonth, getMonthYearLabel } from "@utils/formatDate";
+
 import calendarEvents from "./calendarData";
 
 import "./CalendarWidget.css";
 
 function CalendarWidget() {
+
+    const today = new Date();
 
     return (
 
@@ -66,13 +70,13 @@ function CalendarWidget() {
 
                 <h3>
 
-                    02
+                    {getDayOfMonth(today)}
 
                 </h3>
 
                 <span>
 
-                    Août 2026
+                    {getMonthYearLabel(today)}
 
                 </span>
 
