@@ -1,0 +1,119 @@
+/*
+ * Design System — LOVE CAN BUILD (Document 04 & Document 08)
+ * Source unique de vérité pour toutes les valeurs visuelles.
+ *
+ * Les couleurs primaire/secondaire ci-dessous sont un choix éditorial
+ * fait en l'absence de charte graphique fournie par le projet, calé sur
+ * les teintes déjà utilisées de façon éparpillée dans le code existant
+ * (ratings dorés, rouges système, etc.) pour limiter le changement visuel.
+ * Elles sont centralisées ici : les modifier ici suffit à retheme toute
+ * l'application, sans toucher un seul composant.
+ */
+
+:root {
+
+    /* ===== Couleurs — Marque ===== */
+    --color-primary: #2A6F6F;
+    --color-primary-hover: #235c5c;
+    --color-primary-active: #1c4a4a;
+    --color-primary-light: #e3f0f0;
+
+    --color-secondary: #F5B301;
+    --color-secondary-hover: #dba101;
+    --color-secondary-active: #c18f01;
+
+    /* ===== Couleurs — Sémantique ===== */
+    --color-success: #16A34A;
+    --color-success-light: #DCFCE7;
+
+    --color-warning: #F59E0B;
+    --color-warning-light: #FEF3C7;
+
+    --color-danger: #DC2626;
+    --color-danger-light: #FEE2E2;
+    --color-danger-background: #FEF2F2;
+    --color-danger-border: #FCA5A5;
+
+    --color-info: #2563EB;
+    --color-info-light: #DBEAFE;
+    --color-info-background: #EFF6FF;
+    --color-info-border: #93C5FD;
+
+    /* ===== Couleurs — Neutres ===== */
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+    --color-dark: #1E1E1E;
+
+    --color-background: #FAFAFA;
+    --color-surface: #FFFFFF;
+    --color-surface-secondary: #F5F5F5;
+
+    --color-border: #E5E7EB;
+    --color-border-dark: #D1D5DB;
+
+    --color-text: #374151;
+    --color-text-light: #6B7280;
+    --color-title: #1E1E1E;
+
+    /* Superposition utilisée sur les visuels Hero / CTA */
+    --cta-overlay: rgba(30, 30, 30, 0.55);
+
+    /* ===== Typographie ===== */
+    --font-heading: "Poppins", system-ui, sans-serif;
+    --font-body: "Inter", system-ui, sans-serif;
+
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.5rem;
+    --font-size-2xl: 2rem;
+    --font-size-3xl: 2.5rem;
+
+    /* ===== Espacements (grille 4px — Document 04 Ch.9, Document 08 Ch.5) ===== */
+    --spacing-4: 4px;
+    --spacing-8: 8px;
+    --spacing-12: 12px;
+    --spacing-16: 16px;
+    --spacing-20: 20px;
+    --spacing-24: 24px;
+    --spacing-32: 32px;
+    --spacing-40: 40px;
+    --spacing-48: 48px;
+    --spacing-64: 64px;
+    --spacing-80: 80px;
+    --spacing-96: 96px;
+
+    /* ===== Rayons ===== */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius: var(--radius-md);
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-2xl: 24px;
+    --radius-pill: 999px;
+    --radius-full: 999px;
+
+    /* ===== Ombres ===== */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.10);
+    --shadow-xl: 0 16px 40px rgba(0, 0, 0, 0.12);
+    --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.08);
+    --shadow-floating: 0 12px 32px rgba(0, 0, 0, 0.16);
+
+    /* ===== Transitions (Document 04 Ch.15) ===== */
+    --transition-fast: 150ms ease;
+    --transition-normal: 250ms ease;
+    --transition: var(--transition-normal);
+
+    /* ===== Z-index (Document 04 Ch.19) ===== */
+    --z-dropdown: 100;
+    --z-sticky: 200;
+    --z-header: 300;
+    --z-drawer: 500;
+    --z-modal: 1000;
+    --z-toast: 1200;
+    --z-tooltip: 1500;
+
+}
