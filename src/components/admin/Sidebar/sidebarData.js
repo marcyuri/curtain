@@ -1,5 +1,7 @@
 import { LayoutDashboard, Package } from "lucide-react";
 
+import { ROLES } from "@constants/roles";
+
 const sidebarItems = [
 
     {
@@ -7,7 +9,7 @@ const sidebarItems = [
         label: "Tableau de bord",
         path: "/admin",
         icon: LayoutDashboard,
-        roles: ["SUPER_ADMIN", "ADMINISTRATOR", "MANAGER"],
+        roles: [ROLES.SUPER_ADMIN, ROLES.ADMINISTRATOR, ROLES.MANAGER],
     },
 
     {
@@ -15,7 +17,7 @@ const sidebarItems = [
         label: "Produits",
         path: "/admin/products",
         icon: Package,
-        roles: ["SUPER_ADMIN", "ADMINISTRATOR", "MANAGER"],
+        roles: [ROLES.SUPER_ADMIN, ROLES.ADMINISTRATOR, ROLES.MANAGER],
     },
 
 ];

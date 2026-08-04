@@ -10,13 +10,15 @@ import {
 
 } from "lucide-react";
 
+import { ROLES } from "@constants/roles";
+
 import sidebarItems from "./sidebarData";
 
 import "./Sidebar.css";
 
 function Sidebar({
 
-    role = "SUPER_ADMIN",
+    role = ROLES.SUPER_ADMIN,
 
     user,
 
