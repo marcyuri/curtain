@@ -94,3 +94,10 @@ bun.lockb
 
 uploads/
 storage/
+# ==================================================
+# Tests
+# ==================================================
+
+test-results/
+playwright-report/
+coverage/

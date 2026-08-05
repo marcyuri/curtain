@@ -42,5 +42,13 @@ export default defineConfig({
     sourcemap: false,
     emptyOutDir: true,
     chunkSizeWarningLimit: 1000
+  },
+
+  test: {
+    environment: "jsdom",
+    globals: true,
+    setupFiles: "./src/test/setup.js",
+    css: false,
+    exclude: ["node_modules/**", "e2e/**"]
   }
 });
