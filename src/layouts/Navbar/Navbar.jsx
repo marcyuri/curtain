@@ -1,10 +1,16 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Menu, X } from "lucide-react";
+
+import LanguageSwitcher from "@components/common/LanguageSwitcher";
 
 import "./Navbar.css";
 
 function Navbar() {
+
+    const { t } = useTranslation();
+
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -32,47 +38,49 @@ function Navbar() {
 
                     <li>
                         <NavLink to="/" end onClick={closeMenu}>
-                            Accueil
+                            {t("navbar.home")}
                         </NavLink>
                     </li>
 
                     <li>
                         <NavLink to="/about" onClick={closeMenu}>
-                            À propos
+                            {t("navbar.about")}
                         </NavLink>
                     </li>
 
                     <li>
                         <NavLink to="/consultations" onClick={closeMenu}>
-                            Consultations
+                            {t("navbar.consultations")}
                         </NavLink>
                     </li>
 
                     <li>
                         <NavLink to="/products" onClick={closeMenu}>
-                            Produits
+                            {t("navbar.products")}
                         </NavLink>
                     </li>
 
                     <li>
                         <NavLink to="/events" onClick={closeMenu}>
-                            Événements
+                            {t("navbar.events")}
                         </NavLink>
                     </li>
 
                     <li>
                         <NavLink to="/contact" onClick={closeMenu}>
-                            Contact
+                            {t("navbar.contact")}
                         </NavLink>
                     </li>
 
                 </ul>
 
+                <LanguageSwitcher />
+
                 <Link
                     to="/appointment"
                     className="navbar__button"
                 >
-                    Prendre rendez-vous
+                    {t("navbar.appointment")}
                 </Link>
 
                 <button

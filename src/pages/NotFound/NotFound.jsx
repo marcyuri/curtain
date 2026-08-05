@@ -1,11 +1,14 @@
 import { SearchX } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 import EmptyState from "@components/ui/EmptyState";
 
 import "./NotFound.css";
 
 function NotFound() {
+
+    const { t } = useTranslation();
 
     const navigate = useNavigate();
 
@@ -18,9 +21,9 @@ function NotFound() {
 
             <EmptyState
                 icon={SearchX}
-                title="Page introuvable"
-                description="La page que vous recherchez n'existe pas ou a été déplacée."
-                actionLabel="Retour à l'accueil"
+                title={t("notFound.title")}
+                description={t("notFound.description")}
+                actionLabel={t("notFound.action")}
                 onAction={handleGoHome}
             />
 

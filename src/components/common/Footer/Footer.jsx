@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import "./Footer.css";
 
 function Footer({
@@ -31,6 +32,10 @@ function Footer({
     className = ""
 
 }) {
+
+    const { t } = useTranslation();
+
+    const resolvedCopyright = copyright ?? `© ${new Date().getFullYear()} LOVE CAN BUILD — ${t("footer.rights")}`;
 
     return (
 
@@ -216,7 +221,7 @@ function Footer({
 
                 <span>
 
-                    {copyright}
+                    {resolvedCopyright}
 
                 </span>
 

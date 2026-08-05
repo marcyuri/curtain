@@ -13,6 +13,7 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useTranslation } from "react-i18next";
 
 import Button from "@components/ui/Button";
 import authService from "@services/authService";
@@ -21,6 +22,8 @@ import registerSchema from "@schemas/registerSchema";
 import "./Register.css";
 
 function Register() {
+
+    const { t } = useTranslation();
 
     const navigate = useNavigate();
 
@@ -75,11 +78,11 @@ function Register() {
                     </span>
 
                     <h1>
-                        Créer un compte
+                        {t("auth.register.title")}
                     </h1>
 
                     <p>
-                        Rejoignez notre communauté.
+                        {t("auth.register.subtitle")}
                     </p>
 
                 </header>
@@ -107,7 +110,7 @@ function Register() {
 
                             <input
                                 type="text"
-                                placeholder="Prénom"
+                                placeholder={t("auth.register.firstNamePlaceholder")}
                                 {...register("firstName")}
                             />
 
@@ -119,7 +122,7 @@ function Register() {
 
                             <input
                                 type="text"
-                                placeholder="Nom"
+                                placeholder={t("auth.register.lastNamePlaceholder")}
                                 {...register("lastName")}
                             />
 
@@ -139,7 +142,7 @@ function Register() {
 
                         <input
                             type="tel"
-                            placeholder="Téléphone"
+                            placeholder={t("auth.register.phonePlaceholder")}
                             {...register("phone")}
                         />
 
@@ -151,7 +154,7 @@ function Register() {
 
                         <input
                             type="email"
-                            placeholder="Adresse e-mail"
+                            placeholder={t("auth.register.emailPlaceholder")}
                             {...register("email")}
                         />
 
@@ -169,7 +172,7 @@ function Register() {
 
                         <input
                             type={showPassword ? "text" : "password"}
-                            placeholder="Mot de passe"
+                            placeholder={t("auth.register.passwordPlaceholder")}
                             {...register("password")}
                         />
 
@@ -196,7 +199,7 @@ function Register() {
 
                         <input
                             type={showConfirmPassword ? "text" : "password"}
-                            placeholder="Confirmer le mot de passe"
+                            placeholder={t("auth.register.confirmPasswordPlaceholder")}
                             {...register("confirmPassword")}
                         />
 
@@ -223,7 +226,7 @@ function Register() {
                             type="checkbox"
                             {...register("acceptTerms")}
                         />
-                        J&apos;accepte les conditions d&apos;utilisation.
+                        {t("auth.register.acceptTerms")}
 
                     </label>
 
@@ -240,16 +243,16 @@ function Register() {
 
                         <UserPlus size={18} />
 
-                        {isSubmitting ? "Création..." : "Créer mon compte"}
+                        {isSubmitting ? t("auth.register.submitting") : t("auth.register.submit")}
 
                     </Button>
 
                 </form>
 
                 <footer className="register-card__footer">
-                    Vous avez déjà un compte ?
+                    {t("auth.register.hasAccount")}
                     <Link to="/login">
-                        Se connecter
+                        {t("auth.register.signIn")}
                     </Link>
                 </footer>
 

@@ -1,0 +1,54 @@
+{
+    "navbar": {
+        "home": "Home",
+        "about": "About",
+        "consultations": "Consultations",
+        "products": "Products",
+        "events": "Events",
+        "contact": "Contact",
+        "appointment": "Book an appointment",
+        "login": "Login"
+    },
+    "footer": {
+        "rights": "All rights reserved."
+    },
+    "auth": {
+        "login": {
+            "title": "Login",
+            "subtitle": "Sign in to your personal account.",
+            "emailPlaceholder": "Email address",
+            "passwordPlaceholder": "Password",
+            "rememberMe": "Remember me",
+            "forgotPassword": "Forgot your password?",
+            "submit": "Sign in",
+            "submitting": "Signing in...",
+            "noAccount": "Don't have an account yet?",
+            "createAccount": "Create an account"
+        },
+        "register": {
+            "title": "Create an account",
+            "subtitle": "Join our community.",
+            "firstNamePlaceholder": "First name",
+            "lastNamePlaceholder": "Last name",
+            "phonePlaceholder": "Phone",
+            "emailPlaceholder": "Email address",
+            "passwordPlaceholder": "Password",
+            "confirmPasswordPlaceholder": "Confirm password",
+            "acceptTerms": "I accept the terms of use.",
+            "submit": "Create my account",
+            "submitting": "Creating...",
+            "hasAccount": "Already have an account?",
+            "signIn": "Sign in"
+        }
+    },
+    "notFound": {
+        "title": "Page not found",
+        "description": "The page you are looking for doesn't exist or has been moved.",
+        "action": "Back to home"
+    },
+    "common": {
+        "loading": "Loading...",
+        "retry": "Retry",
+        "home": "Home"
+    }
+}

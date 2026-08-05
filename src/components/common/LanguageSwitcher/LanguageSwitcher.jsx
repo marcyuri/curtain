@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Languages, ChevronDown } from "lucide-react";
 
 import "./LanguageSwitcher.css";
@@ -16,63 +17,29 @@ const DEFAULT_LANGUAGES = [
     },
 ];
 
-const STORAGE_KEY = "language";
-
 function LanguageSwitcher({
 
     languages = DEFAULT_LANGUAGES,
-
-    defaultLanguage = "fr",
 
     onChange,
 
 }) {
 
-    const [language, setLanguage] = useState(defaultLanguage);
+    const { i18n } = useTranslation();
+
+    const [language, setLanguage] = useState(i18n.language);
 
     useEffect(() => {
 
-        const saved = localStorage.getItem(STORAGE_KEY);
+        setLanguage(i18n.language);
 
-        if (saved) {
-
-            setLanguage(saved);
-
-            onChange?.(saved);
-
-            return;
-
-        }
-
-        const browserLanguage = navigator.language
-            .toLowerCase()
-            .split("-")[0];
-
-        const exists = languages.some(
-
-            (item) => item.code === browserLanguage
-
-        );
-
-        const nextLanguage = exists
-            ? browserLanguage
-            : defaultLanguage;
-
-        setLanguage(nextLanguage);
-
-        localStorage.setItem(STORAGE_KEY, nextLanguage);
-
-        onChange?.(nextLanguage);
-
-    }, []);
+    }, [i18n.language]);
 
     const handleChange = (event) => {
 
         const value = event.target.value;
 
-        setLanguage(value);
-
-        localStorage.setItem(STORAGE_KEY, value);
+        i18n.changeLanguage(value);
 
         onChange?.(value);
 

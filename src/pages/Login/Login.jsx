@@ -11,6 +11,7 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useTranslation } from "react-i18next";
 
 import Button from "@components/ui/Button";
 import useAuth from "@hooks/useAuth";
@@ -19,6 +20,8 @@ import loginSchema from "@schemas/loginSchema";
 import "./Login.css";
 
 function Login() {
+
+    const { t } = useTranslation();
 
     const navigate = useNavigate();
 
@@ -69,11 +72,11 @@ function Login() {
                     </span>
 
                     <h1>
-                        Connexion
+                        {t("auth.login.title")}
                     </h1>
 
                     <p>
-                        Connectez-vous à votre espace personnel.
+                        {t("auth.login.subtitle")}
                     </p>
 
                 </header>
@@ -99,7 +102,7 @@ function Login() {
 
                         <input
                             type="email"
-                            placeholder="Adresse e-mail"
+                            placeholder={t("auth.login.emailPlaceholder")}
                             {...register("email")}
                         />
 
@@ -117,7 +120,7 @@ function Login() {
 
                         <input
                             type={showPassword ? "text" : "password"}
-                            placeholder="Mot de passe"
+                            placeholder={t("auth.login.passwordPlaceholder")}
                             {...register("password")}
                         />
 
@@ -146,12 +149,12 @@ function Login() {
                                 type="checkbox"
                                 {...register("remember")}
                             />
-                            Se souvenir de moi
+                            {t("auth.login.rememberMe")}
 
                         </label>
 
                         <Link to="/forgot-password">
-                            Mot de passe oublié ?
+                            {t("auth.login.forgotPassword")}
                         </Link>
 
                     </div>
@@ -163,16 +166,16 @@ function Login() {
 
                         <LogIn size={18} />
 
-                        {isSubmitting ? "Connexion..." : "Se connecter"}
+                        {isSubmitting ? t("auth.login.submitting") : t("auth.login.submit")}
 
                     </Button>
 
                 </form>
 
                 <footer className="login-card__footer">
-                    Vous n&apos;avez pas encore de compte ?
+                    {t("auth.login.noAccount")}
                     <Link to="/register">
-                        Créer un compte
+                        {t("auth.login.createAccount")}
                     </Link>
                 </footer>
 
