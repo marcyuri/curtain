@@ -5,7 +5,11 @@ import {
     RotateCcw,
 } from "lucide-react";
 
-import Button from "../../ui/Button";
+import Button from "@components/ui/Button";
+
+import { DEFAULT_FILTERS } from "./constants/defaultFilters";
+import FilterSelect from "./components/FilterSelect";
+import PriceRangeInputs from "./components/PriceRangeInputs";
 
 import "./CategoryFilter.css";
 
@@ -26,45 +30,15 @@ function CategoryFilter({
 }) {
 
     const [state, setState] = useState({
-
-        category: "",
-
-        brand: "",
-
-        color: "",
-
-        size: "",
-
-        stock: "",
-
-        minPrice: "",
-
-        maxPrice: "",
-
+        ...DEFAULT_FILTERS,
         ...filters,
-
     });
 
     useEffect(() => {
 
         setState({
-
-            category: "",
-
-            brand: "",
-
-            color: "",
-
-            size: "",
-
-            stock: "",
-
-            minPrice: "",
-
-            maxPrice: "",
-
+            ...DEFAULT_FILTERS,
             ...filters,
-
         });
 
     }, [filters]);
@@ -72,11 +46,8 @@ function CategoryFilter({
     const update = (key, value) => {
 
         const next = {
-
             ...state,
-
             [key]: value,
-
         };
 
         setState(next);
@@ -87,27 +58,9 @@ function CategoryFilter({
 
     const reset = () => {
 
-        const next = {
+        setState(DEFAULT_FILTERS);
 
-            category: "",
-
-            brand: "",
-
-            color: "",
-
-            size: "",
-
-            stock: "",
-
-            minPrice: "",
-
-            maxPrice: "",
-
-        };
-
-        setState(next);
-
-        onChange?.(next);
+        onChange?.(DEFAULT_FILTERS);
 
     };
 
@@ -120,345 +73,62 @@ function CategoryFilter({
                 <Filter size={22} />
 
                 <h3>
-
                     Filtres
-
                 </h3>
 
             </header>
 
-            <div className="category-filter__group">
-
-                <label>
-
-                    Catégorie
-
-                </label>
-
-                <select
-
-                    value={state.category}
-
-                    onChange={(event) =>
-
-                        update(
-
-                            "category",
-
-                            event.target.value
-
-                        )
-
-                    }
-
-                >
-
-                    <option value="">
-
-                        Toutes
-
-                    </option>
-
-                    {categories.map((item) => (
-
-                        <option
-
-                            key={item}
-
-                            value={item}
-
-                        >
-
-                            {item}
-
-                        </option>
-
-                    ))}
-
-                </select>
-
-            </div>
-
-            <div className="category-filter__group">
-
-                <label>
-
-                    Marque
-
-                </label>
-
-                <select
-
-                    value={state.brand}
-
-                    onChange={(event) =>
-
-                        update(
-
-                            "brand",
-
-                            event.target.value
-
-                        )
-
-                    }
-
-                >
-
-                    <option value="">
-
-                        Toutes
-
-                    </option>
-
-                    {brands.map((item) => (
-
-                        <option
-
-                            key={item}
-
-                            value={item}
-
-                        >
-
-                            {item}
-
-                        </option>
-
-                    ))}
-
-                </select>
-
-            </div>
-
-            <div className="category-filter__group">
-
-                <label>
-
-                    Couleur
-
-                </label>
-
-                <select
-
-                    value={state.color}
-
-                    onChange={(event) =>
-
-                        update(
-
-                            "color",
-
-                            event.target.value
-
-                        )
-
-                    }
-
-                >
-
-                    <option value="">
-
-                        Toutes
-
-                    </option>
-
-                    {colors.map((item) => (
-
-                        <option
-
-                            key={item}
-
-                            value={item}
-
-                        >
-
-                            {item}
-
-                        </option>
-
-                    ))}
-
-                </select>
-
-            </div>
-
-            <div className="category-filter__group">
-
-                <label>
-
-                    Taille
-
-                </label>
-
-                <select
-
-                    value={state.size}
-
-                    onChange={(event) =>
-
-                        update(
-
-                            "size",
-
-                            event.target.value
-
-                        )
-
-                    }
-
-                >
-
-                    <option value="">
-
-                        Toutes
-
-                    </option>
-
-                    {sizes.map((item) => (
-
-                        <option
-
-                            key={item}
-
-                            value={item}
-
-                        >
-
-                            {item}
-
-                        </option>
-
-                    ))}
-
-                </select>
-
-            </div>
-
-            <div className="category-filter__prices">
-
-                <div>
-
-                    <label>
-
-                        Prix min
-
-                    </label>
-
-                    <input
-
-                        type="number"
-
-                        value={state.minPrice}
-
-                        onChange={(event) =>
-
-                            update(
-
-                                "minPrice",
-
-                                event.target.value
-
-                            )
-
-                        }
-
-                    />
-
-                </div>
-
-                <div>
-
-                    <label>
-
-                        Prix max
-
-                    </label>
-
-                    <input
-
-                        type="number"
-
-                        value={state.maxPrice}
-
-                        onChange={(event) =>
-
-                            update(
-
-                                "maxPrice",
-
-                                event.target.value
-
-                            )
-
-                        }
-
-                    />
-
-                </div>
-
-            </div>
-
-            <div className="category-filter__group">
-
-                <label>
-
-                    Disponibilité
-
-                </label>
-
-                <select
-
-                    value={state.stock}
-
-                    onChange={(event) =>
-
-                        update(
-
-                            "stock",
-
-                            event.target.value
-
-                        )
-
-                    }
-
-                >
-
-                    <option value="">
-
-                        Toutes
-
-                    </option>
-
-                    <option value="stock">
-
-                        En stock
-
-                    </option>
-
-                    <option value="out">
-
-                        Rupture
-
-                    </option>
-
-                </select>
-
-            </div>
+            <FilterSelect
+                label="Catégorie"
+                value={state.category}
+                options={categories}
+                onChange={(value) => update("category", value)}
+            />
+
+            <FilterSelect
+                label="Marque"
+                value={state.brand}
+                options={brands}
+                onChange={(value) => update("brand", value)}
+            />
+
+            <FilterSelect
+                label="Couleur"
+                value={state.color}
+                options={colors}
+                onChange={(value) => update("color", value)}
+            />
+
+            <FilterSelect
+                label="Taille"
+                value={state.size}
+                options={sizes}
+                onChange={(value) => update("size", value)}
+            />
+
+            <PriceRangeInputs
+                minPrice={state.minPrice}
+                maxPrice={state.maxPrice}
+                onMinChange={(value) => update("minPrice", value)}
+                onMaxChange={(value) => update("maxPrice", value)}
+            />
+
+            <FilterSelect
+                label="Disponibilité"
+                value={state.stock}
+                options={[
+                    { value: "stock", label: "En stock" },
+                    { value: "out", label: "Rupture" },
+                ]}
+                onChange={(value) => update("stock", value)}
+            />
 
             <Button
-
                 variant="outline"
-
                 onClick={reset}
-
             >
-
                 <RotateCcw size={18} />
-
                 Réinitialiser
-
             </Button>
 
         </aside>
