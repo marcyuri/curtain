@@ -52,6 +52,7 @@ backend/
 ```bash
 cd backend
 npm install
+cp .env.example .env
 ```
 
 ## Scripts disponibles
@@ -71,7 +72,7 @@ Suivi détaillé dans `Document13-Backend-Architecture-Specification.md`, Chapit
 ### ✅ Phase 0 — Socle technique
 
 - [x] **Étape 1 — Initialisation du projet** : `package.json` (ES Modules), ESLint + Prettier, structure de dossiers (Document 13 Ch.2), serveur Express minimal avec `GET /health`.
-- [ ] Étape 2 — `config/env.js` + validation Zod des variables d'environnement
+- [x] **Étape 2 — Configuration & validation d'environnement** : `config/env.js`, schéma Zod (`NODE_ENV`, `PORT`, `API_PREFIX`), échec immédiat au démarrage si une variable est invalide (*fail fast*, Document 10). `.env.example` documenté.
 - [ ] Étape 3 — Connexion Prisma + premier schéma
 - [ ] Étape 4 — Middlewares transverses (errorHandler, requestLogger, format de réponse unique)
 - [ ] Étape 5 — Vitest + Supertest, premier test de fumée
