@@ -1,0 +1,125 @@
+// Document 13 — Chapitre 4 (Architecture Prisma).
+// Premier schéma : uniquement le socle Auth/RBAC (Étape 3), rien
+// d'autre — les modules métier (products, orders...) arriveront aux
+// phases suivantes de la roadmap (Document 13 Ch.15).
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================================
+// CORE — Users, Roles, Permissions (Document 06 Ch.4/5/6)
+// ============================================================
+
+model User {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  passwordHash String   @map("password_hash")
+  firstName    String   @map("first_name")
+  lastName     String   @map("last_name")
+  phone        String?
+  avatar       String?
+  status       UserStatus @default(ACTIVE)
+  language     String   @default("fr")
+  timezone     String   @default("Africa/Douala")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at")
+
+  roles         UserRole[]
+  refreshTokens RefreshToken[]
+
+  @@map("users")
+}
+
+enum UserStatus {
+  ACTIVE
+  INACTIVE
+  SUSPENDED
+}
+
+model Role {
+  id          String @id @default(uuid())
+  key         String @unique
+  label       String
+  description String?
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  users       UserRole[]
+  permissions RolePermission[]
+
+  @@map("roles")
+}
+
+model Permission {
+  id          String @id @default(uuid())
+  key         String @unique
+  module      String
+  description String?
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  roles RolePermission[]
+
+  @@map("permissions")
+}
+
+// Table de jonction User <-> Role (Document 13 Ch.7.1 — un utilisateur
+// peut avoir plusieurs rôles, jamais un rôle unique codé en dur).
+model UserRole {
+  userId String @map("user_id")
+  roleId String @map("role_id")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role Role @relation(fields: [roleId], references: [id], onDelete: Restrict)
+
+  assignedAt DateTime @default(now()) @map("assigned_at")
+
+  @@id([userId, roleId])
+  @@map("user_roles")
+}
+
+// Table de jonction Role <-> Permission.
+model RolePermission {
+  roleId       String @map("role_id")
+  permissionId String @map("permission_id")
+
+  role       Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  permission Permission @relation(fields: [permissionId], references: [id], onDelete: Restrict)
+
+  @@id([roleId, permissionId])
+  @@map("role_permissions")
+}
+
+// ============================================================
+// AUTH — Sessions (Document 13 Ch.6, session glissante Ch.6.7)
+// ============================================================
+
+model RefreshToken {
+  id        String @id @default(uuid())
+  userId    String @map("user_id")
+  tokenHash String @unique @map("token_hash")
+
+  // Deux expirations distinctes (Document 13 Ch.6.7) :
+  idleExpiresAt     DateTime @map("idle_expires_at")     // glissante, 30 min
+  absoluteExpiresAt DateTime @map("absolute_expires_at") // fixe, 30 jours
+
+  userAgent String?  @map("user_agent")
+  ipAddress String?  @map("ip_address")
+  revokedAt DateTime? @map("revoked_at")
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("refresh_tokens")
+}

@@ -29,6 +29,11 @@ const envSchema = z.object({
         .startsWith("/")
         .default("/api/v1"),
 
+    DATABASE_URL: z
+        .string()
+        .min(1, "DATABASE_URL est requis.")
+        .startsWith("postgresql://", "DATABASE_URL doit être une URL PostgreSQL."),
+
 });
 
 function loadEnv() {
