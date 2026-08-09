@@ -3,12 +3,15 @@ import express from "express";
 import env from "./config/env.js";
 import prisma from "./config/database.js";
 
-// Configuration Express.
-// Étape 4 (middlewares transverses : errorHandler, requestLogger,
-// format de réponse unique) et suivantes restent à venir.
+import requestLogger from "./middleware/requestLogger.js";
+import { notFoundHandler } from "./middleware/notFoundHandler.js";
+import { errorHandler } from "./middleware/errorHandler.js";
+
+import { success } from "./shared/utils/apiResponse.js";
 
 const app = express();
 
+app.use(requestLogger);
 app.use(express.json());
 
 // Le healthcheck reste volontairement hors du préfixe de version
@@ -31,8 +34,7 @@ app.get("/health", async (req, res) => {
 
     }
 
-    res.json({
-        success: true,
+    return success(res, {
         message: "LOVE CAN BUILD API — OK",
         data: {
             uptime: process.uptime(),
@@ -42,5 +44,11 @@ app.get("/health", async (req, res) => {
     });
 
 });
+
+// Les routes métier (Document 13 Ch.2 — src/routes/) seront montées
+// ici à partir de la Phase 1, sous le préfixe env.API_PREFIX.
+
+app.use(notFoundHandler);
+app.use(errorHandler);
 
 export default app;

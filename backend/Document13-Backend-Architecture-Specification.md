@@ -716,11 +716,14 @@ Format de sortie, strictement identique à ce que le Frontend attend déjà (Doc
 {
   "success": false,
   "message": "Validation failed.",
+  "code": "VALIDATION_FAILED",
   "errors": [
     { "field": "email", "message": "Email is invalid." }
   ]
 }
 ```
+
+`code` reprend une valeur du catalogue `ErrorCodes` (Ch.10.2) — c'est ce qui permet au Frontend de distinguer par exemple `TOKEN_EXPIRED` (rafraîchissement silencieux) de `SESSION_EXPIRED` (redirection vers la connexion) sans avoir à analyser le message humain, destiné à l'affichage et non à la logique.
 
 Règles :
 

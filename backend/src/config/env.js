@@ -34,6 +34,10 @@ const envSchema = z.object({
         .min(1, "DATABASE_URL est requis.")
         .startsWith("postgresql://", "DATABASE_URL doit être une URL PostgreSQL."),
 
+    LOG_LEVEL: z
+        .enum(["fatal", "error", "warn", "info", "debug", "trace"])
+        .default("info"),
+
 });
 
 function loadEnv() {
