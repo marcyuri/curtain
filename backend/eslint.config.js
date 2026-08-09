@@ -69,5 +69,13 @@ export default [
         "as-needed"
       ]
     }
+  },
+
+  {
+    files: ["prisma/seed/**/*.js"],
+
+    rules: {
+      "no-console": "off"
+    }
   }
 ];

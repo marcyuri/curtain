@@ -72,8 +72,9 @@ Suivi détaillé dans `Document13-Backend-Architecture-Specification.md`, Chapit
 ### ✅ Phase 0 — Socle technique
 
 - [x] **Étape 1 — Initialisation du projet** : `package.json` (ES Modules), ESLint + Prettier, structure de dossiers (Document 13 Ch.2), serveur Express minimal avec `GET /health`.
-- [x] **Étape 2 — Configuration & validation d'environnement** : `config/env.js`, schéma Zod (`NODE_ENV`, `PORT`, `API_PREFIX`), échec immédiat au démarrage si une variable est invalide (*fail fast*, Document 10). `.env.example` documenté.
-- [ ] Étape 3 — Connexion Prisma + premier schéma
+- [x] **Étape 2 — Configuration & validation d'environnement** : `config/env.js`, schéma Zod (`NODE_ENV`, `PORT`, `API_PREFIX`, `DATABASE_URL`), échec immédiat au démarrage si une variable est invalide (*fail fast*, Document 10). `.env.example` documenté.
+- [x] **Étape 3 — Prisma** : premier schéma (`User`, `Role`, `Permission`, `UserRole`, `RolePermission`, `RefreshToken` avec session glissante `idleExpiresAt`/`absoluteExpiresAt`, Document 13 Ch.6.7), `config/database.js` (instance Prisma unique), seed (`permissions` → `rôles` → `Super Admin`, ordre strict, Document 13 Ch.4.6). `GET /health` rapporte l'état de la connexion base de données.
+  ⚠️ **Non vérifiable dans l'environnement de développement de Claude** : le téléchargement du moteur natif Prisma (`binaries.prisma.sh`) y est bloqué par la politique réseau du bac à sable (même limite que Playwright côté Frontend). `npm run db:generate` et `npm run db:migrate` doivent être exécutés sur une machine avec accès réseau complet avant que cette étape soit considérée comme testée de bout en bout. Le schéma a été relu manuellement et suit strictement le Document 13 Ch.4.
 - [ ] Étape 4 — Middlewares transverses (errorHandler, requestLogger, format de réponse unique)
 - [ ] Étape 5 — Vitest + Supertest, premier test de fumée
 

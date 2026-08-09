@@ -7,10 +7,10 @@ import { z } from "zod";
 // serveur refuse de démarrer (Document 10, principe Fail Secure)
 // plutôt que d'échouer silencieusement ou tardivement en production.
 //
-// Ce schéma ne couvre, à ce stade (Étape 2), que ce qui est réellement
-// consommé par l'application. Les variables des étapes suivantes
-// (DATABASE_URL à l'Étape 3, JWT_* à la Phase 1, etc.) seront ajoutées
-// au fur et à mesure, jamais par anticipation.
+// Ce schéma couvre l'application (Étape 2) et la connexion base de
+// données (Étape 3). Les variables des phases suivantes (JWT_* à la
+// Phase 1, STORAGE_*/SMTP_* etc.) seront ajoutées au fur et à mesure,
+// jamais par anticipation.
 
 const envSchema = z.object({
 
