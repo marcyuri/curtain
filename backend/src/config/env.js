@@ -35,7 +35,7 @@ const envSchema = z.object({
         .startsWith("postgresql://", "DATABASE_URL doit être une URL PostgreSQL."),
 
     LOG_LEVEL: z
-        .enum(["fatal", "error", "warn", "info", "debug", "trace"])
+        .enum(["fatal", "error", "warn", "info", "debug", "trace", "silent"])
         .default("info"),
 
 });
