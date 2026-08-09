@@ -14,6 +14,8 @@ const ROLE_PERMISSIONS = {
         "customer.read", "customer.create", "customer.update", "customer.delete",
         "order.read", "order.create", "order.update", "order.delete",
         "invoice.read", "invoice.create",
+        "role.read", "permission.read",
+        "user.read", "user.create", "user.update",
     ],
 
     MANAGER: [

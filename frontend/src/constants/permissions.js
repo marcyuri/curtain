@@ -38,4 +38,16 @@ export const PERMISSIONS = {
     INVOICE_READ: "invoice.read",
     INVOICE_CREATE: "invoice.create",
 
+    ROLE_READ: "role.read",
+    ROLE_CREATE: "role.create",
+    ROLE_UPDATE: "role.update",
+    ROLE_DELETE: "role.delete",
+
+    PERMISSION_READ: "permission.read",
+
+    USER_READ: "user.read",
+    USER_CREATE: "user.create",
+    USER_UPDATE: "user.update",
+    USER_DELETE: "user.delete",
+
 };

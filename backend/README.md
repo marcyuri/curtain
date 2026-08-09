@@ -81,7 +81,13 @@ Suivi détaillé dans `Document13-Backend-Architecture-Specification.md`, Chapit
 **Phase 0 terminée.** Les 5 étapes du socle technique sont en place : projet initialisé, configuration validée, Prisma connecté (schéma + seed), middlewares transverses, tests automatisés. Prochaine étape : Phase 1 — Auth & RBAC (Document 13 Ch.15).
 
 ### Phase 1 — Auth & RBAC
-*À venir.*
+
+- [x] **Étape 6 — Modules `permissions` + `roles`** : structure de module complète (routes/controller/service/repository/schema/dto, Document 13 Ch.3). `permissions` : lecture seule (les permissions sont fixées par seed, Document 06 Ch.5). `roles` : CRUD complet avec règles métier réelles dans le service — clé unique (`ConflictError`), rôle introuvable (`NotFoundError`), suppression bloquée si des utilisateurs utilisent encore le rôle. Gestion des permissions d'un rôle en transaction (`prisma.$transaction`). Nouveau `middleware/validate.js` (Document 13 Ch.9.2), branché sur les schémas Zod du module. Routes montées sous `/api/v1/permissions` et `/api/v1/roles` (`routes/index.js`, `routes/v1/index.js`).
+  Catalogue de permissions complété : `role.*`, `permission.read`, `user.*` manquaient pour administrer le RBAC lui-même — ajoutés au seed et au miroir Frontend (`constants/permissions.js`).
+  ⚠️ **Routes temporairement non protégées** : `authenticate`/`authorize` n'existent pas encore (Étape 9). Chaque route du module est explicitement commentée à ce sujet ; à sécuriser dès que ces middlewares seront prêts, avant toute exposition publique.
+- [ ] Étape 7 — Module `users`
+- [ ] Étape 8 — Module `auth` (login, register, refresh, logout, forgot/reset password, verify email)
+- [ ] Étape 9 — Middlewares `authenticate` et `authorize` (+ sécurisation rétroactive de `roles`/`permissions`)
 
 ### Phase 2 — Catalogue & Commerce
 *À venir.*

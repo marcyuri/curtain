@@ -37,6 +37,18 @@ export const PERMISSIONS = [
     { key: "invoice.read", module: "invoice", description: "Voir les factures" },
     { key: "invoice.create", module: "invoice", description: "Créer une facture" },
 
+    { key: "role.read", module: "role", description: "Voir les rôles" },
+    { key: "role.create", module: "role", description: "Créer un rôle" },
+    { key: "role.update", module: "role", description: "Modifier un rôle" },
+    { key: "role.delete", module: "role", description: "Supprimer un rôle" },
+
+    { key: "permission.read", module: "permission", description: "Voir les permissions" },
+
+    { key: "user.read", module: "user", description: "Voir les utilisateurs" },
+    { key: "user.create", module: "user", description: "Créer un utilisateur" },
+    { key: "user.update", module: "user", description: "Modifier un utilisateur" },
+    { key: "user.delete", module: "user", description: "Supprimer un utilisateur" },
+
 ];
 
 export async function seedPermissions(prisma) {

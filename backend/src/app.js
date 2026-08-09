@@ -7,6 +7,7 @@ import requestLogger from "./middleware/requestLogger.js";
 import { notFoundHandler } from "./middleware/notFoundHandler.js";
 import { errorHandler } from "./middleware/errorHandler.js";
 
+import routes from "./routes/index.js";
 import { success } from "./shared/utils/apiResponse.js";
 
 const app = express();
@@ -45,8 +46,8 @@ app.get("/health", async (req, res) => {
 
 });
 
-// Les routes métier (Document 13 Ch.2 — src/routes/) seront montées
-// ici à partir de la Phase 1, sous le préfixe env.API_PREFIX.
+// Routes métier, versionnées sous env.API_PREFIX (Document 13 Ch.5.1).
+app.use(routes);
 
 app.use(notFoundHandler);
 app.use(errorHandler);
