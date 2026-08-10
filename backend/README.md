@@ -84,10 +84,11 @@ Suivi détaillé dans `Document13-Backend-Architecture-Specification.md`, Chapit
 
 - [x] **Étape 6 — Modules `permissions` + `roles`** : structure de module complète (routes/controller/service/repository/schema/dto, Document 13 Ch.3). `permissions` : lecture seule (les permissions sont fixées par seed, Document 06 Ch.5). `roles` : CRUD complet avec règles métier réelles dans le service — clé unique (`ConflictError`), rôle introuvable (`NotFoundError`), suppression bloquée si des utilisateurs utilisent encore le rôle. Gestion des permissions d'un rôle en transaction (`prisma.$transaction`). Nouveau `middleware/validate.js` (Document 13 Ch.9.2), branché sur les schémas Zod du module. Routes montées sous `/api/v1/permissions` et `/api/v1/roles` (`routes/index.js`, `routes/v1/index.js`).
   Catalogue de permissions complété : `role.*`, `permission.read`, `user.*` manquaient pour administrer le RBAC lui-même — ajoutés au seed et au miroir Frontend (`constants/permissions.js`).
-  ⚠️ **Routes temporairement non protégées** : `authenticate`/`authorize` n'existent pas encore (Étape 9). Chaque route du module est explicitement commentée à ce sujet ; à sécuriser dès que ces middlewares seront prêts, avant toute exposition publique.
-- [ ] Étape 7 — Module `users`
+- [x] **Étape 7 — Module `users`** : CRUD complet avec pagination réelle (`shared/utils/pagination.js`, `DEFAULT_PAGE_SIZE` miroir du Frontend), recherche (`?search=`, sur email/prénom/nom). Soft delete (`deletedAt`) — aucune requête de lecture ne renvoie un utilisateur supprimé (Document 12 Ch.13). Règles métier dans le service : email unique (`ConflictError`, code `EMAIL_ALREADY_EXISTS`), mot de passe haché via le nouveau `shared/utils/hashPassword.js` (bcrypt, coût 12, Document 13 Ch.6.6) avant toute écriture, protection contre l'auto-suppression de son propre compte (`requestingUserId`, prêt à être branché sur `req.user` dès l'Étape 9). DTO strict : `passwordHash` n'est jamais exposé (mapping champ par champ, jamais de spread), vérifié explicitement par un test dédié.
+
+⚠️ **`permissions`, `roles` et `users` sont temporairement non protégés** : `authenticate`/`authorize` n'existent pas encore (Étape 9). Chaque fichier de routes le rappelle explicitement en commentaire. À sécuriser avant toute exposition publique.
 - [ ] Étape 8 — Module `auth` (login, register, refresh, logout, forgot/reset password, verify email)
-- [ ] Étape 9 — Middlewares `authenticate` et `authorize` (+ sécurisation rétroactive de `roles`/`permissions`)
+- [ ] Étape 9 — Middlewares `authenticate` et `authorize` (+ sécurisation rétroactive de `roles`/`permissions`/`users`)
 
 ### Phase 2 — Catalogue & Commerce
 *À venir.*
