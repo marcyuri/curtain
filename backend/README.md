@@ -87,8 +87,16 @@ Suivi détaillé dans `Document13-Backend-Architecture-Specification.md`, Chapit
 - [x] **Étape 7 — Module `users`** : CRUD complet avec pagination réelle (`shared/utils/pagination.js`, `DEFAULT_PAGE_SIZE` miroir du Frontend), recherche (`?search=`, sur email/prénom/nom). Soft delete (`deletedAt`) — aucune requête de lecture ne renvoie un utilisateur supprimé (Document 12 Ch.13). Règles métier dans le service : email unique (`ConflictError`, code `EMAIL_ALREADY_EXISTS`), mot de passe haché via le nouveau `shared/utils/hashPassword.js` (bcrypt, coût 12, Document 13 Ch.6.6) avant toute écriture, protection contre l'auto-suppression de son propre compte (`requestingUserId`, prêt à être branché sur `req.user` dès l'Étape 9). DTO strict : `passwordHash` n'est jamais exposé (mapping champ par champ, jamais de spread), vérifié explicitement par un test dédié.
 
 ⚠️ **`permissions`, `roles` et `users` sont temporairement non protégés** : `authenticate`/`authorize` n'existent pas encore (Étape 9). Chaque fichier de routes le rappelle explicitement en commentaire. À sécuriser avant toute exposition publique.
-- [ ] Étape 8 — Module `auth` (login, register, refresh, logout, forgot/reset password, verify email)
-- [ ] Étape 9 — Middlewares `authenticate` et `authorize` (+ sécurisation rétroactive de `roles`/`permissions`/`users`)
+- [x] **Étape 8 — Module `auth`** : login, register, refresh, logout, `/me`, forgot/reset password, verify email — contrat HTTP exactement conforme à `frontend/src/services/authService.js`, déjà écrit dès l'étape 3 du chantier Frontend.
+  - **Session glissante implémentée telle que conçue au Document 13 Ch.6.7** : `idleExpiresAt` (30 min, repoussée à chaque refresh) et `absoluteExpiresAt` (30 jours, jamais prolongée), les deux vérifiées à chaque `POST /auth/refresh`.
+  - **Rotation du Refresh Token** à chaque refresh (Ch.6.3), avec **détection de réutilisation** : un token déjà révoqué présenté à nouveau révoque toutes les sessions de l'utilisateur par précaution.
+  - Cookie httpOnly + secure (prod) + sameSite=strict, persistant (`Max-Age` = plafond absolu) — jamais accessible en JavaScript.
+  - Nouveaux utilitaires : `shared/utils/jwt.js` (signature/vérification de l'Access Token, payload incluant rôles + permissions), `shared/utils/tokenHash.js` (SHA-256 déterministe pour les tokens de refresh/reset/vérification — bcrypt, non déterministe, ne convient pas à un lookup par hash).
+  - Schéma étendu : `PasswordResetToken`, `EmailVerificationToken` (Document 13 Ch.4.2), `User.emailVerifiedAt`.
+  - Nouveau `middleware/authenticate.js` (Document 13 Ch.7.3), créé en avance sur l'Étape 9 : `/auth/me` en a structurellement besoin pour fonctionner (ce n'est pas une simple protection optionnelle contrairement aux autres modules).
+  - `forgotPassword` ne révèle jamais si un email existe (anti-énumération). `resetPassword` révoque toutes les sessions actives après un changement de mot de passe réussi.
+  - Envoi d'email réel non implémenté (Document 13 Ch.11, module `notifications` pas encore construit) — les tokens sont créés et fonctionnels, marqués `TODO` à l'endroit exact de l'envoi.
+- [ ] Étape 9 — Middleware `authorize` (+ sécurisation rétroactive de `roles`/`permissions`/`users`)
 
 ### Phase 2 — Catalogue & Commerce
 *À venir.*

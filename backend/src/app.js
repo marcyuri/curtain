@@ -1,4 +1,6 @@
 import express from "express";
+import cookieParser from "cookie-parser";
+import cors from "cors";
 
 import env from "./config/env.js";
 import prisma from "./config/database.js";
@@ -14,6 +16,12 @@ const app = express();
 
 app.use(requestLogger);
 app.use(express.json());
+app.use(cookieParser());
+
+// credentials: true est requis pour que le navigateur envoie le
+// cookie httpOnly du Refresh Token (Document 13 Ch.6.1) lors des
+// requêtes cross-origin depuis le Frontend.
+app.use(cors({ origin: env.CORS_ORIGIN, credentials: true }));
 
 // Le healthcheck reste volontairement hors du préfixe de version
 // (Document 07 Ch.19 — le versionnement /api/v1 s'applique aux routes

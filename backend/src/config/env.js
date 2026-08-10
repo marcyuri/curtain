@@ -7,10 +7,10 @@ import { z } from "zod";
 // serveur refuse de démarrer (Document 10, principe Fail Secure)
 // plutôt que d'échouer silencieusement ou tardivement en production.
 //
-// Ce schéma couvre l'application (Étape 2) et la connexion base de
-// données (Étape 3). Les variables des phases suivantes (JWT_* à la
-// Phase 1, STORAGE_*/SMTP_* etc.) seront ajoutées au fur et à mesure,
-// jamais par anticipation.
+// Ce schéma couvre l'application (Étape 2), la connexion base de
+// données (Étape 3) et l'authentification JWT (Phase 1, Étape 8).
+// Les variables des phases suivantes (STORAGE_*/SMTP_* etc.) seront
+// ajoutées au fur et à mesure, jamais par anticipation.
 
 const envSchema = z.object({
 
@@ -37,6 +37,25 @@ const envSchema = z.object({
     LOG_LEVEL: z
         .enum(["fatal", "error", "warn", "info", "debug", "trace", "silent"])
         .default("info"),
+
+    // Document 13, Ch.6.1 — deux secrets distincts, jamais le même,
+    // jamais codés en dur, jamais commités.
+    JWT_ACCESS_SECRET: z
+        .string()
+        .min(32, "JWT_ACCESS_SECRET doit contenir au moins 32 caractères."),
+
+    JWT_ACCESS_EXPIRES_IN: z.string().default("15m"),
+
+    JWT_REFRESH_SECRET: z
+        .string()
+        .min(32, "JWT_REFRESH_SECRET doit contenir au moins 32 caractères."),
+
+    JWT_REFRESH_EXPIRES_IN_DAYS: z.coerce.number().int().positive().default(30),
+
+    // Document 13, Ch.6.7 — fenêtre glissante d'inactivité.
+    SESSION_IDLE_TIMEOUT_MINUTES: z.coerce.number().int().positive().default(30),
+
+    CORS_ORIGIN: z.string().default("http://localhost:5173"),
 
 });
 
