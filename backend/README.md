@@ -86,7 +86,7 @@ Suivi détaillé dans `Document13-Backend-Architecture-Specification.md`, Chapit
   Catalogue de permissions complété : `role.*`, `permission.read`, `user.*` manquaient pour administrer le RBAC lui-même — ajoutés au seed et au miroir Frontend (`constants/permissions.js`).
 - [x] **Étape 7 — Module `users`** : CRUD complet avec pagination réelle (`shared/utils/pagination.js`, `DEFAULT_PAGE_SIZE` miroir du Frontend), recherche (`?search=`, sur email/prénom/nom). Soft delete (`deletedAt`) — aucune requête de lecture ne renvoie un utilisateur supprimé (Document 12 Ch.13). Règles métier dans le service : email unique (`ConflictError`, code `EMAIL_ALREADY_EXISTS`), mot de passe haché via le nouveau `shared/utils/hashPassword.js` (bcrypt, coût 12, Document 13 Ch.6.6) avant toute écriture, protection contre l'auto-suppression de son propre compte (`requestingUserId`, prêt à être branché sur `req.user` dès l'Étape 9). DTO strict : `passwordHash` n'est jamais exposé (mapping champ par champ, jamais de spread), vérifié explicitement par un test dédié.
 
-⚠️ **`permissions`, `roles` et `users` sont temporairement non protégés** : `authenticate`/`authorize` n'existent pas encore (Étape 9). Chaque fichier de routes le rappelle explicitement en commentaire. À sécuriser avant toute exposition publique.
+⚠️ **`permissions`, `roles` et `users` étaient temporairement non protégés jusqu'à l'Étape 9 (voir plus bas), désormais sécurisés.**
 - [x] **Étape 8 — Module `auth`** : login, register, refresh, logout, `/me`, forgot/reset password, verify email — contrat HTTP exactement conforme à `frontend/src/services/authService.js`, déjà écrit dès l'étape 3 du chantier Frontend.
   - **Session glissante implémentée telle que conçue au Document 13 Ch.6.7** : `idleExpiresAt` (30 min, repoussée à chaque refresh) et `absoluteExpiresAt` (30 jours, jamais prolongée), les deux vérifiées à chaque `POST /auth/refresh`.
   - **Rotation du Refresh Token** à chaque refresh (Ch.6.3), avec **détection de réutilisation** : un token déjà révoqué présenté à nouveau révoque toutes les sessions de l'utilisateur par précaution.
@@ -96,7 +96,12 @@ Suivi détaillé dans `Document13-Backend-Architecture-Specification.md`, Chapit
   - Nouveau `middleware/authenticate.js` (Document 13 Ch.7.3), créé en avance sur l'Étape 9 : `/auth/me` en a structurellement besoin pour fonctionner (ce n'est pas une simple protection optionnelle contrairement aux autres modules).
   - `forgotPassword` ne révèle jamais si un email existe (anti-énumération). `resetPassword` révoque toutes les sessions actives après un changement de mot de passe réussi.
   - Envoi d'email réel non implémenté (Document 13 Ch.11, module `notifications` pas encore construit) — les tokens sont créés et fonctionnels, marqués `TODO` à l'endroit exact de l'envoi.
-- [ ] Étape 9 — Middleware `authorize` (+ sécurisation rétroactive de `roles`/`permissions`/`users`)
+- [x] **Étape 9 — Middleware `authorize` + sécurisation rétroactive** : `middleware/authorize.js` (Document 13 Ch.7.3) — vérifie que `req.user.permissions` (déjà présent dans le payload JWT depuis l'Étape 8) contient la permission requise, sinon `403 PERMISSION_DENIED`. Accepte plusieurs permissions (`authorize(a, b)` = l'une OU l'autre, Document 13 Ch.7.3). Les règles contextuelles (Ch.7.5, ex : un consultant limité à ses propres consultations) resteront dans les services des modules concernés, jamais dans ce middleware générique.
+  Nouveaux fichiers `*.constants.js` par module (`permissions/roles/users`) pour éviter les chaînes magiques de clés de permission dans les routes (Document 05 Partie IX).
+  Les 3 modules construits en Phase 1 sont désormais protégés : `permissions` (`permission.read`), `roles` (`role.read/create/update/delete`), `users` (`user.read/create/update/delete`) — chacun avec `authenticate` puis `authorize(...)` avant son controller.
+  Vérifié en conditions réelles (mock Prisma temporaire, 2 utilisateurs de test) : sans token → 401, avec permission → 200, sans la permission requise → 403 avec le code `PERMISSION_DENIED`. Bonus confirmé au passage : l'en-tête `Authorization` est bien masqué dans les logs (`[REDACTED]`, redaction posée à l'Étape 4).
+
+**Phase 1 terminée.** Auth JWT complète avec session glissante, RBAC fonctionnel de bout en bout (rôles, permissions, guards). Prochaine étape : Phase 2 — Catalogue & Commerce (Document 13 Ch.15).
 
 ### Phase 2 — Catalogue & Commerce
 *À venir.*
