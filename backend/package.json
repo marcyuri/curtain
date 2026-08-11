@@ -12,6 +12,7 @@
     "dev": "node --watch src/server.js",
     "start": "node src/server.js",
     "postinstall": "prisma generate",
+    "build": "echo 'Aucune étape de build nécessaire pour ce backend Node.js — prisma generate est déjà géré par postinstall.'",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
