@@ -12,6 +12,11 @@ const axiosClient = axios.create({
     headers: {
         "Content-Type": "application/json",
     },
+    // Requis pour que le navigateur envoie/stocke le cookie httpOnly du
+    // Refresh Token (Document 13 Backend Ch.6.1) — sans ça, aucun cookie
+    // n'est échangé, même en local (ports différents = origines
+    // différentes pour le navigateur).
+    withCredentials: true,
 });
 
 let accessToken = null;
