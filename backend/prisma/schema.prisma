@@ -182,3 +182,32 @@ model File {
   @@index([purpose])
   @@map("files")
 }
+
+// ============================================================
+// CATALOG — Categories, Brands (Document 06 Ch.3)
+// La relation vers Product sera ajoutée à l'Étape 12, jamais par
+// anticipation (Document 01 Ch.7).
+// ============================================================
+model Category {
+  id          String  @id @default(uuid())
+  name        String
+  slug        String  @unique
+  description String?
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("categories")
+}
+
+model Brand {
+  id   String @id @default(uuid())
+  name String
+  slug String @unique
+  logo String?
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("brands")
+}

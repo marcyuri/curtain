@@ -9,6 +9,16 @@ export const PERMISSIONS = [
     { key: "product.update", module: "product", description: "Modifier un produit" },
     { key: "product.delete", module: "product", description: "Supprimer un produit" },
 
+    { key: "category.read", module: "category", description: "Voir les catégories" },
+    { key: "category.create", module: "category", description: "Créer une catégorie" },
+    { key: "category.update", module: "category", description: "Modifier une catégorie" },
+    { key: "category.delete", module: "category", description: "Supprimer une catégorie" },
+
+    { key: "brand.read", module: "brand", description: "Voir les marques" },
+    { key: "brand.create", module: "brand", description: "Créer une marque" },
+    { key: "brand.update", module: "brand", description: "Modifier une marque" },
+    { key: "brand.delete", module: "brand", description: "Supprimer une marque" },
+
     { key: "customer.read", module: "customer", description: "Voir les clients" },
     { key: "customer.create", module: "customer", description: "Créer un client" },
     { key: "customer.update", module: "customer", description: "Modifier un client" },

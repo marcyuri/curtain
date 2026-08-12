@@ -11,6 +11,8 @@ const ROLE_PERMISSIONS = {
 
     ADMINISTRATOR: [
         "product.read", "product.create", "product.update", "product.delete",
+        "category.read", "category.create", "category.update", "category.delete",
+        "brand.read", "brand.create", "brand.update", "brand.delete",
         "customer.read", "customer.create", "customer.update", "customer.delete",
         "order.read", "order.create", "order.update", "order.delete",
         "invoice.read", "invoice.create",
@@ -20,12 +22,14 @@ const ROLE_PERMISSIONS = {
 
     MANAGER: [
         "product.read", "product.update",
+        "category.read", "brand.read",
         "customer.read",
         "order.read", "order.update",
     ],
 
     EMPLOYEE: [
         "product.read",
+        "category.read", "brand.read",
         "order.read",
     ],
 
