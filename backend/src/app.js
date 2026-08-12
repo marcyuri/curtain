@@ -1,6 +1,8 @@
 import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 import env from "./config/env.js";
 import prisma from "./config/database.js";
@@ -12,6 +14,8 @@ import { errorHandler } from "./middleware/errorHandler.js";
 import routes from "./routes/index.js";
 import { success } from "./shared/utils/apiResponse.js";
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 const app = express();
 
 app.use(requestLogger);
@@ -22,6 +26,12 @@ app.use(cookieParser());
 // cookie httpOnly du Refresh Token (Document 13 Ch.6.1) lors des
 // requêtes cross-origin depuis le Frontend.
 app.use(cors({ origin: env.CORS_ORIGIN, credentials: true }));
+
+// Sert les fichiers uploadés localement (Document 13 Ch.11.1,
+// LocalStorageProvider) — pertinent uniquement en développement ;
+// STORAGE_DRIVER=s3 sert directement depuis S3 en production, cette
+// route devient alors inutile mais reste inoffensive.
+app.use("/uploads", express.static(path.resolve(__dirname, "../uploads")));
 
 // Le healthcheck reste volontairement hors du préfixe de version
 // (Document 07 Ch.19 — le versionnement /api/v1 s'applique aux routes

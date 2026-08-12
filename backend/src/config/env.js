@@ -57,7 +57,21 @@ const envSchema = z.object({
 
     CORS_ORIGIN: z.string().default("http://localhost:5173"),
 
-});
+    // Document 13, Ch.10/11.1 — stockage local en développement,
+    // compatible S3 en production. Les variables S3_* ne sont exigées
+    // que si STORAGE_DRIVER=s3 (voir le .refine() ci-dessous).
+    STORAGE_DRIVER: z.enum(["local", "s3"]).default("local"),
+    S3_BUCKET: z.string().optional(),
+    S3_REGION: z.string().optional(),
+    MAX_UPLOAD_SIZE_MB: z.coerce.number().int().positive().default(10),
+
+}).refine(
+    (data) => data.STORAGE_DRIVER !== "s3" || (data.S3_BUCKET && data.S3_REGION),
+    {
+        message: "S3_BUCKET et S3_REGION sont requis quand STORAGE_DRIVER=s3.",
+        path: ["S3_BUCKET"],
+    }
+);
 
 function loadEnv() {
 

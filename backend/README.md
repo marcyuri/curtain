@@ -104,8 +104,15 @@ Suivi détaillé dans `Document13-Backend-Architecture-Specification.md`, Chapit
 **Phase 1 terminée.** Auth JWT complète avec session glissante, RBAC fonctionnel de bout en bout (rôles, permissions, guards). Prochaine étape : Phase 2 — Catalogue & Commerce (Document 13 Ch.15).
 
 ### Phase 2 — Catalogue & Commerce
-*À venir.*
 
+- [x] **Étape 10 — Module `files`** : upload centralisé (Document 06 Ch.12, Document 13 Ch.11.1), prérequis aux images produits. Abstraction `StorageProvider` (`upload()`/`remove()`) — le module ne connaît jamais l'implémentation concrète. `LocalStorageProvider` (développement, écrit dans `backend/uploads/`, servi via `/uploads/*`) et `S3StorageProvider` (production, `@aws-sdk/client-s3`), sélectionnés via `STORAGE_DRIVER` (`local`/`s3`). Nouveau modèle `File` (Prisma), rattaché à un propriétaire et un `purpose` (`product_image`, `avatar`, `invoice_pdf`, `consultation_attachment`).
+  Règles métier réelles : type MIME whitelisté **par contexte d'upload** (une image pour `product_image`, un PDF pour `invoice_pdf`...), taille maximale (`MAX_UPLOAD_SIZE_MB`), nom de fichier **toujours généré côté serveur** (UUID, jamais celui fourni par le client — anti path-traversal, Document 07 Ch.15), suppression restreinte au propriétaire du fichier.
+  Vérifié en conditions réelles (mock Prisma, vraie écriture disque) : sans token → 401, mauvais type MIME pour le contexte → 400 avec message clair, upload valide → 201 et fichier physiquement présent sur disque avec un nom généré, jamais celui du client.
+- [ ] Étape 11 — Modules `categories` + `brands`
+- [ ] Étape 12 — Module `products`
+- [ ] Étape 13 — Modules `inventory` + `suppliers`
+- [ ] Étape 14 — Module `customers`
+- [ ] Étape 15 — Modules `orders` + `invoices`
 ### Phase 3 — Modules transverses
 *À venir.*
 

@@ -37,6 +37,7 @@ model User {
   refreshTokens RefreshToken[]
   passwordResetTokens     PasswordResetToken[]
   emailVerificationTokens EmailVerificationToken[]
+  files                   File[]
 
   @@map("users")
 }
@@ -157,4 +158,27 @@ model EmailVerificationToken {
 
   @@index([userId])
   @@map("email_verification_tokens")
+}
+
+// ============================================================
+// FILES — Stockage centralisé (Document 06 Ch.12, Document 13 Ch.11.1)
+// Jamais un upload spécifique par module : tous les fichiers passent
+// par ce modèle unique, rattachés à une entité via purpose + ownerId.
+// ============================================================
+model File {
+  id       String @id @default(uuid())
+  ownerId  String @map("owner_id")
+
+  purpose  String   // ex: "product_image", "invoice_pdf", "avatar"
+  url      String
+  mimeType String   @map("mime_type")
+  size     Int      // octets
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  owner User @relation(fields: [ownerId], references: [id], onDelete: Cascade)
+
+  @@index([ownerId])
+  @@index([purpose])
+  @@map("files")
 }
