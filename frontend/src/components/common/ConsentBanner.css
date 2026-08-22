@@ -1,0 +1,77 @@
+.consent-banner {
+    position: fixed;
+    left: 24px;
+    right: 24px;
+    bottom: 24px;
+    z-index: 9999;
+    max-width: 850px;
+    margin: auto;
+    padding: 28px;
+    border-radius: var(--radius-xl);
+    background: var(--color-surface);
+    box-shadow: var(--shadow-xl);
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.consent-banner__header {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+.consent-banner__header h3 {
+    margin-bottom: 8px;
+}
+
+.consent-banner__header p {
+    color: var(--color-text-light);
+    line-height: 1.6;
+}
+
+.consent-banner__settings {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-top: 10px;
+    border-top: 1px solid var(--color-border);
+}
+
+.consent-banner__option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.consent-banner__option input {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.consent-banner__actions {
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+@media (max-width: 768px) {
+    .consent-banner {
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        padding: 22px;
+    }
+
+    .consent-banner__header,
+    .consent-banner__actions {
+        flex-direction: column;
+    }
+
+    .consent-banner__actions button {
+        width: 100%;
+    }
+}

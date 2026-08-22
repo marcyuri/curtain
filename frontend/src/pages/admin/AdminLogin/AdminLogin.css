@@ -12,11 +12,11 @@
 
     background:
         radial-gradient(circle at top left,
-            rgba(217, 4, 41, .08),
+            rgba(232, 168, 124, .14),
             transparent 40%),
 
         radial-gradient(circle at bottom right,
-            rgba(25, 135, 84, .08),
+            rgba(201, 160, 99, .12),
             transparent 40%),
 
         var(--color-background);
@@ -37,7 +37,7 @@
 
     gap: 28px;
 
-    background: var(--color-white);
+    background: var(--color-surface);
 
     border-radius: var(--radius-xl);
 
@@ -63,7 +63,7 @@
 
     border-radius: 50%;
 
-    background: rgba(217, 4, 41, .08);
+    background: rgba(201, 160, 99, .12);
 
     color: var(--color-primary);
 
@@ -123,6 +123,8 @@
 
     border: 1px solid var(--color-border);
 
+    background: var(--color-surface-secondary);
+
 }
 
 .admin-login__form input {
@@ -135,6 +137,24 @@
 
     background: transparent;
 
+    color: var(--color-title);
+
+    caret-color: var(--color-primary);
+
+}
+
+.admin-login__form input::placeholder {
+    color: var(--color-text-muted);
+}
+
+.admin-login__form input:-webkit-autofill,
+.admin-login__form input:-webkit-autofill:hover,
+.admin-login__form input:-webkit-autofill:focus {
+    -webkit-text-fill-color: var(--color-title);
+    -webkit-box-shadow: 0 0 0 1000px var(--color-surface-secondary) inset;
+    box-shadow: 0 0 0 1000px var(--color-surface-secondary) inset;
+    caret-color: var(--color-primary);
+    transition: background-color 9999s ease-out 0s;
 }
 
 .admin-login__form label button {

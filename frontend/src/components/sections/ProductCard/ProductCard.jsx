@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 
 import Button from "../../ui/Button";
+import ImageWithFallback from "../../common/ImageWithFallback";
 
 import "./ProductCard.css";
 
@@ -61,7 +62,7 @@ function ProductCard({
 
             <div className="product-card__image">
 
-                <img
+                <ImageWithFallback
 
                     src={image}
 

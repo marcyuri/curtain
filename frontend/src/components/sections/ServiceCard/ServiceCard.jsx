@@ -4,6 +4,7 @@ import {
 } from "lucide-react";
 
 import Button from "../../ui/Button";
+import ImageWithFallback from "../../common/ImageWithFallback";
 
 import "./ServiceCard.css";
 
@@ -45,7 +46,7 @@ function ServiceCard({
 
                 {image ? (
 
-                    <img
+                    <ImageWithFallback
                         src={image}
                         alt={title}
                     />
@@ -96,16 +97,9 @@ function ServiceCard({
 
             <footer className="service-card__footer">
 
-                <Button
-
-                    onClick={onClick}
-
-                >
-
+                <Button onClick={onClick}>
                     {buttonLabel}
-
                     <ArrowRight size={18} />
-
                 </Button>
 
             </footer>

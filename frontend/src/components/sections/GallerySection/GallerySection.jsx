@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 
 import "./GallerySection.css";
+import ImageWithFallback from "../../common/ImageWithFallback";
 
 function GallerySection({
 
@@ -111,7 +112,7 @@ function GallerySection({
 
                         {image ? (
 
-                            <img
+                            <ImageWithFallback
 
                                 src={image}
 

@@ -1,3 +1,5 @@
+import { useRef } from "react";
+
 import {
 
     Search,
@@ -35,6 +37,7 @@ function ProductToolbar({
     onCreate,
 
 }) {
+    const fileInputRef = useRef(null);
 
     return (
 
@@ -100,7 +103,7 @@ function ProductToolbar({
 
                 <button
 
-                    onClick={onImport}
+                    onClick={() => fileInputRef.current?.click()}
 
                 >
 
@@ -110,6 +113,13 @@ function ProductToolbar({
 
                 </button>
 
+                <input
+                    ref={fileInputRef}
+                    className="product-toolbar__file-input"
+                    type="file"
+                    accept=".csv,.json"
+                    onChange={(event) => onImport?.(event.target.files[0])}
+                />
                 <button
 
                     onClick={onExport}

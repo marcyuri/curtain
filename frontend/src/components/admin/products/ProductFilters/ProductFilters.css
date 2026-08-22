@@ -10,7 +10,7 @@
 
     padding: 24px;
 
-    background: white;
+    background: var(--color-surface);
 
     border-radius: 18px;
 
@@ -58,7 +58,7 @@
 
     border: 1px solid var(--color-border);
 
-    background: white;
+    background: var(--color-surface-secondary);
 
 }
 
@@ -78,7 +78,8 @@
 
     border-radius: 12px;
 
-    background: #f5f5f5;
+    background: var(--color-surface-secondary);
+    color: var(--color-title);
 
     cursor: pointer;
 

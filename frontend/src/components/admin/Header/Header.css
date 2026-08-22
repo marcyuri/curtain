@@ -1,197 +1,207 @@
 .admin-header {
-
     height: 80px;
-
     display: flex;
-
     justify-content: space-between;
-
     align-items: center;
-
+    gap: 20px;
     padding: 0 30px;
-
-    background: white;
-
+    background: var(--color-surface);
     border-bottom: 1px solid var(--color-border);
+    position: relative;
+}
 
+.admin-header__left,
+.admin-header__right {
+    display: flex;
+    align-items: center;
 }
 
 .admin-header__left {
-
-    display: flex;
-
-    align-items: center;
-
     gap: 20px;
-
-}
-
-.admin-header__search {
-
-    width: 380px;
-
-    height: 46px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 12px;
-
-    padding: 0 16px;
-
-    border-radius: 12px;
-
-    border: 1px solid var(--color-border);
-
-}
-
-.admin-header__search input {
-
-    flex: 1;
-
-    border: none;
-
-    outline: none;
-
-    background: transparent;
-
+    min-width: 0;
 }
 
 .admin-header__right {
+    gap: 10px;
+    flex-shrink: 0;
+}
 
+.admin-header__search {
+    width: min(380px, 32vw);
+    height: 46px;
     display: flex;
-
     align-items: center;
+    gap: 12px;
+    padding: 0 16px;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface-secondary);
+    color: var(--color-text-light);
+}
 
-    gap: 16px;
-
+.admin-header__search input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--color-title);
 }
 
 .admin-header__icon {
-
     width: 46px;
-
     height: 46px;
-
     position: relative;
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
     border: none;
-
     border-radius: 12px;
-
     background: var(--color-surface-secondary);
-
+    color: var(--color-title);
     cursor: pointer;
-
 }
 
 .admin-header__icon span {
-
     position: absolute;
-
-    top: 6px;
-
-    right: 6px;
-
+    top: 5px;
+    right: 5px;
     min-width: 18px;
-
     height: 18px;
-
     display: flex;
-
     justify-content: center;
-
     align-items: center;
-
     padding: 2px;
-
     border-radius: 999px;
-
     background: var(--color-danger);
-
     color: white;
-
     font-size: .70rem;
-
 }
 
 .admin-header__profile {
-
     display: flex;
-
     align-items: center;
-
     gap: 12px;
-
     padding: 8px 14px;
-
     border: none;
-
     border-radius: 14px;
-
     background: var(--color-surface-secondary);
-
+    color: var(--color-title);
     cursor: pointer;
-
 }
 
 .admin-header__profile img {
-
     width: 46px;
-
     height: 46px;
-
     border-radius: 50%;
-
     object-fit: cover;
+}
 
+.admin-header__avatar {
+    width: 46px;
+    height: 46px;
+    min-height: 46px;
+    flex: 0 0 46px;
+    padding: 0;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.admin-header__avatar span {
+    display: none;
 }
 
 .admin-header__profile div {
-
     display: flex;
-
     flex-direction: column;
-
     text-align: left;
-
 }
 
 .admin-header__profile small {
-
     color: var(--color-text-subtle);
-
 }
 
-@media(max-width:992px) {
+.admin-header__popover {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 30px;
+    z-index: 10;
+    width: min(280px, calc(100vw - 32px));
+    padding: 16px;
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    background: var(--color-surface);
+    box-shadow: var(--shadow-floating);
+}
 
+.admin-header__popover p {
+    margin: 8px 0 14px;
+    color: var(--color-text-light);
+    font-size: var(--font-size-sm);
+}
+
+.admin-header__popover button {
+    width: 100%;
+    min-height: 40px;
+    border: none;
+    border-radius: 10px;
+    background: var(--color-danger);
+    color: var(--color-white);
+    cursor: pointer;
+}
+
+@media (max-width: 992px) {
     .admin-header {
-
         padding: 0 20px;
-
     }
 
     .admin-header__search {
-
-        width: 220px;
-
+        width: min(260px, 32vw);
     }
-
 }
 
-@media(max-width:768px) {
-
-    .admin-header__search {
-
-        display: none;
-
+@media (max-width: 768px) {
+    .admin-header {
+        height: 68px;
+        padding: 0 14px;
     }
 
+    .admin-header__right {
+        gap: 6px;
+    }
+
+    .admin-header__search {
+        display: none;
+    }
+
+    .admin-header__icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .admin-header__profile {
+        padding: 4px;
+        background: transparent;
+    }
+
+    .admin-header__profile div,
+    .admin-header__profile>svg {
+        display: none;
+    }
+
+    .admin-header__profile img {
+        width: 38px;
+        height: 38px;
+    }
+
+    .admin-header__avatar {
+        width: 38px;
+        height: 38px;
+        min-height: 38px;
+        flex-basis: 38px;
+    }
+
+    .admin-header__popover {
+        right: 14px;
+    }
 }

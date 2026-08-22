@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Menu, X } from "lucide-react";
 
@@ -10,6 +10,7 @@ import "./Navbar.css";
 function Navbar() {
 
     const { t } = useTranslation();
+    const { pathname } = useLocation();
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -20,6 +21,19 @@ function Navbar() {
     const closeMenu = () => {
         setIsOpen(false);
     };
+
+    const pageLabels = {
+        "/": t("navbar.home"),
+        "/about": t("navbar.about"),
+        "/consultations": t("navbar.consultations"),
+        "/products": t("navbar.products"),
+        "/events": t("navbar.events"),
+        "/contact": t("navbar.contact"),
+        "/appointment": t("navbar.appointment"),
+    };
+
+    const currentPageLabel = pageLabels[pathname] ||
+        (pathname.startsWith("/products/") ? t("navbar.products") : t("navbar.home"));
 
     return (
         <nav className="navbar">
@@ -75,6 +89,10 @@ function Navbar() {
                 </ul>
 
                 <LanguageSwitcher />
+
+                <span className="navbar__current-page">
+                    {currentPageLabel}
+                </span>
 
                 <Link
                     to="/appointment"

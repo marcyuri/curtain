@@ -34,7 +34,8 @@
 
     border-radius: 10px;
 
-    background: #f5f5f5;
+    background: var(--color-surface-secondary);
+    color: var(--color-title);
 
     cursor: pointer;
 

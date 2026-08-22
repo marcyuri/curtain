@@ -68,7 +68,7 @@
 
     padding: 40px;
 
-    background: var(--color-white);
+    background: var(--color-surface);
 
     border-radius: var(--radius-xl);
 
@@ -126,7 +126,7 @@
 
     border-radius: 12px;
 
-    background: white;
+    background: var(--color-surface-secondary);
 
     outline: none;
 
@@ -140,6 +140,19 @@
 
     min-height: 160px;
 
+}
+
+/* Chrome applique un fond clair aux champs remplis automatiquement. */
+.booking-form input:-webkit-autofill,
+.booking-form input:-webkit-autofill:hover,
+.booking-form input:-webkit-autofill:focus,
+.booking-form textarea:-webkit-autofill,
+.booking-form select:-webkit-autofill {
+    -webkit-text-fill-color: var(--color-title);
+    -webkit-box-shadow: 0 0 0 1000px var(--color-surface-secondary) inset;
+    box-shadow: 0 0 0 1000px var(--color-surface-secondary) inset;
+    caret-color: var(--color-primary);
+    transition: background-color 9999s ease-out 0s;
 }
 
 .booking-form button {

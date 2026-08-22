@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 
 import "./TestimonialCard.css";
+import ImageWithFallback from "../../common/ImageWithFallback";
 
 function TestimonialCard({
 
@@ -71,7 +72,7 @@ function TestimonialCard({
 
                     {avatar ? (
 
-                        <img
+                        <ImageWithFallback
 
                             src={avatar}
 

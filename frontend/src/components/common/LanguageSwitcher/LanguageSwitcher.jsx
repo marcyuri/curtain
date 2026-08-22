@@ -54,6 +54,10 @@ function LanguageSwitcher({
                 className="language-switcher__icon"
             />
 
+            <span className="language-switcher__code">
+                {language.slice(0, 2).toUpperCase()}
+            </span>
+
             <select
                 value={language}
                 onChange={handleChange}

@@ -56,7 +56,7 @@
 
     border-radius: var(--radius-xl);
 
-    background: var(--color-white);
+    background: var(--color-surface-secondary);
 
 }
 
@@ -90,7 +90,7 @@
 
     overflow: hidden;
 
-    background: var(--color-white);
+    background: var(--color-surface);
 
 }
 

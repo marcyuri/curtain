@@ -13,14 +13,14 @@
 :root {
 
     /* ===== Couleurs — Marque ===== */
-    --color-primary: #C81E2C;
-    --color-primary-hover: #A8101D;
-    --color-primary-active: #8A0C17;
-    --color-primary-light: #FBE7E8;
+    --color-primary: #E8A87C;
+    --color-primary-hover: #F0B58D;
+    --color-primary-active: #D58D63;
+    --color-primary-light: #3A2929;
 
-    --color-secondary: #8A0C17;
-    --color-secondary-hover: #6E0912;
-    --color-secondary-active: #52070D;
+    --color-secondary: #C9A063;
+    --color-secondary-hover: #D8B275;
+    --color-secondary-active: #A9824D;
 
     /* ===== Couleurs — Sémantique ===== */
     --color-success: #16A34A;
@@ -42,29 +42,29 @@
     /* ===== Couleurs — Neutres ===== */
     --color-white: #FFFFFF;
     --color-black: #000000;
-    --color-dark: #1E1E1E;
+    --color-dark: #120F1A;
 
-    --color-background: #FAFAFA;
-    --color-surface: #FFFFFF;
-    --color-surface-secondary: #F5F5F5;
+    --color-background: #120F1A;
+    --color-surface: #1C1826;
+    --color-surface-secondary: #252130;
 
-    --color-border: #E5E7EB;
-    --color-border-dark: #D1D5DB;
-    --color-border-light: #EEEEEE;
+    --color-border: rgba(201, 160, 99, 0.22);
+    --color-border-dark: rgba(201, 160, 99, 0.42);
+    --color-border-light: rgba(245, 240, 232, 0.10);
 
-    --color-text: #374151;
-    --color-text-light: #6B7280;
-    --color-text-muted: #888888;
-    --color-text-subtle: #777777;
-    --color-title: #1E1E1E;
+    --color-text: #D7D0D8;
+    --color-text-light: #A9A1B0;
+    --color-text-muted: #8E8795;
+    --color-text-subtle: #9B93A2;
+    --color-title: #F5F0E8;
 
     /* Superposition utilisée sur les visuels Hero / CTA */
-    --cta-overlay: rgba(30, 30, 30, 0.55);
+    --cta-overlay: rgba(18, 15, 26, 0.72);
     --color-overlay-light: rgba(255, 255, 255, 0.08);
 
     /* ===== Surfaces additionnelles (Back Office — Document 08) ===== */
-    --color-surface-alt: #F8F8F8;
-    --color-surface-muted: #ECECEC;
+    --color-surface-alt: #211C2B;
+    --color-surface-muted: #2A2435;
 
     /* ===== Palette catégorielle (widgets Back Office — Document 04 Ch.3) =====
      * Utilisée pour distinguer visuellement des catégories dans les
@@ -78,12 +78,12 @@
     --color-accent-grey: #4B5563;
 
     /* ===== Back Office — Sidebar (fond sombre dédié) ===== */
-    --color-sidebar-background: #111827;
-    --color-sidebar-text-muted: #BDBDBD;
+    --color-sidebar-background: #1C1826;
+    --color-sidebar-text-muted: #A9A1B0;
 
     /* ===== Typographie ===== */
-    --font-heading: "Poppins", system-ui, sans-serif;
-    --font-body: "Inter", system-ui, sans-serif;
+    --font-heading: "Playfair Display", Georgia, serif;
+    --font-body: "DM Sans", "Segoe UI", sans-serif;
 
     --font-size-xs: 0.75rem;
     --font-size-sm: 0.875rem;

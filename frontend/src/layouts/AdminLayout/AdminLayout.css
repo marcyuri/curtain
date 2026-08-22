@@ -1,83 +1,122 @@
 .admin-layout {
-
     display: flex;
-
     min-height: 100vh;
-
     background: var(--color-background);
-
+    color: var(--color-text);
+    position: relative;
 }
 
 .admin-layout__sidebar {
-
     width: 290px;
-
     flex-shrink: 0;
-
     position: fixed;
-
-    top: 0;
-
-    left: 0;
-
-    bottom: 0;
-
+    inset: 0 auto 0 0;
     z-index: 1000;
-
+    transition: transform 250ms ease;
 }
 
 .admin-layout__wrapper {
-
     flex: 1;
-
     margin-left: 290px;
-
     display: flex;
-
     flex-direction: column;
-
     min-height: 100vh;
-
+    min-width: 0;
 }
 
 .admin-layout__header {
-
     position: sticky;
-
     top: 0;
-
     z-index: 900;
-
 }
 
 .admin-layout__content {
-
     flex: 1;
-
+    min-width: 0;
     padding: 30px;
-
     overflow-x: hidden;
-
 }
 
-@media(max-width:992px) {
+.admin-layout__backdrop {
+    display: none;
+}
 
+.admin-layout .admin-header,
+.admin-layout .stats-card,
+.admin-layout .data-table,
+.admin-layout .quick-actions,
+.admin-layout .chart-card,
+.admin-layout .recent-activity,
+.admin-layout .notification-panel,
+.admin-layout .calendar-widget,
+.admin-layout input:not([type="checkbox"]):not([type="radio"]),
+.admin-layout textarea,
+.admin-layout select {
+    background: var(--color-surface);
+    color: var(--color-title);
+    border-color: var(--color-border);
+}
+
+.admin-layout input::placeholder,
+.admin-layout textarea::placeholder {
+    color: var(--color-text-muted);
+}
+
+.admin-layout button {
+    transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.admin-layout button:hover:not(:disabled) {
+    transform: translateY(-1px);
+}
+
+@media (max-width: 992px) {
     .admin-layout__sidebar {
+        width: 290px;
+        transform: translateX(-100%);
+    }
 
-        width: 0;
+    .admin-layout__sidebar--open {
+        transform: translateX(0);
+        box-shadow: 18px 0 40px rgba(0, 0, 0, .28);
+    }
 
+    .admin-layout__backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: 950;
+        border: none;
+        background: rgba(18, 15, 26, .62);
+        cursor: pointer;
     }
 
     .admin-layout__wrapper {
-
         margin-left: 0;
-
     }
 
     .admin-layout__content {
-
         padding: 20px;
+    }
+}
 
+@media (max-width: 768px) {
+    .admin-layout__sidebar {
+        width: min(290px, 86vw);
     }
 
+    .admin-layout__content {
+        padding: 16px;
+    }
+}
+
+.admin-layout--light {
+    --color-background: #F7F4EF;
+    --color-surface: #FFFFFF;
+    --color-surface-secondary: #EEE9E2;
+    --color-title: #241E27;
+    --color-text: #4A434C;
+    --color-text-light: #716875;
+    --color-border: rgba(93, 72, 57, .18);
+    --color-sidebar-background: #2A2435;
 }

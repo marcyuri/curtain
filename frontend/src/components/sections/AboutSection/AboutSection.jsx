@@ -10,10 +10,11 @@ import {
 import Button from "../../ui/Button";
 
 import "./AboutSection.css";
+import ImageWithFallback from "../../common/ImageWithFallback";
 
 function AboutSection({
 
-    logo = "/images/logo.png",
+    logo = "/images/logo.svg",
 
     title = "À propos de LOVE CAN BUILD",
 
@@ -73,7 +74,7 @@ function AboutSection({
 
             <div className="about-section__header">
 
-                <img
+                <ImageWithFallback
 
                     src={logo}
 

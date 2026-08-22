@@ -3,6 +3,7 @@ body {
     font-size: var(--font-size-md);
     color: var(--color-text);
     background-color: var(--color-background);
+    background-image: linear-gradient(135deg, rgba(201, 160, 99, 0.04), transparent 42%);
 }
 
 h1,
@@ -13,12 +14,80 @@ h5,
 h6 {
     font-family: var(--font-heading);
     color: var(--color-title);
-    font-weight: 600;
+    font-weight: 500;
     line-height: 1.25;
 }
 
 a {
     transition: color var(--transition-fast);
+}
+
+/* Champs publics: fond sombre, contraste clair et focus doré. */
+.layout__content input:not([type="checkbox"]):not([type="radio"]),
+.layout__content textarea,
+.layout__content select {
+    color: var(--color-title);
+    caret-color: var(--color-primary);
+}
+
+.layout__content input:not([type="checkbox"]):not([type="radio"])::placeholder,
+.layout__content textarea::placeholder {
+    color: var(--color-text-muted);
+}
+
+.layout__content input:not([type="checkbox"]):not([type="radio"]):focus,
+.layout__content textarea:focus,
+.layout__content select:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(232, 168, 124, .12);
+}
+
+.layout__content .home .product-grid__search,
+.layout__content .home .product-grid__filter,
+.layout__content .home .consultation-list__search,
+.layout__content .home .consultation-list__filter,
+.layout__content .home .category-filter,
+.layout__content .home .category-filter input,
+.layout__content .home .category-filter select,
+.layout__content .home .faq__search,
+.layout__content .home .newsletter__input,
+.layout__content .home .contact-form__field {
+    background-color: var(--color-surface-secondary);
+    border-color: var(--color-border);
+}
+
+.scroll-reveal {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: opacity 460ms cubic-bezier(.22, 1, .36, 1) var(--reveal-delay, 0ms),
+        transform 460ms cubic-bezier(.22, 1, .36, 1) var(--reveal-delay, 0ms);
+    will-change: opacity, transform;
+}
+
+.scroll-reveal.is-hidden {
+    opacity: 0;
+    transform: translateY(16px) scale(.985);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .scroll-reveal,
+    .scroll-reveal.is-hidden {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .scroll-reveal {
+        transition-duration: 380ms;
+    }
+
+    .scroll-reveal.is-hidden {
+        transform: translateY(10px) scale(.99);
+        transition-duration: 380ms;
+    }
 }
 
 /* États de focus visibles pour tous les éléments interactifs (Doc 08 Ch.17) */
@@ -49,4 +118,29 @@ select:focus-visible,
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--color-text-light);
+}
+
+::selection {
+    background: var(--color-secondary);
+    color: var(--color-dark);
+}
+
+/* Surfaces publiques: les composants hérités ne doivent plus créer de blocs blancs isolés. */
+.layout__content .home [class*="card"],
+.layout__content .home [class*="section"],
+.layout__content .home [class*="grid"]>article,
+.layout__content .home .accordion,
+.layout__content .home .newsletter,
+.layout__content .home .faq {
+    background-color: var(--color-surface);
+    border-color: var(--color-border);
+}
+
+.layout__content>main[class*="-page"] [class*="-card"],
+.layout__content>main[class*="-page"] [class*="-form"],
+.layout__content>main[class*="-page"] [class*="-content"],
+.layout__content>main[class*="-page"] [class*="-filters"],
+.layout__content>main[class*="-page"] [class*="-grid"]>article {
+    background-color: var(--color-surface);
+    border-color: var(--color-border);
 }

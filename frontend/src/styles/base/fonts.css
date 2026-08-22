@@ -1,12 +1,12 @@
 /*
  * Typographie officielle LOVE CAN BUILD (Document 08, Ch.4).
  * Une seule paire de polices pour toute l'application :
- * - Poppins pour les titres (--font-heading)
- * - Inter pour le corps de texte (--font-body)
+ * - Playfair Display pour les titres (--font-heading)
+ * - DM Sans pour le corps de texte (--font-body)
  *
  * Choix éditorial en l'absence de charte graphique fournie ;
  * modifiable ici uniquement, sans impact sur le reste du code
  * puisque tous les composants passent par les variables CSS.
  */
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap");

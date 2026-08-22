@@ -6,12 +6,13 @@ import {
 } from "lucide-react";
 
 import Button from "../../ui/Button";
+import ImageWithFallback from "../../common/ImageWithFallback";
 
 import "./Hero.css";
 
 function Hero({
 
-    logo = "/images/logo.png",
+    logo = "/images/logo.svg",
 
     title = "Construisons ensemble un avenir meilleur.",
 
@@ -41,7 +42,7 @@ function Hero({
 
                 </div>
 
-                <img
+                <ImageWithFallback
 
                     src={logo}
 
